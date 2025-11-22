@@ -1,3 +1,0 @@
-/mnt/c/Users/osaly/OneDrive/TETRIS/build/CMakeFiles/tetris_game.dir
-/mnt/c/Users/osaly/OneDrive/TETRIS/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/osaly/OneDrive/TETRIS/build/CMakeFiles/rebuild_cache.dir

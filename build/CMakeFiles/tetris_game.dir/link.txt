@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/tetris_game.dir/src/main.cpp.o CMakeFiles/tetris_game.dir/src/Figure.cpp.o CMakeFiles/tetris_game.dir/src/Field.cpp.o CMakeFiles/tetris_game.dir/src/ConsoleView.cpp.o CMakeFiles/tetris_game.dir/src/GameController.cpp.o CMakeFiles/tetris_game.dir/src/TerminalInput.cpp.o CMakeFiles/tetris_game.dir/src/TerminalHelper.cpp.o -o tetris_game 
