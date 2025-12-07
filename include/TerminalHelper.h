@@ -1,4 +1,3 @@
-
 #ifndef TERMINALHELPER_H
 #define TERMINALHELPER_H
 
@@ -79,6 +78,57 @@ public:
         printf("\033[2K");
         fflush(stdout);
     }
+    
+
+    static void enableAlternateBuffer() {
+        printf("\033[?1049h\033[H");
+        fflush(stdout);
+    }
+    
+    static void disableAlternateBuffer() {
+        printf("\033[?1049l");
+        fflush(stdout);
+    }
+    
+    static void disableScrolling() {
+        printf("\033[?7l");
+        printf("\033[r");
+        fflush(stdout);
+    }
+    
+    static void enableScrolling() {
+        printf("\033[?7h");
+        fflush(stdout);
+    }
+    
+    static void setScrollRegion(int top, int bottom) {
+        printf("\033[%d;%dr", top, bottom);
+        fflush(stdout);
+    }
+    
+    static void clearScrollRegion() {
+        printf("\033[r");
+        fflush(stdout);
+    }
+    static void saveCursor() {
+    printf("\033[s");
+    fflush(stdout);
+}
+
+static void restoreCursor() {
+    printf("\033[u");
+    fflush(stdout);
+}
+
+static void hideCursor() {
+    printf("\033[?25l");
+    fflush(stdout);
+}
+
+static void showCursor() {
+    printf("\033[?25h");
+    fflush(stdout);
+}
 };
 
 #endif

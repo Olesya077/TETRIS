@@ -11,18 +11,20 @@ GameController::GameController() : field(nullptr), gameRunning(true),
     figure.setPosition(10, 1);
     TerminalHelper::initResizeHandler();
     settings = Settings::getInstance();
+    TerminalHelper::saveScreen();
+    TerminalHelper::clearScreen();
 }
-
 GameController::~GameController() {
     delete field;
     field = nullptr;
     Settings::destroyInstance();
+    TerminalHelper::restoreScreen();
 }
 
 void GameController::AutoMoveDown() {
-    if (CanMove(0, 1)) {
-        figure.setPosition(figure.getstartx(), figure.getstarty() + 1);
-    }
+    //if (CanMove(0, 1)) {
+        //figure.setPosition(figure.getstartx(), figure.getstarty() + 1);
+   // }
 }
 
 void GameController::DropFigure() {
@@ -41,7 +43,7 @@ void GameController::DropFigure() {
         int newX = figure.getstartx();
         int newY = figure.getstarty();
         view.ShowFigure(oldFigure, figure, *field, oldX, oldY, newX, newY);
-        usleep(50000);
+        usleep(10000);
         
         int dropPoints = Settings::getDropPointsForLevel(settings->getLevel()) * dropDepth;
         addPoints(dropPoints);
@@ -56,34 +58,33 @@ void GameController::DropFigure() {
 
 void GameController::Input() {
     char c = input.getInput();
-    
+    if (c == 0) return;
     if (gamePaused) {
         switch(c) {
             case 'r':
                 gamePaused = false;
-                TerminalHelper::restoreScreen();
                 view.ShowField(*field);
                 view.ShowPlacedFigure(figure, *field);
                 showScore();
                 showLevelInfo();
                 break;
             case 'q':
-                TerminalHelper::restoreScreen();
                 gameRunning = false;
-                break;
+                return;
             case 'n':
                 gamePaused = false;
-                TerminalHelper::restoreScreen();
                 delete field;
                 field = nullptr;
                 TerminalHelper::clearScreen();
-                if (GameMenu()) {
-                    view.ShowField(*field);
-                    figure = FigureO();
-                } else {
-                    gameRunning = false;
+            if (GameMenu()) {
+                view.ShowField(*field);
+                figure = FigureO();
+                showScore();
+                showLevelInfo();
+            } else {
+                gameRunning = false;
                 }
-                break;
+            break;
             case 's':
                 ShowSettingsMenu(true);
                 break;
@@ -97,6 +98,7 @@ void GameController::Input() {
         }
         return;
     }
+    
     
     if (c == settings->getControl("LEFT")) {
         if (CanMove(-1, 0)) {
@@ -134,9 +136,8 @@ void GameController::Input() {
 
 
 void GameController::ShowPauseMenu() {
-    TerminalHelper::saveScreen();
+    TerminalHelper::moveCursorTo(0, 0);
     TerminalHelper::clearScreen();
-    std::cout << "\033[s";
     std::cout << "=== ПАУЗА ===" << std::endl;
     std::cout << "Игрок: " << playerName << " | Текущий счет: " << score << std::endl;
     std::cout << "Уровень: " << settings->getLevel() << " | Линий очищено: " << linesClearedTotal << std::endl;
@@ -146,6 +147,8 @@ void GameController::ShowPauseMenu() {
     std::cout << "Нажмите s чтобы открыть настройки" << std::endl;
     std::cout << "Нажмите v чтобы посмотреть рекорды" << std::endl;
     std::cout << "Нажмите q чтобы выйти" << std::endl;
+    std::cout << "Нажмите 0 для возврата в игру" << std::endl;
+    std::cout.flush();
 }
 
 void GameController::ShowSettingsMenu(bool fromPause) {
@@ -164,40 +167,46 @@ void GameController::ShowSettingsMenu(bool fromPause) {
     }
     
     char choice;
-    do {
-        choice = input.getInput();
-        
-        if (choice == '1') {
-            ShowControlSettings();
-            return;
-        }
-        else if (choice == '2') {
-            ShowCurrentSettings();
-            std::cout << "\nНажмите любую клавишу для продолжения...";
-            input.getInput();
-            ShowSettingsMenu(fromPause);
-            return;
-        }
-        else if (choice == '3') {
-    if (fromPause) {
-        ShowPauseMenu();
-        return;
-    } else {
-        settings->resetToDefaults();
-        std::cout << "\nНастройки сброшены к значениям по умолчанию!" << std::endl;
-        usleep(1000000);
-        ShowMainSettingsMenu();
+    while (true) {
+    choice = input.getInput();
+    
+    if (choice == '1') {
+        ShowControlSettings();
+        ShowSettingsMenu(fromPause);
         return;
     }
-}
-        else if (choice == '4' && !fromPause) {
+    else if (choice == '2') {
+        ShowCurrentSettings();
+        std::cout << "\nНажмите любую клавишу для продолжения...";
+        input.getInput();
+        ShowSettingsMenu(fromPause);
+        return;
+    }
+    else if (choice == '3') {
+        if (fromPause) {
+            ShowPauseMenu();
+            return;
+        } else {
+            settings->resetToDefaults();
+            std::cout << "\nНастройки сброшены к значениям по умолчанию!" << std::endl;
+            usleep(1000000);
+            ShowMainSettingsMenu();
             return;
         }
-        
-        usleep(10000);
-    } while (true);
+    }
+    else if (choice == '4' && !fromPause) {
+        return;
+    }
+    else if (fromPause && (choice == '0' || choice == 'r')) {
+        return;
+    }
+    else if (!fromPause && (choice == '0' || choice == 'q')) {
+        return;
+    }
+    
+    usleep(10000);
 }
-
+}
 void GameController::ShowControlSettings() {
     TerminalHelper::clearScreen();
     std::cout << "=== ИЗМЕНЕНИЕ УПРАВЛЕНИЯ ===" << std::endl;
@@ -220,61 +229,72 @@ void GameController::ShowControlSettings() {
         }
     }
     std::cout << "\n*Системные клавиши (нельзя изменить): 1, 2, 3, 4, s, h, r, n, v, q" << std::endl;
+    std::cout << "Нажмите 0, чтобы выйти" << std::endl;
     
-    std::cout << "\nВведите номер действия для изменения (или 0 для отмены): ";
+    std::cout << "\nВведите номер действия для изменения (или 0 для возврата): ";
+
+char actionChoice;
+while (true) {
+    actionChoice = input.getInput();
+    if (actionChoice == '0') {
+        return;
+    }
+    if (actionChoice == 'q' || actionChoice == 'r') {
+        return;
+    }
     
-    char actionChoice;
-    do {
-        actionChoice = input.getInput();
-        if (actionChoice == '0') {
-            return;
+    int actionIndex = actionChoice - '1';
+    if (actionIndex >= 0 && actionIndex < (int)actions.size()) {
+        std::string selectedAction = actions[actionIndex];
+        
+        std::cout << "\nВыбрано: " << selectedAction << std::endl;
+        std::cout << "Текущая клавиша: ";
+        char currentKey = settings->getControl(selectedAction);
+        if (currentKey == ' ') {
+            std::cout << "ПРОБЕЛ" << std::endl;
+        } else {
+            std::cout << currentKey << std::endl;
         }
         
-        int actionIndex = actionChoice - '1';
-        if (actionIndex >= 0 && actionIndex < (int)actions.size()) {
-            std::string selectedAction = actions[actionIndex];
-            
-            std::cout << "\nВыбрано: " << selectedAction << std::endl;
-            std::cout << "Текущая клавиша: ";
-            char currentKey = settings->getControl(selectedAction);
-            if (currentKey == ' ') {
-                std::cout << "ПРОБЕЛ" << std::endl;
-            } else {
-                std::cout << currentKey << std::endl;
+        std::cout << "Введите новую клавишу (или 0 для отмены): ";
+        
+        char newKey;
+        while (true) {
+            newKey = input.getInput();
+            if (newKey != 0) {
+                break;
             }
-            
-            std::cout << "Введите новую клавишу: ";
-            
-            char newKey;
-            do {
-                newKey = input.getInput();
-                if (newKey != 0) {
-                    break;
-                }
-                usleep(10000);
-            } while (true);
-            
-            newKey = std::tolower(newKey);
-            
-            if (settings->setControl(selectedAction, newKey)) {
-                std::cout << "\nНастройка сохранена! Новая клавиша: ";
-                if (newKey == ' ') {
-                    std::cout << "ПРОБЕЛ";
-                } else {
-                    std::cout << newKey;
-                }
-                std::cout << std::endl;
-            } else {
-                std::cout << "\nОшибка! Эта клавиша уже занята или недопустима." << std::endl;
-            }
-            
-            usleep(1500000);
+            usleep(10000);
+        }
+        
+        if (newKey == '0') {
+            std::cout << "\nОтменено" << std::endl;
+            usleep(1000000);
             ShowControlSettings();
             return;
         }
         
-        usleep(10000);
-    } while (true);
+        newKey = std::tolower(newKey);
+        
+        if (settings->setControl(selectedAction, newKey)) {
+            std::cout << "\nНастройка сохранена! Новая клавиша: ";
+            if (newKey == ' ') {
+                std::cout << "ПРОБЕЛ";
+            } else {
+                std::cout << newKey;
+            }
+            std::cout << std::endl;
+        } else {
+            std::cout << "\nОшибка! Эта клавиша уже занята или недопустима." << std::endl;
+        }
+        
+        usleep(1500000);
+        ShowControlSettings();
+        return;
+    }
+    
+    usleep(10000);
+}
 }
 
 void GameController::ShowCurrentSettings() {
@@ -297,6 +317,7 @@ void GameController::ShowCurrentSettings() {
               << " мкс" << std::endl;
     std::cout << "  Баллы за дроп: " << Settings::getDropPointsForLevel(settings->getLevel()) 
               << " за клетку" << std::endl;
+    std::cout << "\n\nНажмите 0 или q для возврата...";
 }
 
 void GameController::ShowMainSettingsMenu() {
@@ -309,49 +330,55 @@ void GameController::ShowMainSettingsMenu() {
     std::cout << "4. Вернуться в главное меню" << std::endl;
     
     char choice;
-    do {
-        choice = input.getInput();
+while (true) {
+    choice = input.getInput();
+    
+    if (choice == '1') {
+        ShowControlSettings();
+        ShowMainSettingsMenu();
+        return;
+    }
+    else if (choice == '2') {
+        ShowCurrentSettings();
+        std::cout << "\n\nНажмите любую клавишу для продолжения...";
+        input.getInput();
+        ShowMainSettingsMenu();
+        return;
+    }
+    else if (choice == '3') {
+        TerminalHelper::clearScreen();
+        std::cout << "Вы уверены, что хотите сбросить все настройки?" << std::endl;
+        std::cout << "1. Да, сбросить настройки" << std::endl;
+        std::cout << "2. Нет, вернуться назад" << std::endl;
         
-        if (choice == '1') {
-            ShowControlSettings();
-            ShowMainSettingsMenu();
-            return;
+        char confirm;
+        while (true) {
+            confirm = input.getInput();
+            if (confirm == '1') {
+                settings->resetToDefaults();
+                std::cout << "\nВсе настройки сброшены!" << std::endl;
+                usleep(1000000);
+                ShowMainSettingsMenu();
+                return;
+            } else if (confirm == '2') {
+                ShowMainSettingsMenu();
+                return;
+            } else if (confirm == '0' || confirm == 'q') {
+                ShowMainSettingsMenu();
+                return;
+            }
+            usleep(10000);
         }
-        else if (choice == '2') {
-            ShowCurrentSettings();
-            std::cout << "\n\nНажмите любую клавишу для продолжения...";
-            input.getInput();
-            ShowMainSettingsMenu();
-            return;
-        }
-        else if (choice == '3') {
-            TerminalHelper::clearScreen();
-            std::cout << "Вы уверены, что хотите сбросить все настройки?" << std::endl;
-            std::cout << "1. Да, сбросить настройки" << std::endl;
-            std::cout << "2. Нет, вернуться назад" << std::endl;
-            
-            char confirm;
-            do {
-                confirm = input.getInput();
-                if (confirm == '1') {
-                    settings->resetToDefaults();
-                    std::cout << "\nВсе настройки сброшены!" << std::endl;
-                    usleep(1000000);
-                    ShowMainSettingsMenu();
-                    return;
-                } else if (confirm == '2') {
-                    ShowMainSettingsMenu();
-                    return;
-                }
-                usleep(10000);
-            } while (true);
-        }
-        else if (choice == '4') {
-            return;
-        }
-        
-        usleep(10000);
-    } while (true);
+    }
+    else if (choice == '4') {
+    return;
+    }
+    else if (choice == '0' || choice == 'q') {
+        return;
+    }
+    
+    usleep(10000);
+}
 }
 
 bool GameController::CanRotate() {
@@ -477,16 +504,30 @@ void GameController::NewPosition() {
         figure.setPosition(10, 1);
         
         if (!CanMove(0, 0)) {
-            gameRunning = false;
             TerminalHelper::moveCursorTo(field->getHeight() + 3, 0);
             TerminalHelper::clearCurrentLine();
             std::cout << "GAME OVER! Итоговый счет: " << score 
-                      << " | Уровень: " << settings->getLevel() << std::endl;
+                    << " | Уровень: " << settings->getLevel() << std::endl;
 
             scoreSystem.addScore(playerName, score);
-            usleep(3000000);
+            usleep(1000000);
+            
+            delete field;
+            field = nullptr;
+            TerminalHelper::clearScreen();
+            if (GameMenu()) {
+                score = 0;
+                linesClearedTotal = 0;
+                settings->setLevel(1);
+                view.ShowField(*field);
+                figure = FigureO();
+                showScore();
+                showLevelInfo();
+            } else {
+                gameRunning = false;
+            }
         }
-    }
+}
 }
 
 void GameController::addPoints(int points) {
@@ -657,7 +698,9 @@ void GameController::run() {
         return;
     }
     
+    TerminalHelper::enableAlternateBuffer();
     TerminalHelper::clearScreen();
+    
     if(GameMenu()) {
         view.ShowField(*field);
         figure = FigureO();
@@ -694,32 +737,29 @@ void GameController::run() {
             
             if (gamePaused) {
                 Input();
-                usleep(100000);
+                usleep(50000);
                 continue;
             }
             
-            int oldX = figure.getstartx();
-            int oldY = figure.getstarty();
-            Figure oldFigure = figure;
-            Input();
-            if (gamePaused) {
-                continue;
-            }
-            
-            NewPosition();
-            
-            int levelSpeed = Settings::getSpeedForLevel(settings->getLevel());
-            usleep(levelSpeed);
-            
-            int newX = figure.getstartx();
-            int newY = figure.getstarty();
+        int oldX = figure.getstartx();
+        int oldY = figure.getstarty();
+        Figure oldFigure = figure;
 
-            view.ShowFigure(oldFigure, figure, *field, oldX, oldY, newX, newY);
+        Input();
+        if (gamePaused) {
+            continue;
+        }
+
+        NewPosition();
+
+        int newX = figure.getstartx();
+        int newY = figure.getstarty();
+
+        view.ShowFigure(oldFigure, figure, *field, oldX, oldY, newX, newY);
+
+        usleep(5000);
         }
     }
-    TerminalHelper::restoreScreen();
+    TerminalHelper::disableAlternateBuffer();
     TerminalHelper::moveCursorToSafePosition();
 }
-
-void GameController::UpdateField() {}
-void GameController::TerminalControl() {}

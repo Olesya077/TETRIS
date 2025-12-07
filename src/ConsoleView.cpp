@@ -18,6 +18,7 @@ void ConsoleView::ShowField(Field& field) {
     }
     
     TerminalHelper::clearScreen();
+    TerminalHelper::moveCursorTo(0, 0);
     for (int i = 0; i < field.getHeight(); i++) {
         for (int j = 0; j < field.getWidth(); j++) {
             if (field.getch(i, j)) {
@@ -36,6 +37,7 @@ void ConsoleView::ShowField(Field& field) {
         }
         std::cout << std::endl;
     }
+    std::cout.flush();
 }
 
 
