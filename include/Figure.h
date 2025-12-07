@@ -17,7 +17,11 @@ protected:
 
 public:
     Figure();
-
+    const std::vector<bool>& getMatrix() const { return matrix; }
+    void setMatrix(const std::vector<bool>& newMatrix, int newWidth, int newHeight) {
+        matrix = newMatrix;
+        width = newWidth;
+        height = newHeight;}
     bool getchar(int i, int j);
     int getstartx();
     int getstarty();

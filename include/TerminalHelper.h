@@ -1,3 +1,4 @@
+
 #ifndef TERMINALHELPER_H
 #define TERMINALHELPER_H
 
@@ -25,7 +26,7 @@ public:
         return false;
     }
     
-    static bool isTerminalSizeValid(int minRows = 24, int minCols = 24) {
+    static bool isTerminalSizeValid(int minRows = 24, int minCols = 48) {
         int rows, cols;
         if (getTerminalSize(rows, cols)) {
             return rows >= minRows && cols >= minCols;
@@ -49,6 +50,7 @@ public:
             fflush(stdout);
         }
     }
+    
     static void initResizeHandler() {
         signal(SIGWINCH, resizeHandler);
     }
@@ -62,6 +64,7 @@ public:
     static void getCurrentSize(int& rows, int& cols) {
         getTerminalSize(rows, cols);
     }
+    
     static void saveScreen() {
         printf("\033[?1049h");
         fflush(stdout);

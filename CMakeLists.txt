@@ -12,4 +12,6 @@ add_executable(tetris_game
     src/GameController.cpp
     src/TerminalInput.cpp
     src/TerminalHelper.cpp
+    src/Score.cpp
+    src/Settings.cpp
 )

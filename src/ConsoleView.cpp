@@ -1,6 +1,7 @@
+
 #include "ConsoleView.h"
 #include <iostream>
-#include "TerminalHelper.h"  
+#include "TerminalHelper.h"
 #include <string>
 #include <vector>
 #include <cstdlib>
@@ -12,7 +13,7 @@ using namespace std;
 ConsoleView::ConsoleView() {}
 
 void ConsoleView::ShowField(Field& field) {
-   if (!TerminalHelper::isTerminalSizeValid(24, 24)) {
+    if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
         return;
     }
     
@@ -24,13 +25,13 @@ void ConsoleView::ShowField(Field& field) {
                 bool isBoundary = (i == 21) || (j == 0) || (j == 21) || 
                                  (color == " ") || color.empty();
                 if (isBoundary) {
-                    std::cout << "\x1b[37m" << '#' << "\x1b[0m";
+                    std::cout << "\x1b[37m" << "██" << "\x1b[0m";
                 } else {
-                    std::cout << color << '*' << "\x1b[0m";
+                    std::cout << color << "██" << "\x1b[0m";
                 }
             }
             else {
-                std::cout << ' ';
+                std::cout << "  ";
             }
         }
         std::cout << std::endl;
@@ -39,7 +40,7 @@ void ConsoleView::ShowField(Field& field) {
 
 
 void ConsoleView::ShowPlacedFigure(Figure& figure, Field& field) {
-    if (!TerminalHelper::isTerminalSizeValid(24, 24)) {
+    if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
         return;
     }
 
@@ -55,8 +56,8 @@ void ConsoleView::ShowPlacedFigure(Figure& figure, Field& field) {
                 if (fieldY >= 0 && fieldY < field.getHeight() && 
                     fieldX >= 0 && fieldX < field.getWidth()) {
                     
-                    TerminalHelper::moveCursorTo(fieldY, fieldX);
-                    std::cout << figure.getcolor() << '*' << "\x1b[0m";
+                    TerminalHelper::moveCursorTo(fieldY, fieldX * 2);
+                    std::cout << figure.getcolor() << "██" << "\x1b[0m";
                 }
             }
         }
@@ -67,7 +68,7 @@ void ConsoleView::ShowPlacedFigure(Figure& figure, Field& field) {
 }
 
 void ConsoleView::ShowGhostFigure(Figure& figure, Field& field) {
-    if (!TerminalHelper::isTerminalSizeValid(24, 24)) {
+    if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
         return;
     }
     int dropDepth = 0;
@@ -110,8 +111,8 @@ void ConsoleView::ShowGhostFigure(Figure& figure, Field& field) {
                         fieldX >= 0 && fieldX < field.getWidth() &&
                         !field.getch(fieldY, fieldX)) {
                         
-                        TerminalHelper::moveCursorTo(fieldY, fieldX);
-                        std::cout << "\x1b[90m" << '.' << "\x1b[0m";
+                        TerminalHelper::moveCursorTo(fieldY, fieldX * 2);
+                        std::cout << "\x1b[90m" << "░░" << "\x1b[0m";
                     }
                 }
             }
@@ -120,7 +121,7 @@ void ConsoleView::ShowGhostFigure(Figure& figure, Field& field) {
 }
 
 void ConsoleView::ClearGhostFigure(Figure& figure, Field& field) {
-    if (!TerminalHelper::isTerminalSizeValid(24, 24)) {
+    if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
         return;
     }
     int dropDepth = 0;
@@ -163,16 +164,17 @@ void ConsoleView::ClearGhostFigure(Figure& figure, Field& field) {
                         fieldX >= 0 && fieldX < field.getWidth() &&
                         !field.getch(fieldY, fieldX)) {
                         
-                        TerminalHelper::moveCursorTo(fieldY, fieldX);
-                        std::cout << ' ';
+                        TerminalHelper::moveCursorTo(fieldY, fieldX * 2);
+                        std::cout << "  ";
                     }
                 }
             }
         }
     }
 }
+
 void ConsoleView::ShowFigure(Figure& oldFigure, Figure& figure, Field& field, int oldX, int oldY, int newX, int newY) {
-    if (!TerminalHelper::isTerminalSizeValid(24, 24)) {
+    if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
         return;
     }
     ClearGhostFigure(oldFigure, field);
@@ -186,8 +188,8 @@ void ConsoleView::ShowFigure(Figure& oldFigure, Figure& figure, Field& field, in
                     fieldX >= 0 && fieldX < field.getWidth() &&
                     !field.getch(fieldY, fieldX)) {
                     
-                    TerminalHelper::moveCursorTo(fieldY, fieldX);
-                    std::cout << ' ';
+                    TerminalHelper::moveCursorTo(fieldY, fieldX * 2);
+                    std::cout << "  ";
                 }
             }
         }
@@ -202,8 +204,8 @@ void ConsoleView::ShowFigure(Figure& oldFigure, Figure& figure, Field& field, in
                     fieldX >= 0 && fieldX < field.getWidth() &&
                     !field.getch(fieldY, fieldX)) { 
                     
-                    TerminalHelper::moveCursorTo(fieldY, fieldX);
-                    std::cout << figure.getcolor() << '*' << "\x1b[0m"; 
+                    TerminalHelper::moveCursorTo(fieldY, fieldX * 2);
+                    std::cout << figure.getcolor() << "██" << "\x1b[0m";
                 }
             }
         }
