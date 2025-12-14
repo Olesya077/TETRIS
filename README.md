@@ -8,7 +8,7 @@
 Это реализация классической игры **Тетрис** для терминала Linux/Unix.
 
 <div align="center">
-  <img src="https://via.placeholder.com/600x300/2d3748/ffffff?text=Терминальный+Тетрис" width="600" alt="Демонстрация игры">
+
 </div>
 
 ## Особенности
