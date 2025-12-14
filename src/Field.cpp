@@ -1,8 +1,18 @@
-#include "Field.h"
+/**
+ * @file Field.cpp
+ * @brief Реализация игровых полей (базовое и ведро)
+ * 
+ * Содержит логику размещения фигур, проверки столкновений и очистки линий
+ * для различных типов игровых полей.
+ */#include "Field.h"
 #include <iostream>
 #include <algorithm>
 
 Field::Field() : fieldmatrix(22 * 22, false), fieldcolors(22 * 22, ""), fieldWidth(22), fieldHeight(22) {
+    /**
+     * @brief Конструктор базового поля
+     * @note Создает границы поля по периметру
+     */
     for (int i = 0; i < 22; i++) {
         setch(21, i, true, " ");
         setch(i, 0, true, " ");
@@ -95,6 +105,11 @@ void BucketField::placeFigure(Figure& figure) {
 
 
 int BucketField::clearFullLines() {
+    /**
+     * @brief Очищает линии с учетом формы ведра
+     * @return Количество очищенных линий
+     * @note Учитывает переменную ширину строк в ведре
+     */
     int linesCleared = 0;
 
     for (int row = fieldHeight - 2; row >= 1; row--) { 
@@ -173,11 +188,18 @@ bool Field::getch(int i, int j) {
 
 void Field::setch(int i, int j, bool value, const std::string& color) {
     if (i >= 0 && i < fieldHeight && j >= 0 && j < fieldWidth) {
-        fieldmatrix[i * fieldWidth + j] = value;
-        if (!color.empty()) {
-            fieldcolors[i * fieldWidth + j] = color;
-        } else if (!value) {
-            fieldcolors[i * fieldWidth + j] = "";
+        int index = i * fieldWidth + j;
+        if (index >= 0 && index < (int)fieldmatrix.size()) {
+            fieldmatrix[index] = value;
+            if (!color.empty()) {
+                if (index < (int)fieldcolors.size()) {
+                    fieldcolors[index] = color;
+                }
+            } else if (!value) {
+                if (index < (int)fieldcolors.size()) {
+                    fieldcolors[index] = "";
+                }
+            }
         }
     }
 }
@@ -185,6 +207,15 @@ int Field::getHeight() { return fieldHeight; }
 int Field::getWidth() { return fieldWidth; }
 
 int Field::clearFullLines() {
+    /**
+     * @brief Очищает полностью заполненные линии
+     * @return Количество очищенных линий
+     * @algorithm
+     * 1. Проверяем линии снизу вверх (кроме дна)
+     * 2. Если линия полная, сдвигаем все линии выше на одну вниз
+     * 3. Очищаем самую верхнюю линию
+     * 4. Повторяем для следующей линии (увеличиваем счетчик, так как линии сместились)
+     */
     int linesCleared = 0;
 
     for (int row = fieldHeight - 2; row >= 1; row--) { 

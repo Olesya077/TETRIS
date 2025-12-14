@@ -1,19 +1,135 @@
+/**
+ * @file GameController.cpp
+ * @brief Реализация главного контроллера игры Тетрис
+ * 
+ * Содержит реализацию игровой логики, обработки ввода, меню и состояний игры.
+ */
 #include "GameController.h"
 #include "TerminalInput.h"
 #include "TerminalHelper.h"
+#include "PictureField.h"
+
 #include <iostream>
 #include <unistd.h>
 #include <algorithm>
 #include <cctype>
+#include <termios.h> 
+#include <time.h>
 
-GameController::GameController() : field(nullptr), gameRunning(true), 
-                        count(1), gamePaused(false), score(0), linesClearedTotal(0), playerName("Player") {
+GameController::GameController() : 
+    field(nullptr), 
+    prevFigureX(0),
+    prevFigureY(0),
+    figure(),
+    view(),
+    input(),
+    scoreSystem(),
+    settings(Settings::getInstance()),
+    gameRunning(true),
+    count(1),
+    score(0),
+    linesClearedTotal(0),
+    playerName("Player"),
+    gamePaused(false),
+    isPictureMode(false),
+    nameEntered(false),
+    sequenceMode(0),
+    sequenceIndex(0)
+{
+    /**
+     * @brief Инициализация контроллера
+     * @note Настраивает начальную позицию фигуры и терминал
+     */
     figure.setPosition(10, 1);
     TerminalHelper::initResizeHandler();
-    settings = Settings::getInstance();
     TerminalHelper::saveScreen();
     TerminalHelper::clearScreen();
 }
+
+void GameController::GetPlayerName(){
+    /**
+     * @brief Запрашивает имя игрока
+     * @note Включает отображение курсора и эхо ввода
+     * @warning Временно меняет настройки терминала
+     */
+    if (nameEntered && !playerName.empty() && playerName != "Player") {
+        return;
+    }
+    TerminalHelper::restoreScreen();
+    TerminalHelper::showCursor();
+        struct termios oldt, newt;
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag |= ECHO | ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    
+    std::cout << "Введите ваше имя: ";
+    std::cout.flush();
+    
+    std::string inputLine;
+    std::getline(std::cin, inputLine);
+    
+    if (!inputLine.empty()) {
+        playerName = inputLine;
+    } else {
+        playerName = "Player";
+    }
+    
+    nameEntered = true;
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    TerminalHelper::hideCursor();
+    TerminalHelper::enableAlternateBuffer();
+    TerminalHelper::clearScreen();
+}
+
+void GameController::returnToMenu() {
+    if (field) {
+        delete field;
+        field = nullptr;
+    }
+    
+    score = 0;
+    linesClearedTotal = 0;
+    settings->setLevel(1);
+    isPictureMode = false;
+    
+    TerminalHelper::clearScreen();
+    gamePaused = false;
+    
+    if (GameMenu()) {
+        gameRunning = true;
+        
+        if (isPictureMode) {
+            view.ShowPictureField(*field);
+        } else {
+            view.ShowField(*field);
+        }
+        
+        figure = FigureO();
+        if (isPictureMode) {
+            PictureField* pictureField = dynamic_cast<PictureField*>(field);
+            if (pictureField) {
+                pictureField->resetGame();
+                int startX = (field->getWidth() - figure.getWidth()) / 2;
+                figure.setPosition(startX, 1);
+            }
+        } else {
+            figure.setPosition(10, 1);
+        }
+        
+        showScore();
+        showLevelInfo();
+        
+        if (isPictureMode) {
+            PictureField* pictureField = dynamic_cast<PictureField*>(field);
+            if (pictureField) {
+            }
+        }
+    } else {
+        gameRunning = false;
+    }
+}
+
 GameController::~GameController() {
     delete field;
     field = nullptr;
@@ -22,12 +138,13 @@ GameController::~GameController() {
 }
 
 void GameController::AutoMoveDown() {
-    //if (CanMove(0, 1)) {
-        //figure.setPosition(figure.getstartx(), figure.getstarty() + 1);
-   // }
 }
 
 void GameController::DropFigure() {
+    /**
+     * @brief Выполняет быстрое падение фигуры
+     * @note Рассчитывает глубину падения и начисляет бонусные очки
+     */
     if (!field) return;
     int oldX = figure.getstartx();
     int oldY = figure.getstarty();
@@ -55,18 +172,24 @@ void GameController::DropFigure() {
     NewPosition();
 }
 
-
 void GameController::Input() {
-    char c = input.getInput();
+    char c = input.getInputWithArrows();
     if (c == 0) return;
     if (gamePaused) {
         switch(c) {
             case 'r':
                 gamePaused = false;
-                view.ShowField(*field);
+                if (isPictureMode) {
+                    view.ShowPictureField(*field);
+                } else {
+                    view.ShowField(*field);
+                }
                 view.ShowPlacedFigure(figure, *field);
                 showScore();
                 showLevelInfo();
+                if (isPictureMode) {
+                    PictureField* pictureField = (PictureField*)field;
+                }
                 break;
             case 'q':
                 gameRunning = false;
@@ -81,6 +204,11 @@ void GameController::Input() {
                 figure = FigureO();
                 showScore();
                 showLevelInfo();
+                if (isPictureMode) {
+                    PictureField* pictureField = (PictureField*)field;
+
+
+                }
             } else {
                 gameRunning = false;
                 }
@@ -99,30 +227,35 @@ void GameController::Input() {
         return;
     }
     
-    
-    if (c == settings->getControl("LEFT")) {
-        if (CanMove(-1, 0)) {
-            figure.setPosition(figure.getstartx() - 1, figure.getstarty());
+    if (c == settings->getControl("LEFT") || c == '<') {
+        if (CanMove(-1, 1)) {
+            view.ClearGhostFigure(figure, *field);
+            figure.setPosition(figure.getstartx() - 1, figure.getstarty()+1);
         }
     }
-    else if (c == settings->getControl("RIGHT")) {
-        if (CanMove(1, 0)) {
-            figure.setPosition(figure.getstartx() + 1, figure.getstarty());
+    else if (c == settings->getControl("RIGHT") || c == '>') {
+        if (CanMove(1, 1)) {
+            view.ClearGhostFigure(figure, *field);
+            figure.setPosition(figure.getstartx() + 1, figure.getstarty()+1);
         }
     }
-    else if (c == settings->getControl("DOWN")) {
+    else if (c == settings->getControl("DOWN") || c == 'v') {
         if (CanMove(0, 1)) {
             figure.setPosition(figure.getstartx(), figure.getstarty() + 1);
             addPoints(40 * settings->getLevel());
             showScore();
         }
     }
-    else if (c == settings->getControl("DROP")) {
+    else if (c == settings->getControl("DROP") || c == '^') {
         DropFigure();
     }
     else if (c == settings->getControl("ROTATE")) {
         if (CanRotate()) {
+            view.ClearGhostFigure(figure, *field);
             figure.rotate();
+            if (CanMove(0, 1)) {
+            figure.setPosition(figure.getstartx(), figure.getstarty() + 1);
+        }
         }
     }
     else if (c == settings->getControl("PAUSE")) {
@@ -133,7 +266,6 @@ void GameController::Input() {
         gameRunning = false;
     }
 }
-
 
 void GameController::ShowPauseMenu() {
     TerminalHelper::moveCursorTo(0, 0);
@@ -207,27 +339,34 @@ void GameController::ShowSettingsMenu(bool fromPause) {
     usleep(10000);
 }
 }
+
 void GameController::ShowControlSettings() {
     TerminalHelper::clearScreen();
-    std::cout << "=== ИЗМЕНЕНИЕ УПРАВЛЕНИЯ ===" << std::endl;
+std::cout << "=== ИЗМЕНЕНИЕ УПРАВЛЕНИЯ ===" << std::endl;
     std::cout << "----------------------------" << std::endl;
     
     auto actions = settings->getAvailableActions();
-    auto occupiedKeys = settings->getOccupiedKeys();
     
     std::cout << "Доступные действия:" << std::endl;
     for (size_t i = 0; i < actions.size(); i++) {
         char key = settings->getControl(actions[i]);
-        std::string keyStr = (key == ' ') ? "ПРОБЕЛ" : std::string(1, key);
+        std::string keyStr;
+        if (key == '^' || key == 'v' || key == '<' || key == '>') {
+            //eyStr = Settings::arrowToString(key);
+        } else if (key == ' ') {
+            keyStr = "ПРОБЕЛ";
+        } else {
+            keyStr = std::string(1, key);
+        }
         std::cout << (i+1) << ". " << actions[i] << " (" << keyStr << ")" << std::endl;
     }
     
-    std::cout << "\nЗанятые клавиши: ";
+    /*std::cout << "\nЗанятые клавиши: ";
     for (char key : occupiedKeys) {
         if (key != ' ') {
             std::cout << key << " ";
         }
-    }
+    }*/
     std::cout << "\n*Системные клавиши (нельзя изменить): 1, 2, 3, 4, s, h, r, n, v, q" << std::endl;
     std::cout << "Нажмите 0, чтобы выйти" << std::endl;
     
@@ -382,6 +521,11 @@ while (true) {
 }
 
 bool GameController::CanRotate() {
+    /**
+     * @brief Проверяет возможность поворота текущей фигуры
+     * @return true если поворот возможен без столкновений
+     * @note Для фигуры I учитывает смещение при вращении
+     */
     if (!field) return false;
     int oldX = figure.getstartx();
     int oldY = figure.getstarty();
@@ -457,77 +601,167 @@ bool GameController::CanMove(int dx, int dy) {
 }
 
 void GameController::NewPosition() {
+    /**
+     * @brief Обновляет позицию фигуры или создает новую
+     * @note Вызывается когда фигура не может двигаться вниз
+     *       Размещает фигуру на поле, проверяет линии, создает новую фигуру
+     */
     if (!field) return;
         
     if (CanMove(0, 1)) {
-    } else {
-        field->placeFigure(figure);
-        view.ShowPlacedFigure(figure, *field);
-        
-        int linesCleared = field->clearFullLines();
-        if (linesCleared > 0) {
-            linesClearedTotal += linesCleared;
-            
-            int points = 0;
-            switch(linesCleared) {
-                case 1: points = 100; break;
-                case 2: points = 300; break;
-                case 3: points = 500; break;
-                case 4: points = 800; break;
+        return;
+    } 
+    
+    field->placeFigure(figure);
+    view.ShowPlacedFigure(figure, *field);
+    
+    if (isPictureMode) {
+        PictureField* pictureField = dynamic_cast<PictureField*>(field);
+        if (pictureField) {
+            if (pictureField->isGameOver()) {
+                showGameOverScreen(true);
+                return;
             }
-            points *= settings->getLevel();
-            
-            addPoints(points);
-            
-            int messageY = field->getHeight() + 6; 
-            TerminalHelper::moveCursorTo(messageY, 0);
-            TerminalHelper::clearCurrentLine();
-            std::cout << "Очищено: " << linesCleared << " линий | +" << points << " очков";
-            
-            showScore();
-            updateLevel();
+        }
+    } else {
+        int linesCleared = field->clearFullLines();
+if (linesCleared > 0) {
+    linesClearedTotal += linesCleared;
+    
+    int points = 0;
+    switch(linesCleared) {
+        case 1: points = 100; break;
+        case 2: points = 300; break;
+        case 3: points = 500; break;
+        case 4: points = 800; break;
+    }
+    points *= settings->getLevel();
+    
+    addPoints(points);
+    
+    int messageY = field->getHeight() + 6; 
+    TerminalHelper::moveCursorTo(messageY, 0);
+    TerminalHelper::clearCurrentLine();
+    std::cout << "Очищено: " << linesCleared << " линий | +" << points << " очков";
+    
+    showScore();
+    updateLevel();
+    view.ShowField(*field);
+    showScore();
+    showLevelInfo();
+    TerminalHelper::moveCursorTo(messageY, 0);
+    TerminalHelper::clearCurrentLine();
+    std::cout << "Очищено: " << linesCleared << " линий | +" << points << " очков";
+    view.ShowGhostFigure(figure, *field);
+    
+    TerminalHelper::moveCursorToSafePosition();
+    std::cout.flush();
+}
+    }
+        int figureType;
+    if (sequenceMode == 1) {
+        figureType = 0;
+    } 
+    else if (sequenceMode == 2) {
+        figureType = sequenceIndex % 7;
+        sequenceIndex = (sequenceIndex + 1) % 7;
+    }
+    else {
+        figureType = rand() % 7;
+    }
+    switch(figureType) {
+        case 0: figure = FigureO(); break;
+        case 1: figure = FigureL(); break;
+        case 2: figure = FigureT(); break;
+        case 3: figure = FigureI(); break;
+        case 4: figure = FigureS(); break;
+        case 5: figure = FigureZ(); break;
+        case 6: figure = FigureJ(); break;
+    }
+    if (isPictureMode) {
+        int startX = (field->getWidth() - figure.getWidth()) / 2;
+        figure.setPosition(startX, 1);
+    } else {
+        figure.setPosition(10, 1);
+    }
+    
+    if (!CanMove(0, 0)) {
+        showGameOverScreen(false);
+    }
+}
+
+void GameController::setSequenceMode(int mode) {
+    sequenceMode = mode;
+    sequenceIndex = 0;
+}
+
+void GameController::showGameOverScreen(bool isPictureModeGameOver) {
+    TerminalHelper::clearScreen();
+    
+    if (isPictureModeGameOver) {
+        PictureField* pictureField = dynamic_cast<PictureField*>(field);
+        if (pictureField) {
+            std::cout << "=== ИГРА ОКОНЧЕНА ===\n\n";
+            std::cout << "Картинка: " << pictureField->getPictureName() << "\n";
+            std::cout << "Игрок: " << playerName << "\n\n";
+        }
+    } else {
+        std::cout << "=== ИГРА ОКОНЧЕНА ===\n\n";
+        std::cout << "Игрок: " << playerName << std::endl;
+        std::cout << "Итоговый счет: " << score << std::endl;
+        std::cout << "Уровень: " << settings->getLevel() << std::endl;
+        std::cout << "Очищено линий: " << linesClearedTotal << "\n\n";
+    }
+    if (score > 0) {
+        scoreSystem.addScore(playerName, score);
+    }
+    scoreSystem.displayScores();
+    
+    std::cout << "\nНажмите любую клавишу для возврата в меню...";
+    std::cout.flush();
+    input.getInput();
+    if (field) {
+        delete field;
+        field = nullptr;
+    }
+    
+    score = 0;
+    linesClearedTotal = 0;
+    settings->setLevel(1);
+    isPictureMode = false;
+    gamePaused = false;
+    
+    // Очищаем экран
+    TerminalHelper::clearScreen();
+    
+    // НЕ УСТАНАВЛИВАЕМ gameRunning = false, чтобы игра продолжала работать
+    // Вместо этого вызываем GameMenu() для возврата в главное меню
+    if (GameMenu()) {
+        gameRunning = true;
+        if (isPictureMode) {
+            view.ShowPictureField(*field);
+        } else {
             view.ShowField(*field);
         }
         
-        int figureType = count % 7;
-        switch(figureType) {
-            case 0: figure = FigureO(); break;
-            case 1: figure = FigureL(); break;
-            case 2: figure = FigureT(); break;
-            case 3: figure = FigureI(); break;
-            case 4: figure = FigureS(); break;
-            case 5: figure = FigureZ(); break;
-            case 6: figure = FigureJ(); break;
-        }
-        count++;
-        
-        figure.setPosition(10, 1);
-        
-        if (!CanMove(0, 0)) {
-            TerminalHelper::moveCursorTo(field->getHeight() + 3, 0);
-            TerminalHelper::clearCurrentLine();
-            std::cout << "GAME OVER! Итоговый счет: " << score 
-                    << " | Уровень: " << settings->getLevel() << std::endl;
-
-            scoreSystem.addScore(playerName, score);
-            usleep(1000000);
-            
-            delete field;
-            field = nullptr;
-            TerminalHelper::clearScreen();
-            if (GameMenu()) {
-                score = 0;
-                linesClearedTotal = 0;
-                settings->setLevel(1);
-                view.ShowField(*field);
-                figure = FigureO();
-                showScore();
-                showLevelInfo();
-            } else {
-                gameRunning = false;
+        figure = FigureO();
+        if (isPictureMode) {
+            PictureField* pictureField = dynamic_cast<PictureField*>(field);
+            if (pictureField) {
+                pictureField->resetGame();
+                int startX = (field->getWidth() - figure.getWidth()) / 2;
+                figure.setPosition(startX, 1);
             }
+        } else {
+            figure.setPosition(10, 1);
         }
-}
+        
+        showScore();
+        showLevelInfo();
+    } else {
+        // Пользователь выбрал выход из игры
+        gameRunning = false;
+    }
 }
 
 void GameController::addPoints(int points) {
@@ -557,11 +791,16 @@ void GameController::showLevelInfo() {
     
     TerminalHelper::moveCursorTo(startY, startX);
     TerminalHelper::clearCurrentLine();
-    std::cout << "Уровень: " << settings->getLevel() 
-              << " | Линий до след. уровня: " 
-              << std::max(0, settings->getLinesForNextLevel() - linesClearedTotal)
-              << " | Дроп: +" << Settings::getDropPointsForLevel(settings->getLevel()) 
-              << " очков/клетка";
+    if (isPictureMode) {
+        PictureField* pictureField = (PictureField*)field;
+        std::cout << "Режим: Собери картинку | Картинка: " << pictureField->getPictureName();
+    } else {
+        std::cout << "Уровень: " << settings->getLevel() 
+                  << " | Линий до след. уровня: " 
+                  << std::max(0, settings->getLinesForNextLevel() - linesClearedTotal)
+                  << " | Дроп: +" << Settings::getDropPointsForLevel(settings->getLevel()) 
+                  << " очков/клетка";
+    }
     
     TerminalHelper::moveCursorToSafePosition();
     std::cout.flush();
@@ -574,32 +813,60 @@ void GameController::showScore() {
     
     TerminalHelper::moveCursorTo(startY, startX);
     TerminalHelper::clearCurrentLine();
-    std::cout << "=== СТАТИСТИКА ===";
+    if (isPictureMode) {
+        PictureField* pictureField = dynamic_cast<PictureField*>(field);
+        if (pictureField) {
+            std::cout << "=== КАРТИНКА: " << pictureField->getPictureName() << " ===";
+        } else {
+            std::cout << "=== СОБЕРИ КАРТИНКУ ===";
+        }
+    } else {
+        std::cout << "=== СТАТИСТИКА ===";
+    }
     
     TerminalHelper::moveCursorTo(startY + 1, startX);
     TerminalHelper::clearCurrentLine();
-    std::cout << "Игрок: " << playerName << " | Счет: " << score << " | Линий: " << linesClearedTotal;
+    std::cout << "Игрок: " << playerName << " | Счет: " << score;
     TerminalHelper::moveCursorTo(startY + 2, startX);
     TerminalHelper::clearCurrentLine();
-    std::cout << "Управление: " 
-              << settings->getControl("LEFT") << "/" 
-              << settings->getControl("RIGHT") << "-влево/вправо, "
-              << (settings->getControl("DOWN") == ' ' ? "ПРОБЕЛ" : std::string(1, settings->getControl("DOWN"))) << "-вниз, "
-              << (settings->getControl("DROP") == ' ' ? "ПРОБЕЛ" : std::string(1, settings->getControl("DROP"))) << "-падение, "
-              << (settings->getControl("ROTATE") == ' ' ? "ПРОБЕЛ" : std::string(1, settings->getControl("ROTATE"))) << "-поворот, "
-              << settings->getControl("PAUSE") << "-пауза, "
-              << settings->getControl("QUIT") << "-выход";
-
-    showLevelInfo();
+    
+    char left = settings->getControl("LEFT");
+    char right = settings->getControl("RIGHT");
+    char down = settings->getControl("DOWN");
+    char drop = settings->getControl("DROP");
+    char rotate = settings->getControl("ROTATE");
+    char pause = settings->getControl("PAUSE");
+    char quit = settings->getControl("QUIT");
+    std::string downStr = (down == ' ') ? "ПРОБЕЛ" : std::string(1, down);
+    std::string dropStr = (drop == ' ') ? "ПРОБЕЛ" : std::string(1, drop);
+    std::string rotateStr = (rotate == ' ') ? "ПРОБЕЛ" : std::string(1, rotate);
+    
+    std::cout << "Упр: " 
+              << left << "/<-влево, "
+              << right << "/->-вправо, "
+              << down << "/v-вниз, "
+              << drop << "/^-падение, "
+              << rotate << "-поворот, "
+              << pause << "-пауза, "
+              << quit << "-выход";
+    
     TerminalHelper::moveCursorToSafePosition();
     std::cout.flush();
 }
 
 bool GameController::GameMenu() {
+    /**
+     * @brief Отображает главное меню игры
+     * @return true если пользователь выбрал игру, false для выхода
+     * @note Позволяет выбрать режим игры, просмотреть рекорды, настроить управление
+     */
     score = 0;
     linesClearedTotal = 0;
     settings->setLevel(1);
-
+    isPictureMode = false;
+    if (!nameEntered) {
+        GetPlayerName();
+    }
     TerminalHelper::clearScreen();
     std::cout << "            Добро пожаловать в Тетрис! " << std::endl;
     std::cout << "================================================" << std::endl;
@@ -615,16 +882,7 @@ bool GameController::GameMenu() {
               << std::endl;
     std::cout << "================================================" << std::endl;
     std::cout << "\n";
-
-    scoreSystem.displayScores();
-    std::cout << "\n";
- 
-    std::cout << "Введите ваше имя: ";
-    std::cin >> playerName;
-    std::cin.ignore();
-    std::cout << "\n";
-    
-    std::cout << "1. Начать игру" << std::endl;
+    std::cout << "1. Выбрать игру" << std::endl;
     std::cout << "2. Таблица рекордов" << std::endl;
     std::cout << "3. Настройки" << std::endl;
     std::cout << "4. Выход" << std::endl;
@@ -667,25 +925,81 @@ bool GameController::GameMenu() {
     } while (c != '1');
     
     TerminalHelper::clearScreen();
-    std::cout << "Выберите тип поля:" << std::endl;
-    std::cout << "s - стандартное поле" << std::endl;
-    std::cout << "h - расширяющееся поле (ведро)" << std::endl;
+    std::cout << "Выберите игру:\n";
+    std::cout << "1. Классический Тетрис\n";
+    std::cout << "2. Ведро\n";
+    std::cout << "3. Собери картинку\n";
+    std::cout << "\nВыберите игру:\n ";
     
-    while (true) {
-        c = input.getInput();
-        if (c == 's') {
-            field = new Field();
-            std::cout << "Выбрано стандартное поле!" << std::endl;
-            usleep(1000000);
-            return true;
-        } else if (c == 'h') {
-            field = new BucketField();
-            std::cout << "Выбрано расширяющееся поле-ведро!" << std::endl;
-            usleep(1000000);
-            return true;
-        }
+    char gameChoice;
+    do {
+        gameChoice = input.getInput();
         usleep(10000);
+    } while (gameChoice < '1' || gameChoice > '3');
+    
+    if (gameChoice == '1') {
+        field = new Field();
+        isPictureMode = false;
+        std::cout << "Выбрана классическая игра!" << std::endl;
+        usleep(1000000);
+        return true;
+    } 
+    else if (gameChoice == '2') {
+        field = new BucketField();
+        isPictureMode = false;
+        std::cout << "Выбрана игра 'Ведро'!" << std::endl;
+        usleep(1000000);
+        return true;
     }
+    else if (gameChoice == '3') {
+        TerminalHelper::clearScreen();
+        std::cout << "=== ВЫБЕРИТЕ КАРТИНКУ ===\n\n";
+        std::cout << "1. Квадрат\n";
+        std::cout << "2. Треугольник\n";
+        //std::cout << "3. Домик\n";
+       // std::cout << "4. Стрелка\n";
+        //std::cout << "5. Бабочка\n";
+        //std::cout << "6. Звезда\n";
+        std::cout << "\nВыберите номер (1-2): ";
+        std::cout.flush();
+        
+        char picChoice;
+        do {
+            picChoice = input.getInput();
+            usleep(10000);
+        } while (picChoice < '1' || picChoice > '2');
+        
+        int pictureType = PICTURE_SQUARE;
+        switch(picChoice) {
+            case '1': pictureType = PICTURE_SQUARE; break;
+            case '2': pictureType = PICTURE_TRIANGLE; break;
+            case '3': pictureType = PICTURE_HOUSE; break;
+            case '4': pictureType = PICTURE_ARROW; break;
+            case '5': pictureType = PICTURE_BUTTERFLY; break;
+            case '6': pictureType = PICTURE_STAR; break;
+        }
+        
+        if (field) {
+            delete field;
+            field = nullptr;
+        }
+        score = 0;
+        linesClearedTotal = 0;
+        count = 1;
+        field = new PictureField(pictureType);
+        isPictureMode = true;
+        TerminalHelper::clearScreen();
+        std::cout << "=== СОБЕРИ КАРТИНКУ ===\n\n";
+        std::cout << "Задача: заполните серую область фигурами\n";
+        std::cout << "Нажмите любую клавишу для начала...\n";
+        std::cout << "Игра закончится, когда картинка будет собрана\n";
+        std::cout << "или когда фигура выйдет за пределы серой области\n";
+        input.getInput();
+
+        view.ShowPictureField(*field);
+        return true;
+    }
+    
     return false;
 }
 
@@ -700,15 +1014,28 @@ void GameController::run() {
     
     TerminalHelper::enableAlternateBuffer();
     TerminalHelper::clearScreen();
-    
+    if (!nameEntered) {
+        GetPlayerName();
+    }
     if(GameMenu()) {
-        view.ShowField(*field);
+        if (isPictureMode) {
+            view.ShowPictureField(*field);
+        } else {
+            view.ShowField(*field);
+        }
+        
         figure = FigureO();
         showScore();
         showLevelInfo();
+        
+        if (isPictureMode) {
+            PictureField* pictureField = (PictureField*)field;
+        }
+        
         int messageY = field->getHeight() + 6;
         TerminalHelper::moveCursorTo(messageY, 0);
         TerminalHelper::clearCurrentLine();
+        
         while (gameRunning) {
             if (TerminalHelper::wasResized()) {
                 if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
@@ -720,10 +1047,17 @@ void GameController::run() {
                     std::cout << "Требуется: 24 строки x 48 столбцов" << std::endl;
                     usleep(2000000);
                 } else if (!gamePaused) {
-                    view.ShowField(*field);
+                    if (isPictureMode) {
+                        view.ShowPictureField(*field);
+                    } else {
+                        view.ShowField(*field);
+                    }
                     view.ShowPlacedFigure(figure, *field);
                     showScore();
                     showLevelInfo();
+                    if (isPictureMode) {
+                        PictureField* pictureField = (PictureField*)field;
+                    }
                 }
             }
             
@@ -741,23 +1075,23 @@ void GameController::run() {
                 continue;
             }
             
-        int oldX = figure.getstartx();
-        int oldY = figure.getstarty();
-        Figure oldFigure = figure;
+            int oldX = figure.getstartx();
+            int oldY = figure.getstarty();
+            Figure oldFigure = figure;
 
-        Input();
-        if (gamePaused) {
-            continue;
-        }
+            Input();
+            if (gamePaused) {
+                continue;
+            }
 
-        NewPosition();
+            NewPosition();
 
-        int newX = figure.getstartx();
-        int newY = figure.getstarty();
+            int newX = figure.getstartx();
+            int newY = figure.getstarty();
 
-        view.ShowFigure(oldFigure, figure, *field, oldX, oldY, newX, newY);
+            view.ShowFigure(oldFigure, figure, *field, oldX, oldY, newX, newY);
 
-        usleep(5000);
+            usleep(5000);
         }
     }
     TerminalHelper::disableAlternateBuffer();

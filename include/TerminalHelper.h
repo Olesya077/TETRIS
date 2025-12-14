@@ -9,126 +9,139 @@
 #include <iostream>
 #include <csignal>
 
+/**
+ * @brief Вспомогательный класс для работы с терминалом
+ * 
+ * Предоставляет статические методы для управления терминалом:
+ * - Определение размеров терминала
+ * - Управление курсором и экраном
+ * - Обработка сигналов изменения размера
+ * - Управление буферами экрана
+ */
 class TerminalHelper {
 private:
-    static bool terminalResized;
+    static bool terminalResized; /**< Флаг изменения размера терминала */
+    
+    /**
+     * @brief Обработчик сигнала изменения размера терминала
+     * @param signo Номер сигнала (должен быть SIGWINCH)
+     */
     static void resizeHandler(int signo);
 
 public:
-    static bool getTerminalSize(int& rows, int& cols) {
-        struct winsize w;
-        if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == 0) {
-            rows = w.ws_row;
-            cols = w.ws_col;
-            return true;
-        }
-        return false;
-    }
+    /**
+     * @brief Получает текущий размер терминала
+     * @return true если размер успешно получен
+     */
+    static bool getTerminalSize(int& rows, int& cols);
     
-    static bool isTerminalSizeValid(int minRows = 24, int minCols = 48) {
-        int rows, cols;
-        if (getTerminalSize(rows, cols)) {
-            return rows >= minRows && cols >= minCols;
-        }
-        return false;
-    }
+    /**
+     * @brief Проверяет, достаточно ли размер терминала
+     * @param minRows Минимальное количество строк (по умолчанию 24)
+     * @param minCols Минимальное количество столбцов (по умолчанию 48)
+     * @return true если терминал достаточно большой
+     */
+    static bool isTerminalSizeValid(int minRows = 24, int minCols = 48);
     
-    static void clearScreen() {
-        printf("\033[2J\033[1;1H");
-        fflush(stdout);
-    }
+    /**
+     * @brief Очищает экран терминала
+     * @note Использует ANSI escape-последовательности
+     */
+    static void clearScreen();
     
-    static void moveCursorTo(int row, int col) {
-        std::cout << "\033[" << (row + 1) << ";" << (col + 1) << "H";
-    }
+    /**
+     * @brief Перемещает курсор в указанную позицию
+     */
+    static void moveCursorTo(int row, int col);
     
-    static void moveCursorToSafePosition() {
-        int rows, cols;
-        if (getTerminalSize(rows, cols)) {
-            printf("\033[%d;1H", rows);
-            fflush(stdout);
-        }
-    }
+    /**
+     * @brief Перемещает курсор в безопасную позицию (низ экрана)
+     */
+    static void moveCursorToSafePosition();
     
-    static void initResizeHandler() {
-        signal(SIGWINCH, resizeHandler);
-    }
+    /**
+     * @brief Инициализирует обработчик изменения размера терминала
+     * @note Устанавливает обработчик для сигнала SIGWINCH
+     */
+    static void initResizeHandler();
 
-    static bool wasResized() {
-        bool resized = terminalResized;
-        terminalResized = false;
-        return resized;
-    }
+    /**
+     * @brief Проверяет, изменился ли размер терминала
+     * @return true если размер изменился с последней проверки
+     */
+    static bool wasResized();
 
-    static void getCurrentSize(int& rows, int& cols) {
-        getTerminalSize(rows, cols);
-    }
+    /**
+     * @brief Получает текущий размер терминала
+     */
+    static void getCurrentSize(int& rows, int& cols);
     
-    static void saveScreen() {
-        printf("\033[?1049h");
-        fflush(stdout);
-    }
+    /**
+     * @brief Сохраняет текущий экран (включает альтернативный буфер)
+     */
+    static void saveScreen();
     
-    static void restoreScreen() {
-        printf("\033[?1049l");
-        fflush(stdout);
-    }
+    /**
+     * @brief Восстанавливает сохраненный экран (выключает альтернативный буфер)
+     */
+    static void restoreScreen();
     
-    static void clearCurrentLine() {
-        printf("\033[2K");
-        fflush(stdout);
-    }
+    /**
+     * @brief Очищает текущую строку
+     */
+    static void clearCurrentLine();
     
-
-    static void enableAlternateBuffer() {
-        printf("\033[?1049h\033[H");
-        fflush(stdout);
-    }
+    /**
+     * @brief Включает альтернативный буфер экрана
+     */
+    static void enableAlternateBuffer();
     
-    static void disableAlternateBuffer() {
-        printf("\033[?1049l");
-        fflush(stdout);
-    }
+    /**
+     * @brief Выключает альтернативный буфер экрана
+     */
+    static void disableAlternateBuffer();
     
-    static void disableScrolling() {
-        printf("\033[?7l");
-        printf("\033[r");
-        fflush(stdout);
-    }
+    /**
+     * @brief Отключает прокрутку терминала
+     */
+    static void disableScrolling();
     
-    static void enableScrolling() {
-        printf("\033[?7h");
-        fflush(stdout);
-    }
+    /**
+     * @brief Включает прокрутку терминала
+     */
+    static void enableScrolling();
     
-    static void setScrollRegion(int top, int bottom) {
-        printf("\033[%d;%dr", top, bottom);
-        fflush(stdout);
-    }
+    /**
+     * @brief Устанавливает область прокрутки
+     * @param top Верхняя граница области
+     * @param bottom Нижняя граница области
+     */
+    static void setScrollRegion(int top, int bottom);
     
-    static void clearScrollRegion() {
-        printf("\033[r");
-        fflush(stdout);
-    }
-    static void saveCursor() {
-    printf("\033[s");
-    fflush(stdout);
-}
-
-static void restoreCursor() {
-    printf("\033[u");
-    fflush(stdout);
-}
-
-static void hideCursor() {
-    printf("\033[?25l");
-    fflush(stdout);
-}
-
-static void showCursor() {
-    printf("\033[?25h");
-    fflush(stdout);
-}
+    /**
+     * @brief Сбрасывает область прокрутки на весь экран
+     */
+    static void clearScrollRegion();
+    
+    /**
+     * @brief Сохраняет текущую позицию курсора
+     */
+    static void saveCursor();
+    
+    /**
+     * @brief Восстанавливает сохраненную позицию курсора
+     */
+    static void restoreCursor();
+    
+    /**
+     * @brief Скрывает курсор
+     */
+    static void hideCursor();
+    
+    /**
+     * @brief Показывает курсор
+     */
+    static void showCursor();
 };
 
 #endif

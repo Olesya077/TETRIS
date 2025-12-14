@@ -1,3 +1,10 @@
+/**
+ * @file Score.cpp
+ * @brief Реализация системы рекордов
+ * 
+ * Управляет загрузкой, сохранением и отображением таблицы рекордов.
+ * Рекорды хранятся в текстовом файле и сортируются по убыванию счета.
+ */
 #include "Score.h"
 #include <iostream>
 #include <ctime>
@@ -41,6 +48,13 @@ void GameScore::saveScores() {
 }
 
 void GameScore::addScore(const std::string& name, int score) {
+    /**
+     * @brief Добавляет новый рекорд
+     * @param name Имя игрока
+     * @param score Количество очков
+     * @note Автоматически добавляет текущую дату
+     *       Сортирует список и сохраняет только топ-10
+     */
     std::time_t t = std::time(nullptr);
     std::tm* now = std::localtime(&t);
     std::stringstream ss;

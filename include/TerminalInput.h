@@ -1,13 +1,38 @@
 #ifndef INPUT_H
 #define INPUT_H
+
 #include <termios.h>
+
+/**
+ * @brief Класс для обработки ввода с терминала в неблокирующем режиме
+ * 
+ * Настраивает терминал для чтения одиночных символов без эха и ожидания Enter.
+ * Восстанавливает оригинальные настройки терминала при уничтожении.
+ */
 class TerminalInput {
 private:
-    struct termios originalTerm;
+    struct termios originalTerm; /**< Оригинальные настройки терминала */
+    
 public:
+    /**
+     * @brief Конструктор
+     * @note Настраивает терминал для неблокирующего ввода
+     */
     TerminalInput();
+    
+    /**
+     * @brief Деструктор
+     * @note Восстанавливает оригинальные настройки терминала
+     */
     ~TerminalInput();
+    
+    /**
+     * @brief Читает один символ из терминала
+     * @return Прочитанный символ или 0 если чтение не удалось
+     * @note Не блокирует выполнение программы
+     */
     char getInput();
+    char getInputWithArrows();
 };
 
 #endif

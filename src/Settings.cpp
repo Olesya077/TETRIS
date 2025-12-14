@@ -1,3 +1,11 @@
+/**
+ * @file Settings.cpp
+ * @brief Реализация системы настроек (Singleton)
+ * 
+ * Управляет настройками игры, загрузкой/сохранением в файл,
+ * переназначением клавиш управления.
+ */
+
 #include "Settings.h"
 #include <fstream>
 #include <iostream>
@@ -82,6 +90,17 @@ char Settings::getControl(const std::string& action) const {
 }
 
 bool Settings::setControl(const std::string& action, char newKey) {
+    /**
+     * @brief Устанавливает новую клавишу для действия
+     * @param action Название действия
+     * @param newKey Новая клавиша
+     * @return true если клавиша успешно установлена
+     * @note Проверяет: 
+     *       1. Существование действия
+     *       2. Валидность клавиши
+     *       3. Занятость клавиши другими действиями
+     *       4. Не является ли клавиша зарезервированной
+     */
     newKey = std::tolower(newKey);
     
     if (controls.find(action) == controls.end()) {

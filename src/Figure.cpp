@@ -1,4 +1,10 @@
-
+/**
+ * @file Figure.cpp
+ * @brief Реализация фигур Тетриса
+ * 
+ * Содержит матрицы форм и логику вращения для всех 7 типов фигур.
+ * Каждая фигура имеет предопределенные состояния вращения.
+ */
 #include "Figure.h"
 #include <algorithm>
 #include <iostream>
@@ -25,14 +31,20 @@ int Figure::getWidth() { return width; }
 string Figure::getcolor() { return color; }
 
 void Figure::rotate() {
+    /**
+     * @brief Вращает фигуру на 90 градусов по часовой стрелке
+     * @note Каждый тип фигуры имеет свои предопределенные матрицы вращения
+     *       Фигура O не вращается
+     *       Фигура I имеет особую логику смещения
+     */
     rotationState = (rotationState + 1) % 4;
 
-    if (color == "\x1b[35m") { // O (фиолетовый)
+    if (color == "\x1b[35m") {
         rotationState = 0;
         return;
     }
 
-    if (color == "\x1b[33m") { // T (желтый)
+    if (color == "\x1b[33m") {
         std::vector<std::vector<bool>> tStates = {
             {false, true, false, true, true, true, false, false, false},
             {false, true, false, false, true, true, false, true, false},
@@ -43,7 +55,7 @@ void Figure::rotate() {
         width = 3;
         height = 3;
     }
-    else if (color == "\x1b[36m") { // L (голубой)
+    else if (color == "\x1b[36m") { 
         std::vector<std::vector<bool>> lStates = {
             {true, false, false, true, false, false, true, true, false},
             {false, false, false, true, true, true, true, false, false},
@@ -54,7 +66,7 @@ void Figure::rotate() {
         width = 3;
         height = 3;
     }
-    else if (color == "\x1b[37m") { // J (белый)
+    else if (color == "\x1b[37m") {
         std::vector<std::vector<bool>> jStates = {
             {false, false, true, false, false, true, false, true, true},
             {false, false, false, true, true, true, false, false, true},
@@ -65,7 +77,7 @@ void Figure::rotate() {
         width = 3;
         height = 3;
     }
-    else if (color == "\x1b[32m") { // S (зеленый)
+    else if (color == "\x1b[32m") {
         std::vector<std::vector<bool>> sStates = {
             {false, true, true, true, true, false, false, false, false},
             {false, true, false, false, true, true, false, false, true},
@@ -76,7 +88,7 @@ void Figure::rotate() {
         width = 3;
         height = 3;
     }
-    else if (color == "\x1b[31m") { // Z (красный)
+    else if (color == "\x1b[31m") {
         std::vector<std::vector<bool>> zStates = {
             {true, true, false, false, true, true, false, false, false},
             {false, false, true, false, true, true, false, true, false},
@@ -87,7 +99,7 @@ void Figure::rotate() {
         width = 3;
         height = 3;
     }
-    else if (color == "\x1b[34m") { // I (синий)
+    else if (color == "\x1b[34m") {
         std::vector<std::vector<bool>> iStates = {
             {false, false, false, false, true, true, true, true, false, false, false, false, false, false, false, false},
             {false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false},

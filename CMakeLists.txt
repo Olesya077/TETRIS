@@ -14,4 +14,5 @@ add_executable(tetris_game
     src/TerminalHelper.cpp
     src/Score.cpp
     src/Settings.cpp
+    src/PictureField.cpp
 )
