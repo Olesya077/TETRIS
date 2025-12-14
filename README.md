@@ -2,12 +2,6 @@
 
 <div align="center">
 
-![Tetris Game](https://img.shields.io/badge/Tetris-Classic-blue?style=for-the-badge)
-![C++](https://img.shields.io/badge/C++-17-00599C?style=for-the-badge&logo=c%2B%2B)
-![Platform](https://img.shields.io/badge/Linux%2FUnix-Terminal-success?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-1.0-orange?style=for-the-badge)
-
 **Классический Тетрис в терминале**
 
 [Особенности](#-особенности) • [Режимы игры](#-режимы-игры) • [Управление](#-управление) • [Установка](#-установка) • [Запуск](#-запуск)
@@ -77,11 +71,6 @@
 
 ## ⚙️ Установка
 
-### Требования:
-- Компилятор C++ (g++ или clang++)
-- CMake (версия 3.10+)
-- Терминал с поддержкой цветов
-
 ### Шаги установки:
 
 ```basht
@@ -103,14 +92,6 @@ make
 ./tetris_game 2    # Режим чередования фигур
 ```
 
-## 📊 Системные требования
-
-| Компонент | Минимальные требования |
-|-----------|------------------------|
-| **Терминал** | Минимум 24×80 символов |
-| **ОС** | Linux, Unix, macOS |
-| **Память** | 64 MB RAM |
-| **Диск** | 10 MB свободного места |
  
 
 [🔼 Наверх](#-тетрис---консольная-игра-на-c)
