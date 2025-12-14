@@ -24,7 +24,7 @@ private:
     TerminalInput input; 
     GameScore scoreSystem;
     Settings* settings;
-    bool gameRunning; /
+    bool gameRunning; 
     int count;
     int score;  
     int linesClearedTotal; 
