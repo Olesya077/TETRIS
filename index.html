@@ -1,9 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta http-equiv="refresh" content="0; url=website/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тетрис - Консольная игра на C++</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p>Перенаправление на сайт проекта... <a href="website/">Нажмите сюда</a>, если ничего не происходит.</p>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Тетрис</h1>
+            <p class="tagline">Классическая игра в терминале</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Играй в Тетрис прямо в терминале</h2>
+                <p>Проект написан на C++ с использованием объектно-ориентированного программирования. Поддержка цветной графики, рекордов и нескольких режимов игры.</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/Olesya077/TETRIS" class="btn btn-primary">
+                        <i class="fab fa-github"></i> Код на GitHub
+                    </a>
+                    <a href="../docs/index.html" class="btn btn-secondary">
+                        <i class="fas fa-book"></i> Документация API
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Вставьте сюда скриншот игры -->
+                <div class="screenshot-placeholder">
+                    <p>Скриншот игры появится здесь</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">Особенности проекта</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Несколько режимов</h3>
+                    <p>Классический Тетрис, игра в форме ведра и режим "Собери картинку".</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Цветная графика</h3>
+                    <p>Яркое оформление в терминале с использованием ANSI-кодов.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Настройка управления</h3>
+                    <p>Все клавиши можно переназначить под свои предпочтения.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Таблица рекордов</h3>
+                    <p>Сохраняйте свои достижения в файл и соревнуйтесь с другими.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="installation">
+            <h2 class="section-title">Установка и запуск</h2>
+            <div class="code-block">
+                <pre><code># Клонировать репозиторий
+git clone https://github.com/Olesya077/TETRIS.git
+cd TETRIS
+
+# Собрать проект
+mkdir build && cd build
+cmake ..
+make
+
+# Запустить игру
+./tetris_game</code></pre>
+            </div>
+        </section>
+
+        <section class="documentation">
+            <h2 class="section-title">Документация</h2>
+            <p>Полная техническая документация по классам и функциям проекта доступна по ссылке ниже.</p>
+            <a href="../docs/index.html" class="btn btn-outline">
+                <i class="fas fa-external-link-alt"></i> Перейти к документации Doxygen
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Проект "Тетрис". Разработано с использованием C++.</p>
+            <p>
+                <a href="https://github.com/Olesya077/TETRIS"><i class="fab fa-github"></i> GitHub</a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
