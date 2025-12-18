@@ -1,0 +1,21 @@
+<map id="include/ConsoleView.h" name="include/ConsoleView.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл, содержащий объявление класса ConsoleView." alt="" coords="59,5,227,31"/>
+<area shape="rect" id="Node000002" href="$Field_8h.html" title="Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField." alt="" coords="157,152,222,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,30,165,78,184,138,179,140,160,79,144,32"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="21,299,83,324"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="98,33,60,51,44,64,30,80,11,123,9,161,18,201,29,250,42,286,37,287,24,251,12,202,4,161,6,122,26,77,40,60,57,47,96,28"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="231,299,289,324"/>
+<area shape="poly" id="edge12_Node000001_Node000005" title=" " alt="" coords="158,29,209,78,237,113,262,151,284,199,287,222,284,251,273,287,268,285,279,250,282,222,279,200,258,153,233,116,205,82,154,33"/>
+<area shape="rect" id="Node000006" href="$PictureField_8h.html" title="Заголовочный файл, содержащий объявление класса PictureField для режима &quot;Собери картинку&quot;." alt="" coords="41,79,151,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="137,32,114,69,109,66,133,30"/>
+<area shape="rect" id="Node000003" href="$Figure_8h.html" title="Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса" alt="" coords="148,225,223,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="191,178,190,212,184,212,186,178"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="180,180,74,291,71,287,176,176"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="165,253,87,294,85,290,163,248"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="199,249,240,287,236,291,196,253"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="113,102,165,141,162,146,110,106"/>
+<area shape="poly" id="edge9_Node000006_Node000004" title=" " alt="" coords="82,106,60,126,43,153,35,187,34,223,46,285,41,286,29,224,29,187,38,151,56,123,78,102"/>
+<area shape="poly" id="edge10_Node000006_Node000005" title=" " alt="" coords="152,101,197,119,218,133,236,150,254,183,263,220,266,255,265,285,260,285,261,256,258,221,249,185,231,154,215,137,194,124,150,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="52,152,132,177"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="98,104,96,139,91,138,93,104"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="src/TerminalInput.cpp" name="src/TerminalInput.cpp">
+<area shape="rect" id="Node000001" title="Реализация неблокирующего ввода с терминала" alt="" coords="122,5,283,31"/>
+<area shape="rect" id="Node000002" href="$TerminalInput_8h.html" title="Заголовочный файл, содержащий объявление класса TerminalInput для обработки неблокирующего ввода" alt="" coords="5,79,128,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,33,102,75,100,70,180,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="74,152,158,177"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="198,32,132,141,128,139,193,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="203,79,277,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,30,230,65,225,68,206,32"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="301,79,368,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="225,28,302,70,300,74,223,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,103,102,139,98,142,73,106"/>
+</map>

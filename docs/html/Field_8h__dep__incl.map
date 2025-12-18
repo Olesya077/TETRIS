@@ -1,0 +1,22 @@
+<map id="include/Field.h" name="include/Field.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField." alt="" coords="287,5,403,31"/>
+<area shape="rect" id="Node000002" href="$ConsoleView_8h.html" title="Заголовочный файл, содержащий объявление класса ConsoleView." alt="" coords="203,152,371,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="334,44,316,80,292,152,287,151,311,78,329,41"/>
+<area shape="rect" id="Node000003" href="$GameController_8h.html" title="Заголовочный файл, содержащий объявление класса GameController &#45; главного контроллера игры Тетрис" alt="" coords="5,225,192,251"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="323,42,192,154,113,227,109,223,189,150,319,38"/>
+<area shape="rect" id="Node000007" href="$PictureField_8h.html" title="Заголовочный файл, содержащий объявление класса PictureField для режима &quot;Собери картинку&quot;." alt="" coords="325,79,486,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="366,40,398,77,394,80,362,43"/>
+<area shape="rect" id="Node000009" href="$Field_8cpp.html" title="Реализация игровых полей (базовое и ведро)" alt="" coords="510,79,613,104"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="394,32,527,76,526,81,392,37"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,185,130,228,128,223,243,180"/>
+<area shape="rect" id="Node000006" href="$ConsoleView_8cpp.html" title="Реализация методов класса ConsoleView для отображения игрового интерфейса" alt="" coords="216,225,371,251"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="292,191,295,225,290,225,286,191"/>
+<area shape="rect" id="Node000004" href="$GameController_8cpp.html" title="Реализация главного контроллера игры Тетрис" alt="" coords="247,299,422,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="150,252,297,296,296,301,149,257"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title="Главный файл приложения Тетрис" alt="" coords="46,299,151,324"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="101,264,101,299,96,299,96,264"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="376,113,307,154,305,149,373,109"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="408,118,404,180,397,217,385,252,368,279,349,300,345,297,364,276,380,250,392,215,399,180,403,118"/>
+<area shape="rect" id="Node000008" href="$PictureField_8cpp.html" title="Реализация поля для режима &quot;Собери картинку&quot;." alt="" coords="446,152,594,177"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="437,109,503,150,500,154,434,113"/>
+</map>

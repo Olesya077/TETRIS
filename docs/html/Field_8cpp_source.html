@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Тетрис: Исходный файл src/Field.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Тетрис<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Консольная игра Тетрис на C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Field.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Field_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file Field.cpp</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Реализация игровых полей (базовое и ведро)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Содержит логику размещения фигур, проверки столкновений и очистки линий</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * для различных типов игровых полей.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="Field_8h.html">Field.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classField.html#a3e804c92273d9159f413f227b535c672">   12</a></span><a class="code hl_function" href="classField.html#a3e804c92273d9159f413f227b535c672">Field::Field</a>() : fieldmatrix(22 * 22, false), fieldcolors(22 * 22, <span class="stringliteral">&quot;&quot;</span>), fieldWidth(22), fieldHeight(22) {<span class="comment"></span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">     * @brief Конструктор базового поля</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">     * @note Создает границы поля по периметру</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 22; i++) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(21, i, <span class="keyword">true</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(i, 0, <span class="keyword">true</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(i, 21, <span class="keyword">true</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classField.html#aedb5e6eca37c84b9cf269f629711171e">   24</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classField.html#aedb5e6eca37c84b9cf269f629711171e">Field::isValidPosition</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">return</span> (row &gt;= 0 &amp;&amp; row &lt; fieldHeight &amp;&amp; col &gt;= 0 &amp;&amp; col &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classField.html#aeb6c1ae876bceb3f9d44d84a52df41c6">   28</a></span>std::string <a class="code hl_function" href="classField.html#aeb6c1ae876bceb3f9d44d84a52df41c6">Field::getColor</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span> (i &gt;= 0 &amp;&amp; i &lt; fieldHeight &amp;&amp; j &gt;= 0 &amp;&amp; j &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classField.html#af837756f0890d9e741703271b6c33716">fieldcolors</a>[i * <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> + j];</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;\x1b[37m&quot;</span>; </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classBucketField.html#a9035638e3dc9f1ecbe60197341189c05">   35</a></span><a class="code hl_function" href="classBucketField.html#a9035638e3dc9f1ecbe60197341189c05">BucketField::BucketField</a>() {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> = 22;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> = 22;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="classBucketField.html#a409b085da582ea04bc782aa041ade77b">initializeBucketShape</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classBucketField.html#a409b085da582ea04bc782aa041ade77b">   41</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classBucketField.html#a409b085da582ea04bc782aa041ade77b">BucketField::initializeBucketShape</a>() {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_variable" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a>.resize(<a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">int</span> minWidth = 6;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">int</span> maxWidth = 22;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> row = 0; row &lt; <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>; row++) {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <a class="code hl_variable" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a>[row] = minWidth + (maxWidth - minWidth) * row / (<a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> - 1);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_variable" href="classField.html#ab4c09899237546ec863d386ddc84bda3">fieldmatrix</a>.clear();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_variable" href="classField.html#ab4c09899237546ec863d386ddc84bda3">fieldmatrix</a>.resize(<a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> * <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> row = 0; row &lt; <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>; row++) {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">int</span> width = <a class="code hl_variable" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a>[row];</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">int</span> leftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - width) / 2;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">int</span> rightBound = leftBound + width;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = 0; col &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>; col++) {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordtype">bool</span> isWall = (col &lt; leftBound) || (col &gt;= rightBound);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(row, col, isWall);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = 0; col &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>; col++) {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(<a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> - 1, col, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">   70</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">BucketField::getRowWidth</a>(<span class="keywordtype">int</span> row) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">if</span> (row &gt;= 0 &amp;&amp; row &lt; <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>) {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a>[row];</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classBucketField.html#a9f17daf1e4fb0576849ae7a9a81a28f3">   77</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classBucketField.html#a9f17daf1e4fb0576849ae7a9a81a28f3">BucketField::isValidPosition</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">if</span> (row &lt; 0 || row &gt;= <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> || col &lt; 0 || col &gt;= <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>) {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">int</span> width = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(row);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">int</span> leftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - width) / 2;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">int</span> rightBound = leftBound + width;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">return</span> col &gt;= leftBound &amp;&amp; col &lt; rightBound;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classBucketField.html#aed3b3228b06ab6a1d8a2a748cabe51e5">   89</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classBucketField.html#aed3b3228b06ab6a1d8a2a748cabe51e5">BucketField::placeFigure</a>(<a class="code hl_class" href="classFigure.html">Figure</a>&amp; figure) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span> x = figure.<a class="code hl_function" href="classFigure.html#a6dd1ec4d74a0d6631967e1128d6e7df4">getstartx</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span> y = figure.<a class="code hl_function" href="classFigure.html#ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9">getstarty</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; figure.<a class="code hl_function" href="classFigure.html#a8e61de7e52619a4a3239b8c7842f27d5">getHeight</a>(); i++) {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; figure.<a class="code hl_function" href="classFigure.html#adb686b1ab475f3f9d9f9a9cedf5e7ff4">getWidth</a>(); j++) {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="keywordflow">if</span> (figure.<a class="code hl_function" href="classFigure.html#ac6bc0ed04c3290f9d88cf34b7f11e16f">getchar</a>(i, j)) {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                <span class="keywordtype">int</span> fieldx = x + j;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <span class="keywordtype">int</span> fieldy = y + i;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <span class="keywordflow">if</span> (<a class="code hl_function" href="classBucketField.html#a9f17daf1e4fb0576849ae7a9a81a28f3">isValidPosition</a>(fieldy, fieldx)) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                    <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(fieldy, fieldx, <span class="keyword">true</span>, figure.<a class="code hl_function" href="classFigure.html#abf6cc3f1890fc7eff66ca0dc24dcc09c">getcolor</a>());</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classBucketField.html#acd1c56f1ff25ae660199624675484b94">  108</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classBucketField.html#acd1c56f1ff25ae660199624675484b94">BucketField::clearFullLines</a>() {<span class="comment"></span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">     * @brief Очищает линии с учетом формы ведра</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">     * @return Количество очищенных линий</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">     * @note Учитывает переменную ширину строк в ведре</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">int</span> linesCleared = 0;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> row = <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> - 2; row &gt;= 1; row--) { </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordtype">bool</span> lineFull = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordtype">int</span> width = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(row);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordtype">int</span> leftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - width) / 2;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordtype">int</span> rightBound = leftBound + width;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = leftBound; col &lt; rightBound; col++) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">getch</a>(row, col)) {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                lineFull = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">if</span> (lineFull) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            linesCleared++;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> moveRow = row; moveRow &gt;= 1; moveRow--) {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                <span class="keywordtype">int</span> moveWidth = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(moveRow);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                <span class="keywordtype">int</span> moveLeftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - moveWidth) / 2;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                <span class="keywordtype">int</span> moveRightBound = moveLeftBound + moveWidth;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                <span class="keywordtype">int</span> prevWidth = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(moveRow - 1);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                <span class="keywordtype">int</span> prevLeftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - prevWidth) / 2;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                <span class="keywordtype">int</span> prevRightBound = prevLeftBound + prevWidth;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = moveLeftBound; col &lt; moveRightBound; col++) {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                    <span class="keywordtype">bool</span> value = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                    std::string color = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                    </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    <span class="keywordflow">if</span> (moveRow &gt; 0 &amp;&amp; col &gt;= prevLeftBound &amp;&amp; col &lt; prevRightBound) {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                        value = <a class="code hl_function" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">getch</a>(moveRow - 1, col);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                        color = <a class="code hl_function" href="classField.html#aeb6c1ae876bceb3f9d44d84a52df41c6">getColor</a>(moveRow - 1, col);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                    }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(moveRow, col, value, color);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="keywordtype">int</span> topWidth = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(0);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <span class="keywordtype">int</span> topLeftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - topWidth) / 2;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="keywordtype">int</span> topRightBound = topLeftBound + topWidth;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = topLeftBound; col &lt; topRightBound; col++) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(0, col, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            row++;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordflow">return</span> linesCleared;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>}</div>
+</div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classField.html#ad265ed981ccaeb7f6730ce03b9359f85">  167</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classField.html#ad265ed981ccaeb7f6730ce03b9359f85">Field::placeFigure</a>(<a class="code hl_class" href="classFigure.html">Figure</a>&amp; figure) {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordtype">int</span> x = figure.<a class="code hl_function" href="classFigure.html#a6dd1ec4d74a0d6631967e1128d6e7df4">getstartx</a>();</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">int</span> y = figure.<a class="code hl_function" href="classFigure.html#ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9">getstarty</a>();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; figure.<a class="code hl_function" href="classFigure.html#a8e61de7e52619a4a3239b8c7842f27d5">getHeight</a>(); i++) {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; figure.<a class="code hl_function" href="classFigure.html#adb686b1ab475f3f9d9f9a9cedf5e7ff4">getWidth</a>(); j++) {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <span class="keywordtype">int</span> fieldx = x + j;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="keywordtype">int</span> fieldy = y + i;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">if</span> (figure.<a class="code hl_function" href="classFigure.html#ac6bc0ed04c3290f9d88cf34b7f11e16f">getchar</a>(i, j)) {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(fieldy, fieldx, <span class="keyword">true</span>, figure.<a class="code hl_function" href="classFigure.html#abf6cc3f1890fc7eff66ca0dc24dcc09c">getcolor</a>());</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
+</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">  183</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">Field::getch</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">if</span> (i &gt;= 0 &amp;&amp; i &lt; fieldHeight &amp;&amp; j &gt;= 0 &amp;&amp; j &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>) {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classField.html#ab4c09899237546ec863d386ddc84bda3">fieldmatrix</a>[i * <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> + j];</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>}</div>
+</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="foldopen" id="foldopen00190" data-start="{" data-end="}">
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">  190</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">Field::setch</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">bool</span> value, <span class="keyword">const</span> std::string&amp; color) {</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">if</span> (i &gt;= 0 &amp;&amp; i &lt; fieldHeight &amp;&amp; j &gt;= 0 &amp;&amp; j &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>) {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keywordtype">int</span> index = i * <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> + j;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordflow">if</span> (index &gt;= 0 &amp;&amp; index &lt; (<span class="keywordtype">int</span>)<a class="code hl_variable" href="classField.html#ab4c09899237546ec863d386ddc84bda3">fieldmatrix</a>.size()) {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <a class="code hl_variable" href="classField.html#ab4c09899237546ec863d386ddc84bda3">fieldmatrix</a>[index] = value;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            <span class="keywordflow">if</span> (!color.empty()) {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                <span class="keywordflow">if</span> (index &lt; (<span class="keywordtype">int</span>)<a class="code hl_variable" href="classField.html#af837756f0890d9e741703271b6c33716">fieldcolors</a>.size()) {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                    <a class="code hl_variable" href="classField.html#af837756f0890d9e741703271b6c33716">fieldcolors</a>[index] = color;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                }</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!value) {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                <span class="keywordflow">if</span> (index &lt; (<span class="keywordtype">int</span>)<a class="code hl_variable" href="classField.html#af837756f0890d9e741703271b6c33716">fieldcolors</a>.size()) {</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                    <a class="code hl_variable" href="classField.html#af837756f0890d9e741703271b6c33716">fieldcolors</a>[index] = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            }</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>}</div>
+</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="classField.html#ac39db829e87a75308ea3e7f650c5b8aa">  207</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classField.html#ac39db829e87a75308ea3e7f650c5b8aa">Field::getHeight</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>; }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="classField.html#a53178ea9734894e60a5151d7e56d94e4">  208</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classField.html#a53178ea9734894e60a5151d7e56d94e4">Field::getWidth</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>; }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="classField.html#a2d9548121a9f71de41ef294c1fecf17a">  210</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classField.html#a2d9548121a9f71de41ef294c1fecf17a">Field::clearFullLines</a>() {<span class="comment"></span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">     * @brief Очищает полностью заполненные линии</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">     * @return Количество очищенных линий</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">     * @algorithm</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">     * 1. Проверяем линии снизу вверх (кроме дна)</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">     * 2. Если линия полная, сдвигаем все линии выше на одну вниз</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">     * 3. Очищаем самую верхнюю линию</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">     * 4. Повторяем для следующей линии (увеличиваем счетчик, так как линии сместились)</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordtype">int</span> linesCleared = 0;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> row = <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> - 2; row &gt;= 1; row--) { </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keywordtype">bool</span> lineFull = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = 1; col &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - 1; col++) {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">getch</a>(row, col)) {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                lineFull = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordflow">if</span> (lineFull) {</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            linesCleared++;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> moveRow = row; moveRow &gt;= 1; moveRow--) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = 1; col &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - 1; col++) {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                    <span class="keywordtype">bool</span> value = <a class="code hl_function" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">getch</a>(moveRow - 1, col);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                    std::string color = <a class="code hl_function" href="classField.html#aeb6c1ae876bceb3f9d44d84a52df41c6">getColor</a>(moveRow - 1, col);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                    <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(moveRow, col, value, color);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                }</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = 1; col &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - 1; col++) {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(0, col, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            }</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            row++;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keywordflow">return</span> linesCleared;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>}</div>
+</div>
+<div class="ttc" id="aField_8h_html"><div class="ttname"><a href="Field_8h.html">Field.h</a></div><div class="ttdoc">Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField.</div></div>
+<div class="ttc" id="aclassBucketField_html_a409b085da582ea04bc782aa041ade77b"><div class="ttname"><a href="classBucketField.html#a409b085da582ea04bc782aa041ade77b">BucketField::initializeBucketShape</a></div><div class="ttdeci">void initializeBucketShape()</div><div class="ttdoc">Инициализирует форму ведра</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00041">Field.cpp:41</a></div></div>
+<div class="ttc" id="aclassBucketField_html_a82a485b894983f244a9325d81d1ab33e"><div class="ttname"><a href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">BucketField::getRowWidth</a></div><div class="ttdeci">virtual int getRowWidth(int row) override</div><div class="ttdoc">Возвращает ширину строки</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00070">Field.cpp:70</a></div></div>
+<div class="ttc" id="aclassBucketField_html_a9035638e3dc9f1ecbe60197341189c05"><div class="ttname"><a href="classBucketField.html#a9035638e3dc9f1ecbe60197341189c05">BucketField::BucketField</a></div><div class="ttdeci">BucketField()</div><div class="ttdoc">Конструктор поля-ведра</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00035">Field.cpp:35</a></div></div>
+<div class="ttc" id="aclassBucketField_html_a9f17daf1e4fb0576849ae7a9a81a28f3"><div class="ttname"><a href="classBucketField.html#a9f17daf1e4fb0576849ae7a9a81a28f3">BucketField::isValidPosition</a></div><div class="ttdeci">virtual bool isValidPosition(int row, int col)</div><div class="ttdoc">Проверяет валидность позиции в ведре</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00077">Field.cpp:77</a></div></div>
+<div class="ttc" id="aclassBucketField_html_aa89dc4b02e015802bdb3467f34ab38b6"><div class="ttname"><a href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">BucketField::rowWidths</a></div><div class="ttdeci">std::vector&lt; int &gt; rowWidths</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00112">Field.h:112</a></div></div>
+<div class="ttc" id="aclassBucketField_html_acd1c56f1ff25ae660199624675484b94"><div class="ttname"><a href="classBucketField.html#acd1c56f1ff25ae660199624675484b94">BucketField::clearFullLines</a></div><div class="ttdeci">virtual int clearFullLines()</div><div class="ttdoc">Очищает заполненные линии с учетом формы ведра</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00108">Field.cpp:108</a></div></div>
+<div class="ttc" id="aclassBucketField_html_aed3b3228b06ab6a1d8a2a748cabe51e5"><div class="ttname"><a href="classBucketField.html#aed3b3228b06ab6a1d8a2a748cabe51e5">BucketField::placeFigure</a></div><div class="ttdeci">virtual void placeFigure(Figure &amp;figure) override</div><div class="ttdoc">Размещает фигуру с учетом формы ведра</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00089">Field.cpp:89</a></div></div>
+<div class="ttc" id="aclassField_html_a2b437c03abdb07c8af7116131a4d6ec9"><div class="ttname"><a href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">Field::fieldHeight</a></div><div class="ttdeci">int fieldHeight</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00022">Field.h:22</a></div></div>
+<div class="ttc" id="aclassField_html_a2d9548121a9f71de41ef294c1fecf17a"><div class="ttname"><a href="classField.html#a2d9548121a9f71de41ef294c1fecf17a">Field::clearFullLines</a></div><div class="ttdeci">virtual int clearFullLines()</div><div class="ttdoc">Очищает заполненные линии</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00210">Field.cpp:210</a></div></div>
+<div class="ttc" id="aclassField_html_a34f854bb1105212d22bfee034b4e09ec"><div class="ttname"><a href="classField.html#a34f854bb1105212d22bfee034b4e09ec">Field::fieldWidth</a></div><div class="ttdeci">int fieldWidth</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00021">Field.h:21</a></div></div>
+<div class="ttc" id="aclassField_html_a3e804c92273d9159f413f227b535c672"><div class="ttname"><a href="classField.html#a3e804c92273d9159f413f227b535c672">Field::Field</a></div><div class="ttdeci">Field()</div><div class="ttdoc">Конструктор по умолчанию</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00012">Field.cpp:12</a></div></div>
+<div class="ttc" id="aclassField_html_a53178ea9734894e60a5151d7e56d94e4"><div class="ttname"><a href="classField.html#a53178ea9734894e60a5151d7e56d94e4">Field::getWidth</a></div><div class="ttdeci">virtual int getWidth()</div><div class="ttdoc">Возвращает ширину поля</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00208">Field.cpp:208</a></div></div>
+<div class="ttc" id="aclassField_html_a5f59cb646e563cd9caaa50ad4490edc1"><div class="ttname"><a href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">Field::getch</a></div><div class="ttdeci">bool getch(int i, int j)</div><div class="ttdoc">Проверяет, занята ли клетка</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00183">Field.cpp:183</a></div></div>
+<div class="ttc" id="aclassField_html_a84255d7a378961550062a3f5a3e5f2d5"><div class="ttname"><a href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">Field::setch</a></div><div class="ttdeci">void setch(int i, int j, bool value, const std::string &amp;color=&quot;&quot;)</div><div class="ttdoc">Устанавливает состояние клетки</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00190">Field.cpp:190</a></div></div>
+<div class="ttc" id="aclassField_html_ab4c09899237546ec863d386ddc84bda3"><div class="ttname"><a href="classField.html#ab4c09899237546ec863d386ddc84bda3">Field::fieldmatrix</a></div><div class="ttdeci">std::vector&lt; bool &gt; fieldmatrix</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00019">Field.h:19</a></div></div>
+<div class="ttc" id="aclassField_html_ac39db829e87a75308ea3e7f650c5b8aa"><div class="ttname"><a href="classField.html#ac39db829e87a75308ea3e7f650c5b8aa">Field::getHeight</a></div><div class="ttdeci">virtual int getHeight()</div><div class="ttdoc">Возвращает высоту поля</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00207">Field.cpp:207</a></div></div>
+<div class="ttc" id="aclassField_html_ad265ed981ccaeb7f6730ce03b9359f85"><div class="ttname"><a href="classField.html#ad265ed981ccaeb7f6730ce03b9359f85">Field::placeFigure</a></div><div class="ttdeci">virtual void placeFigure(Figure &amp;figure)</div><div class="ttdoc">Размещает фигуру на поле</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00167">Field.cpp:167</a></div></div>
+<div class="ttc" id="aclassField_html_aeb6c1ae876bceb3f9d44d84a52df41c6"><div class="ttname"><a href="classField.html#aeb6c1ae876bceb3f9d44d84a52df41c6">Field::getColor</a></div><div class="ttdeci">std::string getColor(int i, int j)</div><div class="ttdoc">Возвращает цвет клетки</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00028">Field.cpp:28</a></div></div>
+<div class="ttc" id="aclassField_html_aedb5e6eca37c84b9cf269f629711171e"><div class="ttname"><a href="classField.html#aedb5e6eca37c84b9cf269f629711171e">Field::isValidPosition</a></div><div class="ttdeci">virtual bool isValidPosition(int row, int col)</div><div class="ttdoc">Проверяет валидность позиции</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00024">Field.cpp:24</a></div></div>
+<div class="ttc" id="aclassField_html_af837756f0890d9e741703271b6c33716"><div class="ttname"><a href="classField.html#af837756f0890d9e741703271b6c33716">Field::fieldcolors</a></div><div class="ttdeci">std::vector&lt; std::string &gt; fieldcolors</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00020">Field.h:20</a></div></div>
+<div class="ttc" id="aclassFigure_html"><div class="ttname"><a href="classFigure.html">Figure</a></div><div class="ttdoc">Базовый класс фигуры Тетриса</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00018">Figure.h:18</a></div></div>
+<div class="ttc" id="aclassFigure_html_a6dd1ec4d74a0d6631967e1128d6e7df4"><div class="ttname"><a href="classFigure.html#a6dd1ec4d74a0d6631967e1128d6e7df4">Figure::getstartx</a></div><div class="ttdeci">int getstartx()</div><div class="ttdoc">Возвращает X-координату фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00021">Figure.cpp:21</a></div></div>
+<div class="ttc" id="aclassFigure_html_a8e61de7e52619a4a3239b8c7842f27d5"><div class="ttname"><a href="classFigure.html#a8e61de7e52619a4a3239b8c7842f27d5">Figure::getHeight</a></div><div class="ttdeci">int getHeight()</div><div class="ttdoc">Возвращает высоту фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00029">Figure.cpp:29</a></div></div>
+<div class="ttc" id="aclassFigure_html_abf6cc3f1890fc7eff66ca0dc24dcc09c"><div class="ttname"><a href="classFigure.html#abf6cc3f1890fc7eff66ca0dc24dcc09c">Figure::getcolor</a></div><div class="ttdeci">string getcolor()</div><div class="ttdoc">Возвращает цвет фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00031">Figure.cpp:31</a></div></div>
+<div class="ttc" id="aclassFigure_html_ac6bc0ed04c3290f9d88cf34b7f11e16f"><div class="ttname"><a href="classFigure.html#ac6bc0ed04c3290f9d88cf34b7f11e16f">Figure::getchar</a></div><div class="ttdeci">bool getchar(int i, int j)</div><div class="ttdoc">Проверяет, занята ли клетка в фигуре</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00014">Figure.cpp:14</a></div></div>
+<div class="ttc" id="aclassFigure_html_adb686b1ab475f3f9d9f9a9cedf5e7ff4"><div class="ttname"><a href="classFigure.html#adb686b1ab475f3f9d9f9a9cedf5e7ff4">Figure::getWidth</a></div><div class="ttdeci">int getWidth()</div><div class="ttdoc">Возвращает ширину фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00030">Figure.cpp:30</a></div></div>
+<div class="ttc" id="aclassFigure_html_ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9"><div class="ttname"><a href="classFigure.html#ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9">Figure::getstarty</a></div><div class="ttdeci">int getstarty()</div><div class="ttdoc">Возвращает Y-координату фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00022">Figure.cpp:22</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Тетрис: Класс Figure</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Тетрис<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Консольная игра Тетрис на C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="classFigure-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс Figure</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Базовый класс фигуры Тетриса  
+ <a href="classFigure.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Figure_8h_source.html">Figure.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:Figure:</div>
+<div class="dyncontent">
+<div class="center"><img src="classFigure__inherit__graph.png" border="0" usemap="#aFigure_inherit__map" alt="Inheritance graph"/></div>
+<map name="aFigure_inherit__map" id="aFigure_inherit__map">
+<area shape="rect" title="Базовый класс фигуры Тетриса" alt="" coords="299,5,448,411"/>
+<area shape="rect" href="classFigureI.html" title="Класс фигуры I (палка)" alt="" coords="5,459,88,524"/>
+<area shape="poly" title=" " alt="" coords="290,285,85,460,82,456,286,281"/>
+<area shape="rect" href="classFigureJ.html" title="Класс фигуры J." alt="" coords="112,459,195,524"/>
+<area shape="poly" title=" " alt="" coords="292,317,180,460,176,457,288,314"/>
+<area shape="rect" href="classFigureL.html" title="Класс фигуры L." alt="" coords="219,459,304,524"/>
+<area shape="poly" title=" " alt="" coords="296,410,276,459,271,458,291,408"/>
+<area shape="rect" href="classFigureO.html" title="Класс фигуры O (квадрат)" alt="" coords="329,459,418,524"/>
+<area shape="poly" title=" " alt="" coords="376,424,376,459,371,459,371,424"/>
+<area shape="rect" href="classFigureS.html" title="Класс фигуры S." alt="" coords="442,459,529,524"/>
+<area shape="poly" title=" " alt="" coords="456,408,475,458,470,459,451,410"/>
+<area shape="rect" href="classFigureT.html" title="Класс фигуры T." alt="" coords="553,459,639,524"/>
+<area shape="poly" title=" " alt="" coords="459,313,573,456,569,460,455,316"/>
+<area shape="rect" href="classFigureZ.html" title="Класс фигуры Z." alt="" coords="664,459,752,524"/>
+<area shape="poly" title=" " alt="" coords="460,279,672,456,669,460,457,283"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a1d9e03a4db51fcdca64aa5137e72b076" id="r_a1d9e03a4db51fcdca64aa5137e72b076"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a1d9e03a4db51fcdca64aa5137e72b076">Figure</a> ()</td></tr>
+<tr class="memdesc:a1d9e03a4db51fcdca64aa5137e72b076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор по умолчанию  <br /></td></tr>
+<tr class="separator:a1d9e03a4db51fcdca64aa5137e72b076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d79e4624498b4ee1354128f5da4f7e" id="r_ad8d79e4624498b4ee1354128f5da4f7e"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; bool &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#ad8d79e4624498b4ee1354128f5da4f7e">getMatrix</a> () const</td></tr>
+<tr class="memdesc:ad8d79e4624498b4ee1354128f5da4f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает константную ссылку на матрицу формы  <br /></td></tr>
+<tr class="separator:ad8d79e4624498b4ee1354128f5da4f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20d799c8cbc4cb29328558317c66a4cf" id="r_a20d799c8cbc4cb29328558317c66a4cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a20d799c8cbc4cb29328558317c66a4cf">setMatrix</a> (const std::vector&lt; bool &gt; &amp;newMatrix, int newWidth, int newHeight)</td></tr>
+<tr class="memdesc:a20d799c8cbc4cb29328558317c66a4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает новую матрицу формы  <br /></td></tr>
+<tr class="separator:a20d799c8cbc4cb29328558317c66a4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6bc0ed04c3290f9d88cf34b7f11e16f" id="r_ac6bc0ed04c3290f9d88cf34b7f11e16f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#ac6bc0ed04c3290f9d88cf34b7f11e16f">getchar</a> (int i, int j)</td></tr>
+<tr class="memdesc:ac6bc0ed04c3290f9d88cf34b7f11e16f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, занята ли клетка в фигуре  <br /></td></tr>
+<tr class="separator:ac6bc0ed04c3290f9d88cf34b7f11e16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd1ec4d74a0d6631967e1128d6e7df4" id="r_a6dd1ec4d74a0d6631967e1128d6e7df4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a6dd1ec4d74a0d6631967e1128d6e7df4">getstartx</a> ()</td></tr>
+<tr class="memdesc:a6dd1ec4d74a0d6631967e1128d6e7df4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает X-координату фигуры  <br /></td></tr>
+<tr class="separator:a6dd1ec4d74a0d6631967e1128d6e7df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9" id="r_ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9">getstarty</a> ()</td></tr>
+<tr class="memdesc:ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает Y-координату фигуры  <br /></td></tr>
+<tr class="separator:ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e61de7e52619a4a3239b8c7842f27d5" id="r_a8e61de7e52619a4a3239b8c7842f27d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a8e61de7e52619a4a3239b8c7842f27d5">getHeight</a> ()</td></tr>
+<tr class="memdesc:a8e61de7e52619a4a3239b8c7842f27d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает высоту фигуры  <br /></td></tr>
+<tr class="separator:a8e61de7e52619a4a3239b8c7842f27d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb686b1ab475f3f9d9f9a9cedf5e7ff4" id="r_adb686b1ab475f3f9d9f9a9cedf5e7ff4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#adb686b1ab475f3f9d9f9a9cedf5e7ff4">getWidth</a> ()</td></tr>
+<tr class="memdesc:adb686b1ab475f3f9d9f9a9cedf5e7ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ширину фигуры  <br /></td></tr>
+<tr class="separator:adb686b1ab475f3f9d9f9a9cedf5e7ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf6cc3f1890fc7eff66ca0dc24dcc09c" id="r_abf6cc3f1890fc7eff66ca0dc24dcc09c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#abf6cc3f1890fc7eff66ca0dc24dcc09c">getcolor</a> ()</td></tr>
+<tr class="memdesc:abf6cc3f1890fc7eff66ca0dc24dcc09c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает цвет фигуры  <br /></td></tr>
+<tr class="separator:abf6cc3f1890fc7eff66ca0dc24dcc09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9251cda664f9e26f5bc191b27e4b449" id="r_ae9251cda664f9e26f5bc191b27e4b449"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#ae9251cda664f9e26f5bc191b27e4b449">getRotationState</a> () const</td></tr>
+<tr class="memdesc:ae9251cda664f9e26f5bc191b27e4b449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает текущее состояние вращения  <br /></td></tr>
+<tr class="separator:ae9251cda664f9e26f5bc191b27e4b449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69f5f7d2f5cc81c6034e794acbbb2333" id="r_a69f5f7d2f5cc81c6034e794acbbb2333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a69f5f7d2f5cc81c6034e794acbbb2333">setPosition</a> (int x, int y)</td></tr>
+<tr class="memdesc:a69f5f7d2f5cc81c6034e794acbbb2333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает позицию фигуры на поле  <br /></td></tr>
+<tr class="separator:a69f5f7d2f5cc81c6034e794acbbb2333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17f83c6fb78479affcad605755662357" id="r_a17f83c6fb78479affcad605755662357"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a17f83c6fb78479affcad605755662357">rotate</a> ()</td></tr>
+<tr class="memdesc:a17f83c6fb78479affcad605755662357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вращает фигуру на 90 градусов по часовой стрелке  <br /></td></tr>
+<tr class="separator:a17f83c6fb78479affcad605755662357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a20ae4d3c0a02e923a15d13880d474e1b" id="r_a20ae4d3c0a02e923a15d13880d474e1b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a></td></tr>
+<tr class="separator:a20ae4d3c0a02e923a15d13880d474e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54b7c179621adf0abaad9b0b4b66e7b6" id="r_a54b7c179621adf0abaad9b0b4b66e7b6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a></td></tr>
+<tr class="separator:a54b7c179621adf0abaad9b0b4b66e7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8906578da615bc306b182603d41fca47" id="r_a8906578da615bc306b182603d41fca47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> = 2</td></tr>
+<tr class="separator:a8906578da615bc306b182603d41fca47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce9cfd31f625635c2b8f646da2e2d01" id="r_afce9cfd31f625635c2b8f646da2e2d01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a> = 2</td></tr>
+<tr class="separator:afce9cfd31f625635c2b8f646da2e2d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7f693dac9af45189a5064baee01a843" id="r_ab7f693dac9af45189a5064baee01a843"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#ab7f693dac9af45189a5064baee01a843">startx</a> = 10</td></tr>
+<tr class="separator:ab7f693dac9af45189a5064baee01a843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3d314504829b5658ecc299adfb2e29d" id="r_ae3d314504829b5658ecc299adfb2e29d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#ae3d314504829b5658ecc299adfb2e29d">starty</a> = 1</td></tr>
+<tr class="separator:ae3d314504829b5658ecc299adfb2e29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa4785dac8d5e29fd75d15b8f0bd6666" id="r_aaa4785dac8d5e29fd75d15b8f0bd6666"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a> = 0</td></tr>
+<tr class="separator:aaa4785dac8d5e29fd75d15b8f0bd6666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Базовый класс фигуры Тетриса </p>
+<p>Представляет абстрактную фигуру с возможностью вращения и перемещения. Содержит информацию о форме, цвете, положении и состоянии вращения. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00018">18</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a1d9e03a4db51fcdca64aa5137e72b076" name="a1d9e03a4db51fcdca64aa5137e72b076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d9e03a4db51fcdca64aa5137e72b076">&#9670;&#160;</a></span>Figure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Figure::Figure </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор по умолчанию </p>
+<dl class="section note"><dt>Заметки</dt><dd>Создает фигуру 2x2 </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00012">12</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>: <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a>(4, <span class="keyword">false</span>), <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a>(2), <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a>(2), <a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a>(0) {}</div>
+<div class="ttc" id="aclassFigure_html_a20ae4d3c0a02e923a15d13880d474e1b"><div class="ttname"><a href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">Figure::matrix</a></div><div class="ttdeci">std::vector&lt; bool &gt; matrix</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00020">Figure.h:20</a></div></div>
+<div class="ttc" id="aclassFigure_html_a8906578da615bc306b182603d41fca47"><div class="ttname"><a href="classFigure.html#a8906578da615bc306b182603d41fca47">Figure::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00022">Figure.h:22</a></div></div>
+<div class="ttc" id="aclassFigure_html_aaa4785dac8d5e29fd75d15b8f0bd6666"><div class="ttname"><a href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">Figure::rotationState</a></div><div class="ttdeci">int rotationState</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00026">Figure.h:26</a></div></div>
+<div class="ttc" id="aclassFigure_html_afce9cfd31f625635c2b8f646da2e2d01"><div class="ttname"><a href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">Figure::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00023">Figure.h:23</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="ac6bc0ed04c3290f9d88cf34b7f11e16f" name="ac6bc0ed04c3290f9d88cf34b7f11e16f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6bc0ed04c3290f9d88cf34b7f11e16f">&#9670;&#160;</a></span>getchar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Figure::getchar </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверяет, занята ли клетка в фигуре </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Номер строки в матрице фигуры </td></tr>
+    <tr><td class="paramname">j</td><td>Номер столбца в матрице фигуры </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если клетка занята </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00014">14</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                 {</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">if</span> (i &gt;= 0 &amp;&amp; i &lt; height &amp;&amp; j &gt;= 0 &amp;&amp; j &lt; <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a>) {</div>
+<div class="line"><span class="lineno">   16</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a>[i * <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> + j];</div>
+<div class="line"><span class="lineno">   17</span>    }</div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   19</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00020">matrix</a> и <a class="el" href="Figure_8h_source.html#l00022">width</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00582">GameController::CanMove()</a>, <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00161">ConsoleView::ClearGhostFigure()</a>, <a class="el" href="Field_8cpp_source.html#l00167">Field::placeFigure()</a>, <a class="el" href="Field_8cpp_source.html#l00089">BucketField::placeFigure()</a>, <a class="el" href="PictureField_8cpp_source.html#l00152">PictureField::placeFigure()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00258">ConsoleView::ShowFigure()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00090">ConsoleView::ShowGhostFigure()</a> и <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a>.</p>
+
+</div>
+</div>
+<a id="abf6cc3f1890fc7eff66ca0dc24dcc09c" name="abf6cc3f1890fc7eff66ca0dc24dcc09c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6cc3f1890fc7eff66ca0dc24dcc09c">&#9670;&#160;</a></span>getcolor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Figure::getcolor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Возвращает цвет фигуры </p>
+<dl class="section return"><dt>Возвращает</dt><dd>ANSI-строка с цветом </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00031">31</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a>; }</div>
+<div class="ttc" id="aclassFigure_html_a54b7c179621adf0abaad9b0b4b66e7b6"><div class="ttname"><a href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">Figure::color</a></div><div class="ttdeci">string color</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00021">Figure.h:21</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00021">color</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a>, <a class="el" href="Field_8cpp_source.html#l00167">Field::placeFigure()</a>, <a class="el" href="Field_8cpp_source.html#l00089">BucketField::placeFigure()</a>, <a class="el" href="PictureField_8cpp_source.html#l00152">PictureField::placeFigure()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00258">ConsoleView::ShowFigure()</a> и <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a>.</p>
+
+</div>
+</div>
+<a id="a8e61de7e52619a4a3239b8c7842f27d5" name="a8e61de7e52619a4a3239b8c7842f27d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e61de7e52619a4a3239b8c7842f27d5">&#9670;&#160;</a></span>getHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::getHeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Возвращает высоту фигуры </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Высота в клетках </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00029">29</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00023">height</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00582">GameController::CanMove()</a>, <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00161">ConsoleView::ClearGhostFigure()</a>, <a class="el" href="Field_8cpp_source.html#l00167">Field::placeFigure()</a>, <a class="el" href="Field_8cpp_source.html#l00089">BucketField::placeFigure()</a>, <a class="el" href="PictureField_8cpp_source.html#l00152">PictureField::placeFigure()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00258">ConsoleView::ShowFigure()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00090">ConsoleView::ShowGhostFigure()</a> и <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a>.</p>
+
+</div>
+</div>
+<a id="ad8d79e4624498b4ee1354128f5da4f7e" name="ad8d79e4624498b4ee1354128f5da4f7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8d79e4624498b4ee1354128f5da4f7e">&#9670;&#160;</a></span>getMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; bool &gt; &amp; Figure::getMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает константную ссылку на матрицу формы </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Константная ссылка на вектор bool </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00039">39</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00020">matrix</a>.</p>
+
+</div>
+</div>
+<a id="ae9251cda664f9e26f5bc191b27e4b449" name="ae9251cda664f9e26f5bc191b27e4b449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9251cda664f9e26f5bc191b27e4b449">&#9670;&#160;</a></span>getRotationState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::getRotationState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает текущее состояние вращения </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Число от 0 до 3 </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00095">95</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a>; };</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00026">rotationState</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a>.</p>
+
+</div>
+</div>
+<a id="a6dd1ec4d74a0d6631967e1128d6e7df4" name="a6dd1ec4d74a0d6631967e1128d6e7df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd1ec4d74a0d6631967e1128d6e7df4">&#9670;&#160;</a></span>getstartx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::getstartx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Возвращает X-координату фигуры </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Координата X </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00021">21</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFigure.html#ab7f693dac9af45189a5064baee01a843">startx</a>; }</div>
+<div class="ttc" id="aclassFigure_html_ab7f693dac9af45189a5064baee01a843"><div class="ttname"><a href="classFigure.html#ab7f693dac9af45189a5064baee01a843">Figure::startx</a></div><div class="ttdeci">int startx</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00024">Figure.h:24</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00024">startx</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00582">GameController::CanMove()</a>, <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00161">ConsoleView::ClearGhostFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00144">GameController::DropFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00176">GameController::Input()</a>, <a class="el" href="Field_8cpp_source.html#l00167">Field::placeFigure()</a>, <a class="el" href="Field_8cpp_source.html#l00089">BucketField::placeFigure()</a>, <a class="el" href="PictureField_8cpp_source.html#l00152">PictureField::placeFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00090">ConsoleView::ShowGhostFigure()</a> и <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a>.</p>
+
+</div>
+</div>
+<a id="ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9" name="ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9">&#9670;&#160;</a></span>getstarty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::getstarty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Возвращает Y-координату фигуры </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Координата Y </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00022">22</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFigure.html#ae3d314504829b5658ecc299adfb2e29d">starty</a>; }</div>
+<div class="ttc" id="aclassFigure_html_ae3d314504829b5658ecc299adfb2e29d"><div class="ttname"><a href="classFigure.html#ae3d314504829b5658ecc299adfb2e29d">Figure::starty</a></div><div class="ttdeci">int starty</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00025">Figure.h:25</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00025">starty</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00582">GameController::CanMove()</a>, <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00161">ConsoleView::ClearGhostFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00144">GameController::DropFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00176">GameController::Input()</a>, <a class="el" href="Field_8cpp_source.html#l00167">Field::placeFigure()</a>, <a class="el" href="Field_8cpp_source.html#l00089">BucketField::placeFigure()</a>, <a class="el" href="PictureField_8cpp_source.html#l00152">PictureField::placeFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00090">ConsoleView::ShowGhostFigure()</a> и <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a>.</p>
+
+</div>
+</div>
+<a id="adb686b1ab475f3f9d9f9a9cedf5e7ff4" name="adb686b1ab475f3f9d9f9a9cedf5e7ff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb686b1ab475f3f9d9f9a9cedf5e7ff4">&#9670;&#160;</a></span>getWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::getWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Возвращает ширину фигуры </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ширина в клетках </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00030">30</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00022">width</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00582">GameController::CanMove()</a>, <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00161">ConsoleView::ClearGhostFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00607">GameController::NewPosition()</a>, <a class="el" href="Field_8cpp_source.html#l00167">Field::placeFigure()</a>, <a class="el" href="Field_8cpp_source.html#l00089">BucketField::placeFigure()</a>, <a class="el" href="PictureField_8cpp_source.html#l00152">PictureField::placeFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00083">GameController::returnToMenu()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00258">ConsoleView::ShowFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00689">GameController::showGameOverScreen()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00090">ConsoleView::ShowGhostFigure()</a> и <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a>.</p>
+
+</div>
+</div>
+<a id="a17f83c6fb78479affcad605755662357" name="a17f83c6fb78479affcad605755662357"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17f83c6fb78479affcad605755662357">&#9670;&#160;</a></span>rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Figure::rotate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вращает фигуру на 90 градусов по часовой стрелке </p>
+<dl class="section note"><dt>Заметки</dt><dd>Для каждой фигуры определены свои матрицы вращения </dd></dl>
+<p>Вращает фигуру на 90 градусов по часовой стрелке </p><dl class="section note"><dt>Заметки</dt><dd>Каждый тип фигуры имеет свои предопределенные матрицы вращения Фигура O не вращается Фигура I имеет особую логику смещения</dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00033">33</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>                    {<span class="comment"></span></div>
+<div class="line"><span class="lineno">   34</span><span class="comment">    /**</span></div>
+<div class="line"><span class="lineno">   35</span><span class="comment">     * @brief Вращает фигуру на 90 градусов по часовой стрелке</span></div>
+<div class="line"><span class="lineno">   36</span><span class="comment">     * @note Каждый тип фигуры имеет свои предопределенные матрицы вращения</span></div>
+<div class="line"><span class="lineno">   37</span><span class="comment">     *       Фигура O не вращается</span></div>
+<div class="line"><span class="lineno">   38</span><span class="comment">     *       Фигура I имеет особую логику смещения</span></div>
+<div class="line"><span class="lineno">   39</span><span class="comment">     */</span></div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a> = (<a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a> + 1) % 4;</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a> == <span class="stringliteral">&quot;\x1b[35m&quot;</span>) {</div>
+<div class="line"><span class="lineno">   43</span>        <a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a> = 0;</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a> == <span class="stringliteral">&quot;\x1b[33m&quot;</span>) {</div>
+<div class="line"><span class="lineno">   48</span>        std::vector&lt;std::vector&lt;bool&gt;&gt; tStates = {</div>
+<div class="line"><span class="lineno">   49</span>            {<span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   50</span>            {<span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   51</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   52</span>            {<span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>}</div>
+<div class="line"><span class="lineno">   53</span>        };</div>
+<div class="line"><span class="lineno">   54</span>        <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a> = tStates[<a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a>];</div>
+<div class="line"><span class="lineno">   55</span>        <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> = 3;</div>
+<div class="line"><span class="lineno">   56</span>        <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a> = 3;</div>
+<div class="line"><span class="lineno">   57</span>    }</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a> == <span class="stringliteral">&quot;\x1b[36m&quot;</span>) { </div>
+<div class="line"><span class="lineno">   59</span>        std::vector&lt;std::vector&lt;bool&gt;&gt; lStates = {</div>
+<div class="line"><span class="lineno">   60</span>            {<span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   61</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   62</span>            {<span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>},</div>
+<div class="line"><span class="lineno">   63</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}</div>
+<div class="line"><span class="lineno">   64</span>        };</div>
+<div class="line"><span class="lineno">   65</span>        <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a> = lStates[<a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a>];</div>
+<div class="line"><span class="lineno">   66</span>        <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> = 3;</div>
+<div class="line"><span class="lineno">   67</span>        <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a> = 3;</div>
+<div class="line"><span class="lineno">   68</span>    }</div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a> == <span class="stringliteral">&quot;\x1b[37m&quot;</span>) {</div>
+<div class="line"><span class="lineno">   70</span>        std::vector&lt;std::vector&lt;bool&gt;&gt; jStates = {</div>
+<div class="line"><span class="lineno">   71</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>},</div>
+<div class="line"><span class="lineno">   72</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>},</div>
+<div class="line"><span class="lineno">   73</span>            {<span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   74</span>            {<span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}</div>
+<div class="line"><span class="lineno">   75</span>        };</div>
+<div class="line"><span class="lineno">   76</span>        <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a> = jStates[<a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a>];</div>
+<div class="line"><span class="lineno">   77</span>        <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> = 3;</div>
+<div class="line"><span class="lineno">   78</span>        <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a> = 3;</div>
+<div class="line"><span class="lineno">   79</span>    }</div>
+<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a> == <span class="stringliteral">&quot;\x1b[32m&quot;</span>) {</div>
+<div class="line"><span class="lineno">   81</span>        std::vector&lt;std::vector&lt;bool&gt;&gt; sStates = {</div>
+<div class="line"><span class="lineno">   82</span>            {<span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   83</span>            {<span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>},</div>
+<div class="line"><span class="lineno">   84</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   85</span>            {<span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>}</div>
+<div class="line"><span class="lineno">   86</span>        };</div>
+<div class="line"><span class="lineno">   87</span>        <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a> = sStates[<a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a>];</div>
+<div class="line"><span class="lineno">   88</span>        <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> = 3;</div>
+<div class="line"><span class="lineno">   89</span>        <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a> = 3;</div>
+<div class="line"><span class="lineno">   90</span>    }</div>
+<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a> == <span class="stringliteral">&quot;\x1b[31m&quot;</span>) {</div>
+<div class="line"><span class="lineno">   92</span>        std::vector&lt;std::vector&lt;bool&gt;&gt; zStates = {</div>
+<div class="line"><span class="lineno">   93</span>            {<span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   94</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">   95</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>},</div>
+<div class="line"><span class="lineno">   96</span>            {<span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}</div>
+<div class="line"><span class="lineno">   97</span>        };</div>
+<div class="line"><span class="lineno">   98</span>        <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a> = zStates[<a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a>];</div>
+<div class="line"><span class="lineno">   99</span>        <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> = 3;</div>
+<div class="line"><span class="lineno">  100</span>        <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a> = 3;</div>
+<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classFigure.html#a54b7c179621adf0abaad9b0b4b66e7b6">color</a> == <span class="stringliteral">&quot;\x1b[34m&quot;</span>) {</div>
+<div class="line"><span class="lineno">  103</span>        std::vector&lt;std::vector&lt;bool&gt;&gt; iStates = {</div>
+<div class="line"><span class="lineno">  104</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">  105</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">  106</span>            {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>},</div>
+<div class="line"><span class="lineno">  107</span>            {<span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}</div>
+<div class="line"><span class="lineno">  108</span>        };</div>
+<div class="line"><span class="lineno">  109</span>        <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a> = iStates[<a class="code hl_variable" href="classFigure.html#aaa4785dac8d5e29fd75d15b8f0bd6666">rotationState</a>];</div>
+<div class="line"><span class="lineno">  110</span>        <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> = 4;</div>
+<div class="line"><span class="lineno">  111</span>        <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a> = 4;</div>
+<div class="line"><span class="lineno">  112</span>    }</div>
+<div class="line"><span class="lineno">  113</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00021">color</a>, <a class="el" href="Figure_8h_source.html#l00023">height</a>, <a class="el" href="Figure_8h_source.html#l00020">matrix</a>, <a class="el" href="Figure_8h_source.html#l00026">rotationState</a> и <a class="el" href="Figure_8h_source.html#l00022">width</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a> и <a class="el" href="GameController_8cpp_source.html#l00176">GameController::Input()</a>.</p>
+
+</div>
+</div>
+<a id="a20d799c8cbc4cb29328558317c66a4cf" name="a20d799c8cbc4cb29328558317c66a4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20d799c8cbc4cb29328558317c66a4cf">&#9670;&#160;</a></span>setMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Figure::setMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>newMatrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newHeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает новую матрицу формы </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newMatrix</td><td>Новая матрица формы </td></tr>
+    <tr><td class="paramname">newWidth</td><td>Новая ширина </td></tr>
+    <tr><td class="paramname">newHeight</td><td>Новая высота </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00047">47</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>                                                                                  {</div>
+<div class="line"><span class="lineno">   48</span>        <a class="code hl_variable" href="classFigure.html#a20ae4d3c0a02e923a15d13880d474e1b">matrix</a> = newMatrix;</div>
+<div class="line"><span class="lineno">   49</span>        <a class="code hl_variable" href="classFigure.html#a8906578da615bc306b182603d41fca47">width</a> = newWidth;</div>
+<div class="line"><span class="lineno">   50</span>        <a class="code hl_variable" href="classFigure.html#afce9cfd31f625635c2b8f646da2e2d01">height</a> = newHeight;</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00023">height</a>, <a class="el" href="Figure_8h_source.html#l00020">matrix</a> и <a class="el" href="Figure_8h_source.html#l00022">width</a>.</p>
+
+</div>
+</div>
+<a id="a69f5f7d2f5cc81c6034e794acbbb2333" name="a69f5f7d2f5cc81c6034e794acbbb2333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69f5f7d2f5cc81c6034e794acbbb2333">&#9670;&#160;</a></span>setPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Figure::setPosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Устанавливает позицию фигуры на поле </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Новая X-координата </td></tr>
+    <tr><td class="paramname">y</td><td>Новая Y-координата </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8cpp_source.html">Figure.cpp</a> строка <a class="el" href="Figure_8cpp_source.html#l00024">24</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>                                     {</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_variable" href="classFigure.html#ab7f693dac9af45189a5064baee01a843">startx</a> = x;</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_variable" href="classFigure.html#ae3d314504829b5658ecc299adfb2e29d">starty</a> = y;</div>
+<div class="line"><span class="lineno">   27</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8h_source.html#l00024">startx</a> и <a class="el" href="Figure_8h_source.html#l00025">starty</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00527">GameController::CanRotate()</a>, <a class="el" href="GameController_8cpp_source.html#l00144">GameController::DropFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00019">GameController::GameController()</a>, <a class="el" href="GameController_8cpp_source.html#l00176">GameController::Input()</a>, <a class="el" href="GameController_8cpp_source.html#l00607">GameController::NewPosition()</a>, <a class="el" href="GameController_8cpp_source.html#l00083">GameController::returnToMenu()</a> и <a class="el" href="GameController_8cpp_source.html#l00689">GameController::showGameOverScreen()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a54b7c179621adf0abaad9b0b4b66e7b6" name="a54b7c179621adf0abaad9b0b4b66e7b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b7c179621adf0abaad9b0b4b66e7b6">&#9670;&#160;</a></span>color</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Figure::color</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>ANSI-строка с цветом фигуры </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00021">21</a></p>
+
+<p class="reference">Используется в <a class="el" href="Figure_8cpp_source.html#l00142">FigureI::FigureI()</a>, <a class="el" href="Figure_8cpp_source.html#l00173">FigureJ::FigureJ()</a>, <a class="el" href="Figure_8cpp_source.html#l00122">FigureL::FigureL()</a>, <a class="el" href="Figure_8cpp_source.html#l00114">FigureO::FigureO()</a>, <a class="el" href="Figure_8cpp_source.html#l00153">FigureS::FigureS()</a>, <a class="el" href="Figure_8cpp_source.html#l00132">FigureT::FigureT()</a>, <a class="el" href="Figure_8cpp_source.html#l00163">FigureZ::FigureZ()</a>, <a class="el" href="Figure_8cpp_source.html#l00031">getcolor()</a> и <a class="el" href="Figure_8cpp_source.html#l00033">rotate()</a>.</p>
+
+</div>
+</div>
+<a id="afce9cfd31f625635c2b8f646da2e2d01" name="afce9cfd31f625635c2b8f646da2e2d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce9cfd31f625635c2b8f646da2e2d01">&#9670;&#160;</a></span>height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::height = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Высота фигуры в клетках </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00023">23</a></p>
+
+<p class="reference">Используется в <a class="el" href="Figure_8cpp_source.html#l00142">FigureI::FigureI()</a>, <a class="el" href="Figure_8cpp_source.html#l00173">FigureJ::FigureJ()</a>, <a class="el" href="Figure_8cpp_source.html#l00122">FigureL::FigureL()</a>, <a class="el" href="Figure_8cpp_source.html#l00114">FigureO::FigureO()</a>, <a class="el" href="Figure_8cpp_source.html#l00153">FigureS::FigureS()</a>, <a class="el" href="Figure_8cpp_source.html#l00132">FigureT::FigureT()</a>, <a class="el" href="Figure_8cpp_source.html#l00163">FigureZ::FigureZ()</a>, <a class="el" href="Figure_8cpp_source.html#l00029">getHeight()</a>, <a class="el" href="Figure_8cpp_source.html#l00033">rotate()</a> и <a class="el" href="Figure_8h_source.html#l00047">setMatrix()</a>.</p>
+
+</div>
+</div>
+<a id="a20ae4d3c0a02e923a15d13880d474e1b" name="a20ae4d3c0a02e923a15d13880d474e1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ae4d3c0a02e923a15d13880d474e1b">&#9670;&#160;</a></span>matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;bool&gt; Figure::matrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Матрица формы фигуры (true - клетка занята) </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00020">20</a></p>
+
+<p class="reference">Используется в <a class="el" href="Figure_8cpp_source.html#l00142">FigureI::FigureI()</a>, <a class="el" href="Figure_8cpp_source.html#l00173">FigureJ::FigureJ()</a>, <a class="el" href="Figure_8cpp_source.html#l00122">FigureL::FigureL()</a>, <a class="el" href="Figure_8cpp_source.html#l00114">FigureO::FigureO()</a>, <a class="el" href="Figure_8cpp_source.html#l00153">FigureS::FigureS()</a>, <a class="el" href="Figure_8cpp_source.html#l00132">FigureT::FigureT()</a>, <a class="el" href="Figure_8cpp_source.html#l00163">FigureZ::FigureZ()</a>, <a class="el" href="Figure_8cpp_source.html#l00014">getchar()</a>, <a class="el" href="Figure_8h_source.html#l00039">getMatrix()</a>, <a class="el" href="Figure_8cpp_source.html#l00033">rotate()</a> и <a class="el" href="Figure_8h_source.html#l00047">setMatrix()</a>.</p>
+
+</div>
+</div>
+<a id="aaa4785dac8d5e29fd75d15b8f0bd6666" name="aaa4785dac8d5e29fd75d15b8f0bd6666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa4785dac8d5e29fd75d15b8f0bd6666">&#9670;&#160;</a></span>rotationState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::rotationState = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Текущее состояние вращения (0-3) </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00026">26</a></p>
+
+<p class="reference">Используется в <a class="el" href="Figure_8cpp_source.html#l00142">FigureI::FigureI()</a>, <a class="el" href="Figure_8cpp_source.html#l00173">FigureJ::FigureJ()</a>, <a class="el" href="Figure_8cpp_source.html#l00122">FigureL::FigureL()</a>, <a class="el" href="Figure_8cpp_source.html#l00114">FigureO::FigureO()</a>, <a class="el" href="Figure_8cpp_source.html#l00153">FigureS::FigureS()</a>, <a class="el" href="Figure_8cpp_source.html#l00132">FigureT::FigureT()</a>, <a class="el" href="Figure_8cpp_source.html#l00163">FigureZ::FigureZ()</a>, <a class="el" href="Figure_8h_source.html#l00095">getRotationState()</a> и <a class="el" href="Figure_8cpp_source.html#l00033">rotate()</a>.</p>
+
+</div>
+</div>
+<a id="ab7f693dac9af45189a5064baee01a843" name="ab7f693dac9af45189a5064baee01a843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7f693dac9af45189a5064baee01a843">&#9670;&#160;</a></span>startx</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::startx = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>X-координата левого верхнего угла </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00024">24</a></p>
+
+<p class="reference">Используется в <a class="el" href="Figure_8cpp_source.html#l00021">getstartx()</a> и <a class="el" href="Figure_8cpp_source.html#l00024">setPosition()</a>.</p>
+
+</div>
+</div>
+<a id="ae3d314504829b5658ecc299adfb2e29d" name="ae3d314504829b5658ecc299adfb2e29d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d314504829b5658ecc299adfb2e29d">&#9670;&#160;</a></span>starty</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::starty = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Y-координата левого верхнего угла </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00025">25</a></p>
+
+<p class="reference">Используется в <a class="el" href="Figure_8cpp_source.html#l00022">getstarty()</a> и <a class="el" href="Figure_8cpp_source.html#l00024">setPosition()</a>.</p>
+
+</div>
+</div>
+<a id="a8906578da615bc306b182603d41fca47" name="a8906578da615bc306b182603d41fca47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8906578da615bc306b182603d41fca47">&#9670;&#160;</a></span>width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Figure::width = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ширина фигуры в клетках </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Figure_8h_source.html">Figure.h</a> строка <a class="el" href="Figure_8h_source.html#l00022">22</a></p>
+
+<p class="reference">Используется в <a class="el" href="Figure_8cpp_source.html#l00142">FigureI::FigureI()</a>, <a class="el" href="Figure_8cpp_source.html#l00173">FigureJ::FigureJ()</a>, <a class="el" href="Figure_8cpp_source.html#l00122">FigureL::FigureL()</a>, <a class="el" href="Figure_8cpp_source.html#l00114">FigureO::FigureO()</a>, <a class="el" href="Figure_8cpp_source.html#l00153">FigureS::FigureS()</a>, <a class="el" href="Figure_8cpp_source.html#l00132">FigureT::FigureT()</a>, <a class="el" href="Figure_8cpp_source.html#l00163">FigureZ::FigureZ()</a>, <a class="el" href="Figure_8cpp_source.html#l00014">getchar()</a>, <a class="el" href="Figure_8cpp_source.html#l00030">getWidth()</a>, <a class="el" href="Figure_8cpp_source.html#l00033">rotate()</a> и <a class="el" href="Figure_8h_source.html#l00047">setMatrix()</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="Figure_8h_source.html">Figure.h</a></li>
+<li>src/<a class="el" href="Figure_8cpp_source.html">Figure.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

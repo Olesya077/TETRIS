@@ -1,0 +1,27 @@
+<map id="include/Figure.h" name="include/Figure.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса" alt="" coords="388,5,513,31"/>
+<area shape="rect" id="Node000002" href="$Field_8h.html" title="Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField." alt="" coords="252,79,368,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="417,39,334,81,332,76,414,34"/>
+<area shape="rect" id="Node000004" href="$GameController_8h.html" title="Заголовочный файл, содержащий объявление класса GameController &#45; главного контроллера игры Тетрис" alt="" coords="306,299,493,324"/>
+<area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="450,45,439,136,420,251,406,299,401,298,414,250,434,135,445,44"/>
+<area shape="rect" id="Node000011" href="$Figure_8cpp.html" title="Реализация фигур Тетриса" alt="" coords="488,79,600,104"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="478,37,530,76,527,81,474,41"/>
+<area shape="rect" id="Node000003" href="$ConsoleView_8h.html" title="Заголовочный файл, содержащий объявление класса ConsoleView." alt="" coords="194,225,362,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="282,114,263,132,249,153,246,172,250,191,270,224,266,226,246,193,240,172,244,151,259,128,278,110"/>
+<area shape="poly" id="edge7_Node000002_Node000004" title=" " alt="" coords="340,110,359,128,375,151,391,191,399,233,403,298,397,299,394,234,386,193,371,153,355,132,336,114"/>
+<area shape="rect" id="Node000008" href="$PictureField_8h.html" title="Заголовочный файл, содержащий объявление класса PictureField для режима &quot;Собери картинку&quot;." alt="" coords="19,152,180,177"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="265,111,135,154,133,149,263,106"/>
+<area shape="rect" id="Node000010" href="$Field_8cpp.html" title="Реализация игровых полей (базовое и ведро)" alt="" coords="259,152,362,177"/>
+<area shape="poly" id="edge12_Node000002_Node000010" title=" " alt="" coords="313,118,313,152,308,152,308,118"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="311,255,381,296,378,301,309,260"/>
+<area shape="rect" id="Node000007" href="$ConsoleView_8cpp.html" title="Реализация методов класса ConsoleView для отображения игрового интерфейса" alt="" coords="128,299,282,324"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="258,262,219,300,215,297,255,258"/>
+<area shape="rect" id="Node000005" href="$GameController_8cpp.html" title="Реализация главного контроллера игры Тетрис" alt="" coords="23,372,198,397"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="341,330,158,374,156,369,339,325"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title="Главный файл приложения Тетрис" alt="" coords="347,372,452,397"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="402,338,402,372,397,372,397,338"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="142,180,250,223,248,228,140,185"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="57,186,31,203,11,227,8,238,11,250,29,287,53,321,99,370,95,374,49,325,25,290,6,252,3,238,7,224,28,199,54,181"/>
+<area shape="rect" id="Node000009" href="$PictureField_8cpp.html" title="Реализация поля для режима &quot;Собери картинку&quot;." alt="" coords="22,225,170,251"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="101,191,99,225,94,225,95,191"/>
+</map>
