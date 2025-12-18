@@ -36,3 +36,7 @@ INPUT                  = .
 FILE_PATTERNS          = *.h *.cpp
 RECURSIVE              = YES
 EXCLUDE_PATTERNS       = */test/* */build/*
+HTML_EXTRA_STYLESHEET = doxygen-awesome-css/doxygen-awesome.css
+DISABLE_INDEX = NO
+FULL_SIDEBAR = NO
+HTML_COLORSTYLE = LIGHT
