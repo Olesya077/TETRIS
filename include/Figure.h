@@ -1,3 +1,7 @@
+/**
+ * @file Figure.h
+ * @brief Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса
+ */
 #ifndef FIGURE_H
 #define FIGURE_H
 

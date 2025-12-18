@@ -1,3 +1,7 @@
+/**
+ * @file TerminalHelper.h
+ * @brief Заголовочный файл, содержащий объявление класса TerminalHelper для работы с терминалом
+ */
 #ifndef TERMINALHELPER_H
 #define TERMINALHELPER_H
 

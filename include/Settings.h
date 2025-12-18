@@ -1,3 +1,7 @@
+/**
+ * @file Settings.h
+ * @brief Заголовочный файл, содержащий объявление класса Settings для управления настройками игры
+ */
 #ifndef SETTINGS_H
 #define SETTINGS_H
 

@@ -4,7 +4,8 @@
  * 
  * Содержит логику размещения фигур, проверки столкновений и очистки линий
  * для различных типов игровых полей.
- */#include "Field.h"
+ */
+#include "Field.h"
 #include <iostream>
 #include <algorithm>
 

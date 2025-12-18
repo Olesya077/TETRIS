@@ -1,3 +1,8 @@
+/**
+ * @file Score.h
+ * @brief Заголовочный файл, содержащий объявление класса GameScore для управления системой рекордов
+ * 
+ */
 #ifndef SCORESYSTEM_H
 #define SCORESYSTEM_H
 

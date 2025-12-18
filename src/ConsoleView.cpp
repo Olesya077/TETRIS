@@ -1,3 +1,7 @@
+/**
+ * @file ConsoleView.cpp
+ * @brief Реализация методов класса ConsoleView для отображения игрового интерфейса
+ */
 #include "ConsoleView.h"
 #include <iostream>
 #include "TerminalHelper.h"
@@ -39,6 +43,21 @@ void ConsoleView::ShowField(Field& field) {
     std::cout.flush();
 }
 
+void ConsoleView::ShowPictureBackground(PictureField& pictureField) {
+    if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
+        return;
+    }
+    
+    for (int i = 0; i < pictureField.getHeight(); i++) {
+        for (int j = 0; j < pictureField.getWidth(); j++) {
+            if (!pictureField.getch(i, j) && pictureField.isInTargetArea(i, j)) {
+                TerminalHelper::moveCursorTo(i, j * 2);
+                std::cout << "\x1b[90m" << "▒▒" << "\x1b[0m";
+            }
+        }
+    }
+    std::cout.flush();
+}
 
 void ConsoleView::ShowPlacedFigure(Figure& figure, Field& field) {
     if (!TerminalHelper::isTerminalSizeValid(24, 48)) {

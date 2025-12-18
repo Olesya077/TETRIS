@@ -32,9 +32,7 @@ GameController::GameController() :
     playerName("Player"),
     gamePaused(false),
     isPictureMode(false),
-    nameEntered(false),
-    sequenceMode(0),
-    sequenceIndex(0)
+    nameEntered(false)
 {
     /**
      * @brief Инициализация контроллера
@@ -115,6 +113,9 @@ void GameController::returnToMenu() {
             }
         } else {
             figure.setPosition(10, 1);
+        }
+        if (isPictureMode) {
+        view.ShowPictureField(*field);
         }
         
         showScore();
@@ -200,18 +201,23 @@ void GameController::Input() {
                 field = nullptr;
                 TerminalHelper::clearScreen();
             if (GameMenu()) {
-                view.ShowField(*field);
-                figure = FigureO();
-                showScore();
-                showLevelInfo();
-                if (isPictureMode) {
-                    PictureField* pictureField = (PictureField*)field;
-
-
+            if (isPictureMode) {
+             view.ShowPictureField(*field);
+                } else {
+            view.ShowField(*field);
+                 }
+        figure = FigureO();
+        showScore();
+        showLevelInfo();
+        if (isPictureMode) {
+            PictureField* pictureField = (PictureField*)field;
+            if (pictureField) {
+                view.ShowPictureField(*field);
+            }
                 }
             } else {
-                gameRunning = false;
-                }
+            gameRunning = false;
+            }
             break;
             case 's':
                 ShowSettingsMenu(true);
@@ -279,7 +285,6 @@ void GameController::ShowPauseMenu() {
     std::cout << "Нажмите s чтобы открыть настройки" << std::endl;
     std::cout << "Нажмите v чтобы посмотреть рекорды" << std::endl;
     std::cout << "Нажмите q чтобы выйти" << std::endl;
-    std::cout << "Нажмите 0 для возврата в игру" << std::endl;
     std::cout.flush();
 }
 
@@ -456,7 +461,6 @@ void GameController::ShowCurrentSettings() {
               << " мкс" << std::endl;
     std::cout << "  Баллы за дроп: " << Settings::getDropPointsForLevel(settings->getLevel()) 
               << " за клетку" << std::endl;
-    std::cout << "\n\nНажмите 0 или q для возврата...";
 }
 
 void GameController::ShowMainSettingsMenu() {
@@ -659,16 +663,8 @@ if (linesCleared > 0) {
 }
     }
         int figureType;
-    if (sequenceMode == 1) {
-        figureType = 0;
-    } 
-    else if (sequenceMode == 2) {
-        figureType = sequenceIndex % 7;
-        sequenceIndex = (sequenceIndex + 1) % 7;
-    }
-    else {
         figureType = rand() % 7;
-    }
+
     switch(figureType) {
         case 0: figure = FigureO(); break;
         case 1: figure = FigureL(); break;
@@ -688,11 +684,6 @@ if (linesCleared > 0) {
     if (!CanMove(0, 0)) {
         showGameOverScreen(false);
     }
-}
-
-void GameController::setSequenceMode(int mode) {
-    sequenceMode = mode;
-    sequenceIndex = 0;
 }
 
 void GameController::showGameOverScreen(bool isPictureModeGameOver) {
@@ -730,12 +721,7 @@ void GameController::showGameOverScreen(bool isPictureModeGameOver) {
     settings->setLevel(1);
     isPictureMode = false;
     gamePaused = false;
-    
-    // Очищаем экран
     TerminalHelper::clearScreen();
-    
-    // НЕ УСТАНАВЛИВАЕМ gameRunning = false, чтобы игра продолжала работать
-    // Вместо этого вызываем GameMenu() для возврата в главное меню
     if (GameMenu()) {
         gameRunning = true;
         if (isPictureMode) {
@@ -988,6 +974,9 @@ bool GameController::GameMenu() {
         count = 1;
         field = new PictureField(pictureType);
         isPictureMode = true;
+        PictureField* pictureField = dynamic_cast<PictureField*>(field);
+        if (pictureField) {
+        pictureField->resetGame();}
         TerminalHelper::clearScreen();
         std::cout << "=== СОБЕРИ КАРТИНКУ ===\n\n";
         std::cout << "Задача: заполните серую область фигурами\n";

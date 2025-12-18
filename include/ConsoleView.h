@@ -1,3 +1,8 @@
+/**
+ * @file ConsoleView.h
+ * @brief Заголовочный файл, содержащий объявление класса ConsoleView
+ * 
+ * */
 #ifndef CONSOLEVIEW_H
 #define CONSOLEVIEW_H
 
@@ -81,6 +86,8 @@ public:
      * @note Использует специальную отрисовку для целевых областей
      */
     void ShowPictureField(Field& field);
+
+    void ShowPictureBackground(PictureField& pictureField);
 };
 
 #endif

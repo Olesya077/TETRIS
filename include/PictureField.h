@@ -1,3 +1,7 @@
+/**
+ * @file PictureField.h
+ * @brief Заголовочный файл, содержащий объявление класса PictureField для режима "Собери картинку"
+ */
 #ifndef PICTUREFIELD_H
 #define PICTUREFIELD_H
 
@@ -155,6 +159,7 @@ public:
      * @param col Номер столбца
      */
     void showBackgroundAt(int row, int col) const;
+    
 };
 
 #endif

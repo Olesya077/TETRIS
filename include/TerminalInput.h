@@ -1,3 +1,7 @@
+/**
+ * @file TerminalInput.h
+ * @brief Заголовочный файл, содержащий объявление класса TerminalInput для обработки неблокирующего ввода
+ */
 #ifndef INPUT_H
 #define INPUT_H
 

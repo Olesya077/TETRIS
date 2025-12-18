@@ -1,0 +1,38 @@
+
+PROJECT_NAME           = "Тетрис"
+PROJECT_NUMBER         = 1.0
+PROJECT_BRIEF          = "Консольная игра Тетрис на C++"
+OUTPUT_DIRECTORY       = docs
+CREATE_SUBDIRS         = NO
+
+OUTPUT_LANGUAGE        = Russian
+
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_RTF           = NO
+GENERATE_MAN           = NO
+GENERATE_XML           = NO
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_LOCAL_METHODS  = YES
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+STRIP_CODE_COMMENTS    = NO
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+HAVE_DOT               = YES
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+COLLABORATION_GRAPH    = NO
+UML_LOOK               = YES
+TEMPLATE_RELATIONS     = YES
+
+INPUT                  = .
+FILE_PATTERNS          = *.h *.cpp
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = */test/* */build/*

@@ -1,3 +1,6 @@
+/**
+ * @file GameController.h
+ * @brief Заголовочный файл, содержащий объявление класса GameController - главного контроллера игры Тетрис*/
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 
@@ -32,11 +35,6 @@ private:
     bool gamePaused;
     bool isPictureMode;
     bool nameEntered;
-    int sequenceMode;          /**< Режим последовательности выпадающих фигур 
-                                *   @note 0 - случайный выбор (по умолчанию)
-                                *         1 - только фигуры типа O (квадрат)
-                                *         2 - последовательное чередование фигур по порядку */
-    int sequenceIndex;         /**< Индекс для чередования фигур */
 
 public:
     GameController();
@@ -149,16 +147,6 @@ public:
      * @param isPictureModeGameOver true если игра в режиме "Собери картинку"
      */
     void showGameOverScreen(bool isPictureModeGameOver);
-    /**
-     * @brief Устанавливает режим последовательности выпадающих фигур
-     * @param mode Режим последовательности:
-     *             0 - случайные фигуры (стандартный режим)
-     *             1 - только фигуры типа O (квадрат)
-     *             2 - последовательное чередование фигур (O→L→T→I→S→Z→J→O...)
-     * 
-     * @note Вызывается из main() при обработке аргументов командной строки.
-     */
-    void setSequenceMode(int mode);
 private:
     /**
      * @brief Быстрое падение фигуры (дроп)

@@ -147,6 +147,8 @@ std::string PictureField::getPictureName() const {
     }
 }
 
+
+
 void PictureField::placeFigure(Figure& figure) {
     int x = figure.getstartx();
     int y = figure.getstarty();
