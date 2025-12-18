@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Тетрис: Файл src/PictureField.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Тетрис<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Консольная игра Тетрис на C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Файл PictureField.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Реализация поля для режима "Собери картинку".  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="PictureField_8h_source.html">PictureField.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="TerminalHelper_8h_source.html">TerminalHelper.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Граф включаемых заголовочных файлов для PictureField.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="PictureField_8cpp__incl.png" border="0" usemap="#asrc_2PictureField_8cpp" alt=""/></div>
+<map name="asrc_2PictureField_8cpp" id="asrc_2PictureField_8cpp">
+<area shape="rect" title="Реализация поля для режима &quot;Собери картинку&quot;." alt="" coords="395,5,543,31"/>
+<area shape="rect" href="PictureField_8h.html" title="Заголовочный файл, содержащий объявление класса PictureField для режима &quot;Собери картинку&quot;." alt="" coords="131,79,241,104"/>
+<area shape="poly" title=" " alt="" coords="424,33,245,78,244,73,423,28"/>
+<area shape="rect" title=" " alt="" coords="223,152,303,177"/>
+<area shape="poly" title=" " alt="" coords="450,33,374,81,290,145,286,141,371,76,447,29"/>
+<area shape="rect" title=" " alt="" coords="559,79,645,104"/>
+<area shape="poly" title=" " alt="" coords="491,28,569,70,567,74,489,33"/>
+<area shape="rect" title=" " alt="" coords="669,79,735,104"/>
+<area shape="poly" title=" " alt="" coords="507,28,657,74,655,79,505,33"/>
+<area shape="rect" title=" " alt="" coords="759,79,818,104"/>
+<area shape="poly" title=" " alt="" coords="528,28,746,76,745,81,526,33"/>
+<area shape="rect" title=" " alt="" coords="327,152,402,177"/>
+<area shape="poly" title=" " alt="" coords="448,33,419,53,392,80,378,110,370,139,365,138,373,108,388,77,415,49,445,29"/>
+<area shape="rect" href="TerminalHelper_8h.html" title="Заголовочный файл, содержащий объявление класса TerminalHelper для работы с терминалом" alt="" coords="403,79,535,104"/>
+<area shape="poly" title=" " alt="" coords="471,31,471,65,466,65,466,31"/>
+<area shape="rect" href="Field_8h.html" title="Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField." alt="" coords="79,152,144,177"/>
+<area shape="poly" title=" " alt="" coords="176,106,135,144,132,141,172,102"/>
+<area shape="rect" title=" " alt="" coords="5,299,68,324"/>
+<area shape="poly" title=" " alt="" coords="143,107,103,125,84,138,68,154,50,185,41,221,37,255,37,285,32,285,32,255,35,220,45,183,64,150,81,134,100,120,141,102"/>
+<area shape="rect" title=" " alt="" coords="125,299,183,324"/>
+<area shape="poly" title=" " alt="" coords="187,105,160,285,155,285,182,104"/>
+<area shape="poly" title=" " alt="" coords="200,102,242,141,239,144,197,106"/>
+<area shape="rect" href="Figure_8h.html" title="Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса" alt="" coords="74,225,149,251"/>
+<area shape="poly" title=" " alt="" coords="114,178,114,212,109,212,109,178"/>
+<area shape="poly" title=" " alt="" coords="101,179,82,200,64,227,52,257,44,286,39,284,47,255,60,224,78,197,97,176"/>
+<area shape="poly" title=" " alt="" coords="101,253,61,291,57,287,98,249"/>
+<area shape="poly" title=" " alt="" coords="121,250,142,286,138,288,116,252"/>
+<area shape="poly" title=" " alt="" coords="437,107,310,150,309,145,435,101"/>
+<area shape="poly" title=" " alt="" coords="453,106,395,146,392,142,450,102"/>
+<area shape="rect" title=" " alt="" coords="426,152,514,177"/>
+<area shape="poly" title=" " alt="" coords="472,104,472,138,467,139,466,104"/>
+<area shape="rect" title=" " alt="" coords="538,152,599,177"/>
+<area shape="poly" title=" " alt="" coords="486,102,543,142,540,146,483,106"/>
+<area shape="rect" title=" " alt="" coords="623,152,687,177"/>
+<area shape="poly" title=" " alt="" coords="500,102,613,145,611,149,498,107"/>
+<area shape="rect" title=" " alt="" coords="711,152,778,177"/>
+<area shape="poly" title=" " alt="" coords="514,101,699,149,698,154,512,107"/>
+<area shape="rect" title=" " alt="" coords="803,152,871,177"/>
+<area shape="poly" title=" " alt="" coords="535,101,790,149,789,155,534,106"/>
+</map>
+</div>
+</div>
+<p><a href="PictureField_8cpp_source.html">См. исходные тексты.</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Реализация поля для режима "Собери картинку". </p>
+<p>Содержит логику создания различных картинок и проверки их сборки. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="PictureField_8cpp_source.html">PictureField.cpp</a></p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

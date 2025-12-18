@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Тетрис: Класс BucketField</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Тетрис<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Консольная игра Тетрис на C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classBucketField-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс BucketField</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс поля в форме ведра  
+ <a href="classBucketField.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Field_8h_source.html">Field.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:BucketField:</div>
+<div class="dyncontent">
+<div class="center"><img src="classBucketField__inherit__graph.png" border="0" usemap="#aBucketField_inherit__map" alt="Inheritance graph"/></div>
+<map name="aBucketField_inherit__map" id="aBucketField_inherit__map">
+<area shape="rect" title="Класс поля в форме ведра" alt="" coords="5,399,184,584"/>
+<area shape="rect" href="classField.html" title="Базовый класс игрового поля" alt="" coords="28,5,161,351"/>
+<area shape="poly" title=" " alt="" coords="97,365,97,398,92,398,92,365"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a9035638e3dc9f1ecbe60197341189c05" id="r_a9035638e3dc9f1ecbe60197341189c05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBucketField.html#a9035638e3dc9f1ecbe60197341189c05">BucketField</a> ()</td></tr>
+<tr class="memdesc:a9035638e3dc9f1ecbe60197341189c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор поля-ведра  <br /></td></tr>
+<tr class="separator:a9035638e3dc9f1ecbe60197341189c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3b3228b06ab6a1d8a2a748cabe51e5" id="r_aed3b3228b06ab6a1d8a2a748cabe51e5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBucketField.html#aed3b3228b06ab6a1d8a2a748cabe51e5">placeFigure</a> (<a class="el" href="classFigure.html">Figure</a> &amp;figure) override</td></tr>
+<tr class="memdesc:aed3b3228b06ab6a1d8a2a748cabe51e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Размещает фигуру с учетом формы ведра  <br /></td></tr>
+<tr class="separator:aed3b3228b06ab6a1d8a2a748cabe51e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a485b894983f244a9325d81d1ab33e" id="r_a82a485b894983f244a9325d81d1ab33e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a> (int row) override</td></tr>
+<tr class="memdesc:a82a485b894983f244a9325d81d1ab33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ширину строки  <br /></td></tr>
+<tr class="separator:a82a485b894983f244a9325d81d1ab33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14b8be4230bb7225f1b6e5819f6f1d9b" id="r_a14b8be4230bb7225f1b6e5819f6f1d9b"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBucketField.html#a14b8be4230bb7225f1b6e5819f6f1d9b">getWidth</a> () override</td></tr>
+<tr class="memdesc:a14b8be4230bb7225f1b6e5819f6f1d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает общую ширину поля  <br /></td></tr>
+<tr class="separator:a14b8be4230bb7225f1b6e5819f6f1d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1c56f1ff25ae660199624675484b94" id="r_acd1c56f1ff25ae660199624675484b94"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBucketField.html#acd1c56f1ff25ae660199624675484b94">clearFullLines</a> ()</td></tr>
+<tr class="memdesc:acd1c56f1ff25ae660199624675484b94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очищает заполненные линии с учетом формы ведра  <br /></td></tr>
+<tr class="separator:acd1c56f1ff25ae660199624675484b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f17daf1e4fb0576849ae7a9a81a28f3" id="r_a9f17daf1e4fb0576849ae7a9a81a28f3"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBucketField.html#a9f17daf1e4fb0576849ae7a9a81a28f3">isValidPosition</a> (int row, int col)</td></tr>
+<tr class="memdesc:a9f17daf1e4fb0576849ae7a9a81a28f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет валидность позиции в ведре  <br /></td></tr>
+<tr class="separator:a9f17daf1e4fb0576849ae7a9a81a28f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classField"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classField')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classField.html">Field</a></td></tr>
+<tr class="memitem:a3e804c92273d9159f413f227b535c672 inherit pub_methods_classField" id="r_a3e804c92273d9159f413f227b535c672"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a3e804c92273d9159f413f227b535c672">Field</a> ()</td></tr>
+<tr class="memdesc:a3e804c92273d9159f413f227b535c672 inherit pub_methods_classField"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор по умолчанию  <br /></td></tr>
+<tr class="separator:a3e804c92273d9159f413f227b535c672 inherit pub_methods_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae82056a33c8e0fbc101c42635a0cd008 inherit pub_methods_classField" id="r_ae82056a33c8e0fbc101c42635a0cd008"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ae82056a33c8e0fbc101c42635a0cd008">~Field</a> ()=default</td></tr>
+<tr class="memdesc:ae82056a33c8e0fbc101c42635a0cd008 inherit pub_methods_classField"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальный деструктор  <br /></td></tr>
+<tr class="separator:ae82056a33c8e0fbc101c42635a0cd008 inherit pub_methods_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f59cb646e563cd9caaa50ad4490edc1 inherit pub_methods_classField" id="r_a5f59cb646e563cd9caaa50ad4490edc1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">getch</a> (int i, int j)</td></tr>
+<tr class="memdesc:a5f59cb646e563cd9caaa50ad4490edc1 inherit pub_methods_classField"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, занята ли клетка  <br /></td></tr>
+<tr class="separator:a5f59cb646e563cd9caaa50ad4490edc1 inherit pub_methods_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84255d7a378961550062a3f5a3e5f2d5 inherit pub_methods_classField" id="r_a84255d7a378961550062a3f5a3e5f2d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a> (int i, int j, bool value, const std::string &amp;color=&quot;&quot;)</td></tr>
+<tr class="memdesc:a84255d7a378961550062a3f5a3e5f2d5 inherit pub_methods_classField"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает состояние клетки  <br /></td></tr>
+<tr class="separator:a84255d7a378961550062a3f5a3e5f2d5 inherit pub_methods_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6c1ae876bceb3f9d44d84a52df41c6 inherit pub_methods_classField" id="r_aeb6c1ae876bceb3f9d44d84a52df41c6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#aeb6c1ae876bceb3f9d44d84a52df41c6">getColor</a> (int i, int j)</td></tr>
+<tr class="memdesc:aeb6c1ae876bceb3f9d44d84a52df41c6 inherit pub_methods_classField"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает цвет клетки  <br /></td></tr>
+<tr class="separator:aeb6c1ae876bceb3f9d44d84a52df41c6 inherit pub_methods_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39db829e87a75308ea3e7f650c5b8aa inherit pub_methods_classField" id="r_ac39db829e87a75308ea3e7f650c5b8aa"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ac39db829e87a75308ea3e7f650c5b8aa">getHeight</a> ()</td></tr>
+<tr class="memdesc:ac39db829e87a75308ea3e7f650c5b8aa inherit pub_methods_classField"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает высоту поля  <br /></td></tr>
+<tr class="separator:ac39db829e87a75308ea3e7f650c5b8aa inherit pub_methods_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a409b085da582ea04bc782aa041ade77b" id="r_a409b085da582ea04bc782aa041ade77b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBucketField.html#a409b085da582ea04bc782aa041ade77b">initializeBucketShape</a> ()</td></tr>
+<tr class="memdesc:a409b085da582ea04bc782aa041ade77b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализирует форму ведра  <br /></td></tr>
+<tr class="separator:a409b085da582ea04bc782aa041ade77b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:aa89dc4b02e015802bdb3467f34ab38b6" id="r_aa89dc4b02e015802bdb3467f34ab38b6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a></td></tr>
+<tr class="separator:aa89dc4b02e015802bdb3467f34ab38b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_attribs_classField"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classField')"><img src="closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="classField.html">Field</a></td></tr>
+<tr class="memitem:ac6dae8a709b4f425a4ffe830d9b268e8 inherit pro_attribs_classField" id="r_ac6dae8a709b4f425a4ffe830d9b268e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ac6dae8a709b4f425a4ffe830d9b268e8">isPictureMode</a></td></tr>
+<tr class="separator:ac6dae8a709b4f425a4ffe830d9b268e8 inherit pro_attribs_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4c09899237546ec863d386ddc84bda3 inherit pro_attribs_classField" id="r_ab4c09899237546ec863d386ddc84bda3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ab4c09899237546ec863d386ddc84bda3">fieldmatrix</a></td></tr>
+<tr class="separator:ab4c09899237546ec863d386ddc84bda3 inherit pro_attribs_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af837756f0890d9e741703271b6c33716 inherit pro_attribs_classField" id="r_af837756f0890d9e741703271b6c33716"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#af837756f0890d9e741703271b6c33716">fieldcolors</a></td></tr>
+<tr class="separator:af837756f0890d9e741703271b6c33716 inherit pro_attribs_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34f854bb1105212d22bfee034b4e09ec inherit pro_attribs_classField" id="r_a34f854bb1105212d22bfee034b4e09ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> = 22</td></tr>
+<tr class="separator:a34f854bb1105212d22bfee034b4e09ec inherit pro_attribs_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b437c03abdb07c8af7116131a4d6ec9 inherit pro_attribs_classField" id="r_a2b437c03abdb07c8af7116131a4d6ec9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> = 22</td></tr>
+<tr class="separator:a2b437c03abdb07c8af7116131a4d6ec9 inherit pro_attribs_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс поля в форме ведра </p>
+<p>Специализированное поле, сужающееся кверху (в форме ведра). Переопределяет методы для работы с нестандартной геометрией. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8h_source.html">Field.h</a> строка <a class="el" href="Field_8h_source.html#l00110">110</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a9035638e3dc9f1ecbe60197341189c05" name="a9035638e3dc9f1ecbe60197341189c05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9035638e3dc9f1ecbe60197341189c05">&#9670;&#160;</a></span>BucketField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BucketField::BucketField </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор поля-ведра </p>
+<dl class="section note"><dt>Заметки</dt><dd>Инициализирует форму ведра </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8cpp_source.html">Field.cpp</a> строка <a class="el" href="Field_8cpp_source.html#l00035">35</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>                         {</div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> = 22;</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> = 22;</div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_function" href="classBucketField.html#a409b085da582ea04bc782aa041ade77b">initializeBucketShape</a>();</div>
+<div class="line"><span class="lineno">   39</span>}</div>
+<div class="ttc" id="aclassBucketField_html_a409b085da582ea04bc782aa041ade77b"><div class="ttname"><a href="classBucketField.html#a409b085da582ea04bc782aa041ade77b">BucketField::initializeBucketShape</a></div><div class="ttdeci">void initializeBucketShape()</div><div class="ttdoc">Инициализирует форму ведра</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00041">Field.cpp:41</a></div></div>
+<div class="ttc" id="aclassField_html_a2b437c03abdb07c8af7116131a4d6ec9"><div class="ttname"><a href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">Field::fieldHeight</a></div><div class="ttdeci">int fieldHeight</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00022">Field.h:22</a></div></div>
+<div class="ttc" id="aclassField_html_a34f854bb1105212d22bfee034b4e09ec"><div class="ttname"><a href="classField.html#a34f854bb1105212d22bfee034b4e09ec">Field::fieldWidth</a></div><div class="ttdeci">int fieldWidth</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00021">Field.h:21</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Field_8h_source.html#l00022">Field::fieldHeight</a>, <a class="el" href="Field_8h_source.html#l00021">Field::fieldWidth</a> и <a class="el" href="Field_8cpp_source.html#l00041">initializeBucketShape()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="acd1c56f1ff25ae660199624675484b94" name="acd1c56f1ff25ae660199624675484b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd1c56f1ff25ae660199624675484b94">&#9670;&#160;</a></span>clearFullLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BucketField::clearFullLines </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Очищает заполненные линии с учетом формы ведра </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Количество очищенных линий @override </dd></dl>
+<p>Очищает линии с учетом формы ведра </p><dl class="section return"><dt>Возвращает</dt><dd>Количество очищенных линий </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Учитывает переменную ширину строк в ведре</dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="classField.html#a2d9548121a9f71de41ef294c1fecf17a">Field</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8cpp_source.html">Field.cpp</a> строка <a class="el" href="Field_8cpp_source.html#l00108">108</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>                                {<span class="comment"></span></div>
+<div class="line"><span class="lineno">  109</span><span class="comment">    /**</span></div>
+<div class="line"><span class="lineno">  110</span><span class="comment">     * @brief Очищает линии с учетом формы ведра</span></div>
+<div class="line"><span class="lineno">  111</span><span class="comment">     * @return Количество очищенных линий</span></div>
+<div class="line"><span class="lineno">  112</span><span class="comment">     * @note Учитывает переменную ширину строк в ведре</span></div>
+<div class="line"><span class="lineno">  113</span><span class="comment">     */</span></div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordtype">int</span> linesCleared = 0;</div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> row = <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> - 2; row &gt;= 1; row--) { </div>
+<div class="line"><span class="lineno">  117</span>        <span class="keywordtype">bool</span> lineFull = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordtype">int</span> width = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(row);</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordtype">int</span> leftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - width) / 2;</div>
+<div class="line"><span class="lineno">  121</span>        <span class="keywordtype">int</span> rightBound = leftBound + width;</div>
+<div class="line"><span class="lineno">  122</span>        </div>
+<div class="line"><span class="lineno">  123</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = leftBound; col &lt; rightBound; col++) {</div>
+<div class="line"><span class="lineno">  124</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">getch</a>(row, col)) {</div>
+<div class="line"><span class="lineno">  125</span>                lineFull = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  126</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  127</span>            }</div>
+<div class="line"><span class="lineno">  128</span>        }</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">if</span> (lineFull) {</div>
+<div class="line"><span class="lineno">  131</span>            linesCleared++;</div>
+<div class="line"><span class="lineno">  132</span>            </div>
+<div class="line"><span class="lineno">  133</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> moveRow = row; moveRow &gt;= 1; moveRow--) {</div>
+<div class="line"><span class="lineno">  134</span>                <span class="keywordtype">int</span> moveWidth = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(moveRow);</div>
+<div class="line"><span class="lineno">  135</span>                <span class="keywordtype">int</span> moveLeftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - moveWidth) / 2;</div>
+<div class="line"><span class="lineno">  136</span>                <span class="keywordtype">int</span> moveRightBound = moveLeftBound + moveWidth;</div>
+<div class="line"><span class="lineno">  137</span>                </div>
+<div class="line"><span class="lineno">  138</span>                <span class="keywordtype">int</span> prevWidth = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(moveRow - 1);</div>
+<div class="line"><span class="lineno">  139</span>                <span class="keywordtype">int</span> prevLeftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - prevWidth) / 2;</div>
+<div class="line"><span class="lineno">  140</span>                <span class="keywordtype">int</span> prevRightBound = prevLeftBound + prevWidth;</div>
+<div class="line"><span class="lineno">  141</span>                </div>
+<div class="line"><span class="lineno">  142</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = moveLeftBound; col &lt; moveRightBound; col++) {</div>
+<div class="line"><span class="lineno">  143</span>                    <span class="keywordtype">bool</span> value = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  144</span>                    std::string color = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">  145</span>                    </div>
+<div class="line"><span class="lineno">  146</span>                    <span class="keywordflow">if</span> (moveRow &gt; 0 &amp;&amp; col &gt;= prevLeftBound &amp;&amp; col &lt; prevRightBound) {</div>
+<div class="line"><span class="lineno">  147</span>                        value = <a class="code hl_function" href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">getch</a>(moveRow - 1, col);</div>
+<div class="line"><span class="lineno">  148</span>                        color = <a class="code hl_function" href="classField.html#aeb6c1ae876bceb3f9d44d84a52df41c6">getColor</a>(moveRow - 1, col);</div>
+<div class="line"><span class="lineno">  149</span>                    }</div>
+<div class="line"><span class="lineno">  150</span>                    <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(moveRow, col, value, color);</div>
+<div class="line"><span class="lineno">  151</span>                }</div>
+<div class="line"><span class="lineno">  152</span>            }</div>
+<div class="line"><span class="lineno">  153</span>            </div>
+<div class="line"><span class="lineno">  154</span>            <span class="keywordtype">int</span> topWidth = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(0);</div>
+<div class="line"><span class="lineno">  155</span>            <span class="keywordtype">int</span> topLeftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - topWidth) / 2;</div>
+<div class="line"><span class="lineno">  156</span>            <span class="keywordtype">int</span> topRightBound = topLeftBound + topWidth;</div>
+<div class="line"><span class="lineno">  157</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = topLeftBound; col &lt; topRightBound; col++) {</div>
+<div class="line"><span class="lineno">  158</span>                <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(0, col, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">  159</span>            }</div>
+<div class="line"><span class="lineno">  160</span>            </div>
+<div class="line"><span class="lineno">  161</span>            row++;</div>
+<div class="line"><span class="lineno">  162</span>        }</div>
+<div class="line"><span class="lineno">  163</span>    }</div>
+<div class="line"><span class="lineno">  164</span>    </div>
+<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">return</span> linesCleared;</div>
+<div class="line"><span class="lineno">  166</span>}</div>
+<div class="ttc" id="aclassBucketField_html_a82a485b894983f244a9325d81d1ab33e"><div class="ttname"><a href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">BucketField::getRowWidth</a></div><div class="ttdeci">virtual int getRowWidth(int row) override</div><div class="ttdoc">Возвращает ширину строки</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00070">Field.cpp:70</a></div></div>
+<div class="ttc" id="aclassField_html_a5f59cb646e563cd9caaa50ad4490edc1"><div class="ttname"><a href="classField.html#a5f59cb646e563cd9caaa50ad4490edc1">Field::getch</a></div><div class="ttdeci">bool getch(int i, int j)</div><div class="ttdoc">Проверяет, занята ли клетка</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00183">Field.cpp:183</a></div></div>
+<div class="ttc" id="aclassField_html_a84255d7a378961550062a3f5a3e5f2d5"><div class="ttname"><a href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">Field::setch</a></div><div class="ttdeci">void setch(int i, int j, bool value, const std::string &amp;color=&quot;&quot;)</div><div class="ttdoc">Устанавливает состояние клетки</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00190">Field.cpp:190</a></div></div>
+<div class="ttc" id="aclassField_html_aeb6c1ae876bceb3f9d44d84a52df41c6"><div class="ttname"><a href="classField.html#aeb6c1ae876bceb3f9d44d84a52df41c6">Field::getColor</a></div><div class="ttdeci">std::string getColor(int i, int j)</div><div class="ttdoc">Возвращает цвет клетки</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00028">Field.cpp:28</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Field_8h_source.html#l00022">Field::fieldHeight</a>, <a class="el" href="Field_8h_source.html#l00021">Field::fieldWidth</a>, <a class="el" href="Field_8cpp_source.html#l00183">Field::getch()</a>, <a class="el" href="Field_8cpp_source.html#l00028">Field::getColor()</a>, <a class="el" href="Field_8cpp_source.html#l00070">getRowWidth()</a> и <a class="el" href="Field_8cpp_source.html#l00190">Field::setch()</a>.</p>
+
+</div>
+</div>
+<a id="a82a485b894983f244a9325d81d1ab33e" name="a82a485b894983f244a9325d81d1ab33e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82a485b894983f244a9325d81d1ab33e">&#9670;&#160;</a></span>getRowWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BucketField::getRowWidth </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает ширину строки </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Номер строки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Ширина строки в клетках @override </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="classField.html#a60a07d2cecaea4ee5c61b0a323dc4688">Field</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8cpp_source.html">Field.cpp</a> строка <a class="el" href="Field_8cpp_source.html#l00070">70</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>                                    {</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span> (row &gt;= 0 &amp;&amp; row &lt; <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>) {</div>
+<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a>[row];</div>
+<div class="line"><span class="lineno">   73</span>    }</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>;</div>
+<div class="line"><span class="lineno">   75</span>}</div>
+<div class="ttc" id="aclassBucketField_html_aa89dc4b02e015802bdb3467f34ab38b6"><div class="ttname"><a href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">BucketField::rowWidths</a></div><div class="ttdeci">std::vector&lt; int &gt; rowWidths</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00112">Field.h:112</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Field_8h_source.html#l00022">Field::fieldHeight</a>, <a class="el" href="Field_8h_source.html#l00021">Field::fieldWidth</a> и <a class="el" href="Field_8h_source.html#l00112">rowWidths</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="Field_8cpp_source.html#l00108">clearFullLines()</a> и <a class="el" href="Field_8cpp_source.html#l00077">isValidPosition()</a>.</p>
+
+</div>
+</div>
+<a id="a14b8be4230bb7225f1b6e5819f6f1d9b" name="a14b8be4230bb7225f1b6e5819f6f1d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14b8be4230bb7225f1b6e5819f6f1d9b">&#9670;&#160;</a></span>getWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int BucketField::getWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает общую ширину поля </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ширина поля в клетках @override </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="classField.html#a53178ea9734894e60a5151d7e56d94e4">Field</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8h_source.html">Field.h</a> строка <a class="el" href="Field_8h_source.html#l00141">141</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  141</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Field_8h_source.html#l00021">Field::fieldWidth</a>.</p>
+
+</div>
+</div>
+<a id="a409b085da582ea04bc782aa041ade77b" name="a409b085da582ea04bc782aa041ade77b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a409b085da582ea04bc782aa041ade77b">&#9670;&#160;</a></span>initializeBucketShape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BucketField::initializeBucketShape </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализирует форму ведра </p>
+<dl class="section note"><dt>Заметки</dt><dd>Задает ширину каждой строки для создания сужающейся формы </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8cpp_source.html">Field.cpp</a> строка <a class="el" href="Field_8cpp_source.html#l00041">41</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>                                        {</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a>.resize(<a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>);</div>
+<div class="line"><span class="lineno">   43</span>    </div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordtype">int</span> minWidth = 6;</div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordtype">int</span> maxWidth = 22;</div>
+<div class="line"><span class="lineno">   46</span>    </div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> row = 0; row &lt; <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>; row++) {</div>
+<div class="line"><span class="lineno">   48</span>        <a class="code hl_variable" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a>[row] = minWidth + (maxWidth - minWidth) * row / (<a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> - 1);</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span>    </div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="classField.html#ab4c09899237546ec863d386ddc84bda3">fieldmatrix</a>.clear();</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="classField.html#ab4c09899237546ec863d386ddc84bda3">fieldmatrix</a>.resize(<a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> * <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">   53</span>    </div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> row = 0; row &lt; <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a>; row++) {</div>
+<div class="line"><span class="lineno">   55</span>        <span class="keywordtype">int</span> width = <a class="code hl_variable" href="classBucketField.html#aa89dc4b02e015802bdb3467f34ab38b6">rowWidths</a>[row];</div>
+<div class="line"><span class="lineno">   56</span>        <span class="keywordtype">int</span> leftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - width) / 2;</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordtype">int</span> rightBound = leftBound + width;</div>
+<div class="line"><span class="lineno">   58</span>        </div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = 0; col &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>; col++) {</div>
+<div class="line"><span class="lineno">   60</span>            <span class="keywordtype">bool</span> isWall = (col &lt; leftBound) || (col &gt;= rightBound);</div>
+<div class="line"><span class="lineno">   61</span>            <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(row, col, isWall);</div>
+<div class="line"><span class="lineno">   62</span>        }</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> col = 0; col &lt; <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>; col++) {</div>
+<div class="line"><span class="lineno">   66</span>        <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(<a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> - 1, col, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   67</span>    }</div>
+<div class="line"><span class="lineno">   68</span>}</div>
+<div class="ttc" id="aclassField_html_ab4c09899237546ec863d386ddc84bda3"><div class="ttname"><a href="classField.html#ab4c09899237546ec863d386ddc84bda3">Field::fieldmatrix</a></div><div class="ttdeci">std::vector&lt; bool &gt; fieldmatrix</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00019">Field.h:19</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Field_8h_source.html#l00022">Field::fieldHeight</a>, <a class="el" href="Field_8h_source.html#l00019">Field::fieldmatrix</a>, <a class="el" href="Field_8h_source.html#l00021">Field::fieldWidth</a>, <a class="el" href="Field_8h_source.html#l00112">rowWidths</a> и <a class="el" href="Field_8cpp_source.html#l00190">Field::setch()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="Field_8cpp_source.html#l00035">BucketField()</a>.</p>
+
+</div>
+</div>
+<a id="a9f17daf1e4fb0576849ae7a9a81a28f3" name="a9f17daf1e4fb0576849ae7a9a81a28f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f17daf1e4fb0576849ae7a9a81a28f3">&#9670;&#160;</a></span>isValidPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BucketField::isValidPosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет валидность позиции в ведре </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Номер строки </td></tr>
+    <tr><td class="paramname">col</td><td>Номер столбца </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если позиция внутри текущей ширины строки @override </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="classField.html#aedb5e6eca37c84b9cf269f629711171e">Field</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8cpp_source.html">Field.cpp</a> строка <a class="el" href="Field_8cpp_source.html#l00077">77</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   77</span>                                                  {</div>
+<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">if</span> (row &lt; 0 || row &gt;= <a class="code hl_variable" href="classField.html#a2b437c03abdb07c8af7116131a4d6ec9">fieldHeight</a> || col &lt; 0 || col &gt;= <a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a>) {</div>
+<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   80</span>    }</div>
+<div class="line"><span class="lineno">   81</span>    </div>
+<div class="line"><span class="lineno">   82</span>    <span class="keywordtype">int</span> width = <a class="code hl_function" href="classBucketField.html#a82a485b894983f244a9325d81d1ab33e">getRowWidth</a>(row);</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordtype">int</span> leftBound = (<a class="code hl_variable" href="classField.html#a34f854bb1105212d22bfee034b4e09ec">fieldWidth</a> - width) / 2;</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordtype">int</span> rightBound = leftBound + width;</div>
+<div class="line"><span class="lineno">   85</span>    </div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">return</span> col &gt;= leftBound &amp;&amp; col &lt; rightBound;</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Field_8h_source.html#l00022">Field::fieldHeight</a>, <a class="el" href="Field_8h_source.html#l00021">Field::fieldWidth</a> и <a class="el" href="Field_8cpp_source.html#l00070">getRowWidth()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="Field_8cpp_source.html#l00089">placeFigure()</a>.</p>
+
+</div>
+</div>
+<a id="aed3b3228b06ab6a1d8a2a748cabe51e5" name="aed3b3228b06ab6a1d8a2a748cabe51e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed3b3228b06ab6a1d8a2a748cabe51e5">&#9670;&#160;</a></span>placeFigure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BucketField::placeFigure </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFigure.html">Figure</a> &amp;&#160;</td>
+          <td class="paramname"><em>figure</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Размещает фигуру с учетом формы ведра </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">figure</td><td>Фигура для размещения @override </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Переопределяет метод предка <a class="el" href="classField.html#ad265ed981ccaeb7f6730ce03b9359f85">Field</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8cpp_source.html">Field.cpp</a> строка <a class="el" href="Field_8cpp_source.html#l00089">89</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>                                            {</div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordtype">int</span> x = figure.<a class="code hl_function" href="classFigure.html#a6dd1ec4d74a0d6631967e1128d6e7df4">getstartx</a>();</div>
+<div class="line"><span class="lineno">   91</span>    <span class="keywordtype">int</span> y = figure.<a class="code hl_function" href="classFigure.html#ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9">getstarty</a>();</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; figure.<a class="code hl_function" href="classFigure.html#a8e61de7e52619a4a3239b8c7842f27d5">getHeight</a>(); i++) {</div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; figure.<a class="code hl_function" href="classFigure.html#adb686b1ab475f3f9d9f9a9cedf5e7ff4">getWidth</a>(); j++) {</div>
+<div class="line"><span class="lineno">   95</span>            <span class="keywordflow">if</span> (figure.<a class="code hl_function" href="classFigure.html#ac6bc0ed04c3290f9d88cf34b7f11e16f">getchar</a>(i, j)) {</div>
+<div class="line"><span class="lineno">   96</span>                <span class="keywordtype">int</span> fieldx = x + j;</div>
+<div class="line"><span class="lineno">   97</span>                <span class="keywordtype">int</span> fieldy = y + i;</div>
+<div class="line"><span class="lineno">   98</span>                </div>
+<div class="line"><span class="lineno">   99</span>                <span class="keywordflow">if</span> (<a class="code hl_function" href="classBucketField.html#a9f17daf1e4fb0576849ae7a9a81a28f3">isValidPosition</a>(fieldy, fieldx)) {</div>
+<div class="line"><span class="lineno">  100</span>                    <a class="code hl_function" href="classField.html#a84255d7a378961550062a3f5a3e5f2d5">setch</a>(fieldy, fieldx, <span class="keyword">true</span>, figure.<a class="code hl_function" href="classFigure.html#abf6cc3f1890fc7eff66ca0dc24dcc09c">getcolor</a>());</div>
+<div class="line"><span class="lineno">  101</span>                }</div>
+<div class="line"><span class="lineno">  102</span>            }</div>
+<div class="line"><span class="lineno">  103</span>        }</div>
+<div class="line"><span class="lineno">  104</span>    }</div>
+<div class="line"><span class="lineno">  105</span>}</div>
+<div class="ttc" id="aclassBucketField_html_a9f17daf1e4fb0576849ae7a9a81a28f3"><div class="ttname"><a href="classBucketField.html#a9f17daf1e4fb0576849ae7a9a81a28f3">BucketField::isValidPosition</a></div><div class="ttdeci">virtual bool isValidPosition(int row, int col)</div><div class="ttdoc">Проверяет валидность позиции в ведре</div><div class="ttdef"><b>Definition</b> <a href="Field_8cpp_source.html#l00077">Field.cpp:77</a></div></div>
+<div class="ttc" id="aclassFigure_html_a6dd1ec4d74a0d6631967e1128d6e7df4"><div class="ttname"><a href="classFigure.html#a6dd1ec4d74a0d6631967e1128d6e7df4">Figure::getstartx</a></div><div class="ttdeci">int getstartx()</div><div class="ttdoc">Возвращает X-координату фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00021">Figure.cpp:21</a></div></div>
+<div class="ttc" id="aclassFigure_html_a8e61de7e52619a4a3239b8c7842f27d5"><div class="ttname"><a href="classFigure.html#a8e61de7e52619a4a3239b8c7842f27d5">Figure::getHeight</a></div><div class="ttdeci">int getHeight()</div><div class="ttdoc">Возвращает высоту фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00029">Figure.cpp:29</a></div></div>
+<div class="ttc" id="aclassFigure_html_abf6cc3f1890fc7eff66ca0dc24dcc09c"><div class="ttname"><a href="classFigure.html#abf6cc3f1890fc7eff66ca0dc24dcc09c">Figure::getcolor</a></div><div class="ttdeci">string getcolor()</div><div class="ttdoc">Возвращает цвет фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00031">Figure.cpp:31</a></div></div>
+<div class="ttc" id="aclassFigure_html_ac6bc0ed04c3290f9d88cf34b7f11e16f"><div class="ttname"><a href="classFigure.html#ac6bc0ed04c3290f9d88cf34b7f11e16f">Figure::getchar</a></div><div class="ttdeci">bool getchar(int i, int j)</div><div class="ttdoc">Проверяет, занята ли клетка в фигуре</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00014">Figure.cpp:14</a></div></div>
+<div class="ttc" id="aclassFigure_html_adb686b1ab475f3f9d9f9a9cedf5e7ff4"><div class="ttname"><a href="classFigure.html#adb686b1ab475f3f9d9f9a9cedf5e7ff4">Figure::getWidth</a></div><div class="ttdeci">int getWidth()</div><div class="ttdoc">Возвращает ширину фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00030">Figure.cpp:30</a></div></div>
+<div class="ttc" id="aclassFigure_html_ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9"><div class="ttname"><a href="classFigure.html#ae8eda3b1c7d4d308f3b4ba3b6a5fd6e9">Figure::getstarty</a></div><div class="ttdeci">int getstarty()</div><div class="ttdoc">Возвращает Y-координату фигуры</div><div class="ttdef"><b>Definition</b> <a href="Figure_8cpp_source.html#l00022">Figure.cpp:22</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="Figure_8cpp_source.html#l00014">Figure::getchar()</a>, <a class="el" href="Figure_8cpp_source.html#l00031">Figure::getcolor()</a>, <a class="el" href="Figure_8cpp_source.html#l00029">Figure::getHeight()</a>, <a class="el" href="Figure_8cpp_source.html#l00021">Figure::getstartx()</a>, <a class="el" href="Figure_8cpp_source.html#l00022">Figure::getstarty()</a>, <a class="el" href="Figure_8cpp_source.html#l00030">Figure::getWidth()</a>, <a class="el" href="Field_8cpp_source.html#l00077">isValidPosition()</a> и <a class="el" href="Field_8cpp_source.html#l00190">Field::setch()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="aa89dc4b02e015802bdb3467f34ab38b6" name="aa89dc4b02e015802bdb3467f34ab38b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa89dc4b02e015802bdb3467f34ab38b6">&#9670;&#160;</a></span>rowWidths</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt; BucketField::rowWidths</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ширина каждой строки (для сужающегося поля) </p>
+
+<p class="definition">См. определение в файле <a class="el" href="Field_8h_source.html">Field.h</a> строка <a class="el" href="Field_8h_source.html#l00112">112</a></p>
+
+<p class="reference">Используется в <a class="el" href="Field_8cpp_source.html#l00070">getRowWidth()</a> и <a class="el" href="Field_8cpp_source.html#l00041">initializeBucketShape()</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="Field_8h_source.html">Field.h</a></li>
+<li>src/<a class="el" href="Field_8cpp_source.html">Field.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

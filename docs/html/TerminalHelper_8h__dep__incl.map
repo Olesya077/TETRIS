@@ -1,0 +1,11 @@
+<map id="include/TerminalHelper.h" name="include/TerminalHelper.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл, содержащий объявление класса TerminalHelper для работы с терминалом" alt="" coords="273,5,455,31"/>
+<area shape="rect" id="Node000002" href="$ConsoleView_8cpp.html" title="Реализация методов класса ConsoleView для отображения игрового интерфейса" alt="" coords="5,79,160,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="306,37,129,81,128,76,305,31"/>
+<area shape="rect" id="Node000003" href="$GameController_8cpp.html" title="Реализация главного контроллера игры Тетрис" alt="" coords="185,79,359,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="340,41,289,81,285,76,337,37"/>
+<area shape="rect" id="Node000004" href="$PictureField_8cpp.html" title="Реализация поля для режима &quot;Собери картинку&quot;." alt="" coords="383,79,531,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="391,37,444,76,440,81,388,41"/>
+<area shape="rect" id="Node000005" href="$TerminalHelper_8cpp.html" title="Реализация статических методов TerminalHelper." alt="" coords="556,79,727,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="423,31,597,76,596,81,421,37"/>
+</map>

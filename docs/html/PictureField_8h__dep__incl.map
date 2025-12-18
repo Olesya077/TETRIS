@@ -1,0 +1,16 @@
+<map id="include/PictureField.h" name="include/PictureField.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл, содержащий объявление класса PictureField для режима &quot;Собери картинку&quot;." alt="" coords="327,5,489,31"/>
+<area shape="rect" id="Node000002" href="$ConsoleView_8h.html" title="Заголовочный файл, содержащий объявление класса ConsoleView." alt="" coords="203,79,371,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,40,308,81,305,76,375,35"/>
+<area shape="rect" id="Node000004" href="$GameController_8cpp.html" title="Реализация главного контроллера игры Тетрис" alt="" coords="247,225,422,251"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="411,45,405,107,397,143,385,178,368,206,349,227,345,223,364,203,380,176,392,142,400,106,405,44"/>
+<area shape="rect" id="Node000007" href="$PictureField_8cpp.html" title="Реализация поля для режима &quot;Собери картинку&quot;." alt="" coords="446,79,594,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="439,36,503,76,500,81,436,40"/>
+<area shape="rect" id="Node000003" href="$GameController_8h.html" title="Заголовочный файл, содержащий объявление класса GameController &#45; главного контроллера игры Тетрис" alt="" coords="5,152,192,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,111,130,154,128,149,243,106"/>
+<area shape="rect" id="Node000006" href="$ConsoleView_8cpp.html" title="Реализация методов класса ConsoleView для отображения игрового интерфейса" alt="" coords="216,152,371,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="292,118,295,152,290,152,286,118"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="150,179,297,223,296,228,149,184"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title="Главный файл приложения Тетрис" alt="" coords="46,225,151,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="101,191,101,225,96,225,96,191"/>
+</map>
