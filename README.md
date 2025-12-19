@@ -61,7 +61,7 @@
 ### Шаги установки:
 
 ```basht
-git clone https://github.com/Olesya077
+git clone https://github.com/Olesya077/TETRIS
 cd tetris
 mkdir build
 cd build
@@ -85,6 +85,7 @@ make
 
 
 </div>
+
 
 
 
