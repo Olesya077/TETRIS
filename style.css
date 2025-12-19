@@ -1,12 +1,23 @@
 :root {
-    --bg-color: #081b29;
-    --second-bg-color: #112e42;
-    --text-color: #ededed;
-    --main-color: #00abf0;
-    --rgba-main-color: rgba(0, 171, 240, 0.5);
-    --gradient-bg-color: linear-gradient(149deg, rgba(0, 171, 240, 1) 0%, rgba(187, 24, 148, 1) 80%, rgba(106, 57, 175, 1) 100%);
-    --gradient-text-color: linear-gradient(149deg, #00abf0, #00abf0, #1806a1, #00abf0, #00abf0);
-}
+    --bg-color: #0a1929;
+    --second-bg-color: #1a2c42;
+    --text-color: #e3f2fd;
+    --main-color: #4fc3f7;
+    --rgba-main-color: rgba(79, 195, 247, 0.5);
+    --gradient-bg-color: linear-gradient(135deg, 
+        #0a1929 0%,
+        #1a2c42 30%,
+        #263238 70%,
+        #0a1929 100%
+    );
+    
+    --gradient-text-color: linear-gradient(90deg, 
+        #4fc3f7,
+        #ba68c8,
+        #81c784,
+        #ffb74d,
+        #4fc3f7
+    );
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -752,3 +763,4 @@ h1::after {
         font-size: 1.2rem;
     }
 }
+
