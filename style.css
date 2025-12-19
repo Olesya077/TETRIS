@@ -1,22 +1,16 @@
 :root {
-    --bg-color: #0a1929;
-    --second-bg-color: #1a2c42;
-    --text-color: #e3f2fd;
-    --main-color: #4fc3f7;
-    --rgba-main-color: rgba(79, 195, 247, 0.5);
-    --gradient-bg-color: linear-gradient(135deg, 
-        #0a1929 0%,
-        #1a2c42 30%,
-        #263238 70%,
-        #0a1929 100%
-    );
-    
-    --gradient-text-color: linear-gradient(90deg, 
-        #4fc3f7,
-        #ba68c8,
-        #81c784,
-        #ffb74d,
-        #4fc3f7
+    --bg-color: #0a0a1a;
+    --second-bg-color: #1d1d3d;
+    --text-color: #ffffff;
+    --main-color: #00ffff;
+    --rgba-main-color: rgba(0, 255, 255, 0.7);
+
+    --gradient-bg-color: linear-gradient(145deg, 
+        #ff00ff 0%,
+        #00ffff 25%,
+        #ffff00 50%,
+        #ff00ff 75%,
+        #0a0a1a 100%
     );
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
@@ -763,4 +757,5 @@ h1::after {
         font-size: 1.2rem;
     }
 }
+
 
