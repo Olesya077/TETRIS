@@ -8,7 +8,7 @@
 Это реализация классической игры **Тетрис** для терминала Linux/Unix.
 
 <div align="center">
-![Demo](demo.gif)
+![Demo](_animation.gif)
 
 </div>
 
@@ -85,6 +85,7 @@ make
 
 
 </div>
+
 
 
 
