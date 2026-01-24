@@ -178,6 +178,7 @@ private:
      * @note Сбрасывает состояние игры и показывает меню
      */
     void returnToMenu();
+    void restoreTerminal();
 
 };
 
