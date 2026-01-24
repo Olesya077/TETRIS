@@ -69,7 +69,9 @@
  */
 #include "GameController.h"
 #include <iostream>
-
+#include "TerminalHelper.h"
+#include <unistd.h> 
+#include <termios.h>
 /**
  * @brief Точка входа в программу
  * 
@@ -115,6 +117,5 @@ int main(int argc, char* argv[]) {
     
     GameController controller;    
     controller.run();
-    
     return 0;
 }
