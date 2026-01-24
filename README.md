@@ -5,12 +5,12 @@
 
 </div>
 
-Это реализация классической игры **Тетрис** для терминала Linux/Unix.
+Это реализация игры **Тетрис** для терминала Linux/Unix.
 <div align="center">
 
 </div>
 
-![Demo](_animation.gif)
+![Demo](animation.gif)
 
 ## Особенности
 
@@ -78,6 +78,16 @@ make
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
