@@ -10,7 +10,7 @@
 
 </div>
 
-![Demo](_-animation.gif)
+
 
 ## Особенности
 
@@ -78,6 +78,7 @@ make
 
 
 </div>
+
 
 
 
