@@ -43,6 +43,13 @@ GameController::GameController() :
     TerminalHelper::saveScreen();
     TerminalHelper::clearScreen();
 }
+void GameController::restoreTerminal() {
+        struct termios term;
+        tcgetattr(STDIN_FILENO, &term);
+        term.c_lflag |= (ICANON | ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &term);
+        TerminalHelper::showCursor();
+}
 
 void GameController::GetPlayerName(){
     /**
@@ -135,6 +142,9 @@ GameController::~GameController() {
     delete field;
     field = nullptr;
     Settings::destroyInstance();
+    if (!gameRunning) {
+        restoreTerminal();
+    }    
     TerminalHelper::restoreScreen();
 }
 
@@ -745,7 +755,6 @@ void GameController::showGameOverScreen(bool isPictureModeGameOver) {
         showScore();
         showLevelInfo();
     } else {
-        // Пользователь выбрал выход из игры
         gameRunning = false;
     }
 }
@@ -905,6 +914,8 @@ bool GameController::GameMenu() {
             std::cout << "4. Выход" << std::endl;
         }
         else if (c == '4') {
+            //restoreTerminal();
+            gameRunning = false;
             return false;
         }
         usleep(10000);
@@ -993,6 +1004,15 @@ bool GameController::GameMenu() {
 }
 
 void GameController::run() {
+        signal(SIGTSTP, [](int sig){
+        struct termios term;
+        tcgetattr(STDIN_FILENO, &term);
+        term.c_lflag |= (ICANON | ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &term);
+        TerminalHelper::showCursor();
+        signal(SIGTSTP, SIG_DFL);
+        kill(getpid(), SIGTSTP);
+    });
     if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
         int rows, cols;
         TerminalHelper::getCurrentSize(rows, cols);
@@ -1006,83 +1026,99 @@ void GameController::run() {
     if (!nameEntered) {
         GetPlayerName();
     }
-    if(GameMenu()) {
-        if (isPictureMode) {
-            view.ShowPictureField(*field);
-        } else {
-            view.ShowField(*field);
-        }
-        
-        figure = FigureO();
-        showScore();
-        showLevelInfo();
-        
-        if (isPictureMode) {
-            PictureField* pictureField = (PictureField*)field;
-        }
-        
-        int messageY = field->getHeight() + 6;
-        TerminalHelper::moveCursorTo(messageY, 0);
-        TerminalHelper::clearCurrentLine();
-        
-        while (gameRunning) {
-            if (TerminalHelper::wasResized()) {
+    while (gameRunning) {
+        if(GameMenu()) {
+            if (isPictureMode) {
+                view.ShowPictureField(*field);
+            } else {
+                view.ShowField(*field);
+            }
+            
+            figure = FigureO();
+            showScore();
+            showLevelInfo();
+            
+            if (isPictureMode) {
+                PictureField* pictureField = (PictureField*)field;
+            }
+            
+            int messageY = field->getHeight() + 6;
+            TerminalHelper::moveCursorTo(messageY, 0);
+            TerminalHelper::clearCurrentLine();
+            
+            bool inGame = true;
+            while (inGame && gameRunning) {
+                if (TerminalHelper::wasResized()) {
+                    if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
+                        TerminalHelper::clearScreen();
+                        int rows, cols;
+                        TerminalHelper::getCurrentSize(rows, cols);
+                        std::cout << "Размер терминала слишком маленький!" << std::endl;
+                        std::cout << "Текущий размер: " << cols << "x" << rows << std::endl;
+                        std::cout << "Требуется: 24 строки x 48 столбцов" << std::endl;
+                        usleep(2000000);
+                    } else if (!gamePaused) {
+                        if (isPictureMode) {
+                            view.ShowPictureField(*field);
+                        } else {
+                            view.ShowField(*field);
+                        }
+                        view.ShowPlacedFigure(figure, *field);
+                        showScore();
+                        showLevelInfo();
+                        if (isPictureMode) {
+                            PictureField* pictureField = (PictureField*)field;
+                        }
+                    }
+                }
+                
                 if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
                     TerminalHelper::clearScreen();
                     int rows, cols;
                     TerminalHelper::getCurrentSize(rows, cols);
-                    std::cout << "Размер терминала слишком маленький!" << std::endl;
-                    std::cout << "Текущий размер: " << cols << "x" << rows << std::endl;
-                    std::cout << "Требуется: 24 строки x 48 столбцов" << std::endl;
-                    usleep(2000000);
-                } else if (!gamePaused) {
-                    if (isPictureMode) {
-                        view.ShowPictureField(*field);
-                    } else {
-                        view.ShowField(*field);
-                    }
-                    view.ShowPlacedFigure(figure, *field);
-                    showScore();
-                    showLevelInfo();
-                    if (isPictureMode) {
-                        PictureField* pictureField = (PictureField*)field;
-                    }
+                    usleep(100000);
+                    continue;
                 }
-            }
-            
-            if (!TerminalHelper::isTerminalSizeValid(24, 48)) {
-                TerminalHelper::clearScreen();
-                int rows, cols;
-                TerminalHelper::getCurrentSize(rows, cols);
-                usleep(100000);
-                continue;
-            }
-            
-            if (gamePaused) {
+                
+                if (gamePaused) {
+                    Input();
+                    usleep(50000);
+                    continue;
+                }
+                
+                int oldX = figure.getstartx();
+                int oldY = figure.getstarty();
+                Figure oldFigure = figure;
+
                 Input();
-                usleep(50000);
-                continue;
+                if (!gameRunning) {
+                    inGame = false;
+                    break;
+                }
+                if (gamePaused) {
+                    continue;
+                }
+
+                NewPosition();
+
+                int newX = figure.getstartx();
+                int newY = figure.getstarty();
+
+                view.ShowFigure(oldFigure, figure, *field, oldX, oldY, newX, newY);
+
+                usleep(5000);
             }
-            
-            int oldX = figure.getstartx();
-            int oldY = figure.getstarty();
-            Figure oldFigure = figure;
 
-            Input();
-            if (gamePaused) {
-                continue;
+            if (field) {
+                delete field;
+                field = nullptr;
             }
-
-            NewPosition();
-
-            int newX = figure.getstartx();
-            int newY = figure.getstarty();
-
-            view.ShowFigure(oldFigure, figure, *field, oldX, oldY, newX, newY);
-
-            usleep(5000);
+            gamePaused = false;
+            isPictureMode = false;
         }
     }
+    
     TerminalHelper::disableAlternateBuffer();
     TerminalHelper::moveCursorToSafePosition();
+    restoreTerminal();
 }
