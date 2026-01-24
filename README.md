@@ -10,7 +10,7 @@
 
 </div>
 
-![Demo]([_animation.gif](https://raw.githubusercontent.com/Olesya077/TETRIS/main/_animation.gif))
+![Demo]([_animation.gif])
 
 ## Особенности
 
@@ -78,6 +78,7 @@ make
 
 
 </div>
+
 
 
 
