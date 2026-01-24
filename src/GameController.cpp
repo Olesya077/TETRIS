@@ -914,7 +914,7 @@ bool GameController::GameMenu() {
             std::cout << "4. Выход" << std::endl;
         }
         else if (c == '4') {
-            //restoreTerminal();
+            restoreTerminal();
             gameRunning = false;
             return false;
         }
