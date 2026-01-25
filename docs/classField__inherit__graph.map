@@ -1,7 +1,0 @@
-<map id="Field" name="Field">
-<area shape="rect" id="Node000001" title="Базовый класс игрового поля" alt="" coords="125,5,259,351"/>
-<area shape="rect" id="Node000002" href="$classBucketField.html" title="Класс поля в форме ведра" alt="" coords="5,579,184,764"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,365,115,579,110,578,153,364"/>
-<area shape="rect" id="Node000003" href="$classPictureField.html" title="Класс поля для режима &quot;Собери картинку&quot;." alt="" coords="209,399,373,944"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,364,239,398,233,399,227,365"/>
-</map>
