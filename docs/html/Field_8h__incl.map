@@ -1,0 +1,10 @@
+<map id="include/Field.h" name="include/Field.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField." alt="" coords="16,5,132,31"/>
+<area shape="rect" id="Node000002" href="$Figure_8h.html" title="Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса" alt="" coords="74,79,149,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,30,101,65,97,68,78,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,68,177"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="74,32,46,139,40,138,68,30"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,106,61,144,57,141,98,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="93,152,151,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="116,104,121,138,116,139,110,105"/>
+</map>

@@ -1,0 +1,1090 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Тетрис: Класс TerminalHelper</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Тетрис<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Консольная игра Тетрис на C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pri-static-methods">Закрытые статические члены</a> &#124;
+<a href="#pri-static-attribs">Закрытые статические данные</a> &#124;
+<a href="classTerminalHelper-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс TerminalHelper</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Вспомогательный класс для работы с терминалом  
+ <a href="classTerminalHelper.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="TerminalHelper_8h_source.html">TerminalHelper.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a8f02209753a7ca23c5c612644378cfaa" id="r_a8f02209753a7ca23c5c612644378cfaa"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a8f02209753a7ca23c5c612644378cfaa">getTerminalSize</a> (int &amp;rows, int &amp;cols)</td></tr>
+<tr class="memdesc:a8f02209753a7ca23c5c612644378cfaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает текущий размер терминала  <br /></td></tr>
+<tr class="separator:a8f02209753a7ca23c5c612644378cfaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138d07b939214ad9fb2f36491c2dbc6d" id="r_a138d07b939214ad9fb2f36491c2dbc6d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a138d07b939214ad9fb2f36491c2dbc6d">isTerminalSizeValid</a> (int minRows=24, int minCols=48)</td></tr>
+<tr class="memdesc:a138d07b939214ad9fb2f36491c2dbc6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, достаточно ли размер терминала  <br /></td></tr>
+<tr class="separator:a138d07b939214ad9fb2f36491c2dbc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6022e49566ed510cefae3577ebcd447" id="r_aa6022e49566ed510cefae3577ebcd447"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#aa6022e49566ed510cefae3577ebcd447">clearScreen</a> ()</td></tr>
+<tr class="memdesc:aa6022e49566ed510cefae3577ebcd447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очищает экран терминала  <br /></td></tr>
+<tr class="separator:aa6022e49566ed510cefae3577ebcd447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8d3f4efe621e624fa2cd15781d7873" id="r_a6c8d3f4efe621e624fa2cd15781d7873"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a6c8d3f4efe621e624fa2cd15781d7873">moveCursorTo</a> (int row, int col)</td></tr>
+<tr class="memdesc:a6c8d3f4efe621e624fa2cd15781d7873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перемещает курсор в указанную позицию  <br /></td></tr>
+<tr class="separator:a6c8d3f4efe621e624fa2cd15781d7873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06e5e4079f129a0112da243c077a9b7e" id="r_a06e5e4079f129a0112da243c077a9b7e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a06e5e4079f129a0112da243c077a9b7e">moveCursorToSafePosition</a> ()</td></tr>
+<tr class="memdesc:a06e5e4079f129a0112da243c077a9b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перемещает курсор в безопасную позицию (низ экрана)  <br /></td></tr>
+<tr class="separator:a06e5e4079f129a0112da243c077a9b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2388e1bb079d2b5ebc8173955a281b02" id="r_a2388e1bb079d2b5ebc8173955a281b02"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a2388e1bb079d2b5ebc8173955a281b02">initResizeHandler</a> ()</td></tr>
+<tr class="memdesc:a2388e1bb079d2b5ebc8173955a281b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализирует обработчик изменения размера терминала  <br /></td></tr>
+<tr class="separator:a2388e1bb079d2b5ebc8173955a281b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f73b41f7ba7b248fb4c89b0f8eba80" id="r_a26f73b41f7ba7b248fb4c89b0f8eba80"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a26f73b41f7ba7b248fb4c89b0f8eba80">wasResized</a> ()</td></tr>
+<tr class="memdesc:a26f73b41f7ba7b248fb4c89b0f8eba80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, изменился ли размер терминала  <br /></td></tr>
+<tr class="separator:a26f73b41f7ba7b248fb4c89b0f8eba80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a36452227616b3457ec6f9d0e94ee94" id="r_a3a36452227616b3457ec6f9d0e94ee94"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a3a36452227616b3457ec6f9d0e94ee94">getCurrentSize</a> (int &amp;rows, int &amp;cols)</td></tr>
+<tr class="memdesc:a3a36452227616b3457ec6f9d0e94ee94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает текущий размер терминала  <br /></td></tr>
+<tr class="separator:a3a36452227616b3457ec6f9d0e94ee94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa0f90f35ef7d9c810c4e6bcabf9f2b8" id="r_afa0f90f35ef7d9c810c4e6bcabf9f2b8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#afa0f90f35ef7d9c810c4e6bcabf9f2b8">saveScreen</a> ()</td></tr>
+<tr class="memdesc:afa0f90f35ef7d9c810c4e6bcabf9f2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохраняет текущий экран (включает альтернативный буфер)  <br /></td></tr>
+<tr class="separator:afa0f90f35ef7d9c810c4e6bcabf9f2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0efb1665ffd3c86a82d14659a3da5722" id="r_a0efb1665ffd3c86a82d14659a3da5722"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a0efb1665ffd3c86a82d14659a3da5722">restoreScreen</a> ()</td></tr>
+<tr class="memdesc:a0efb1665ffd3c86a82d14659a3da5722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Восстанавливает сохраненный экран (выключает альтернативный буфер)  <br /></td></tr>
+<tr class="separator:a0efb1665ffd3c86a82d14659a3da5722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae987919cd09fb26cb64281100beb3fe9" id="r_ae987919cd09fb26cb64281100beb3fe9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#ae987919cd09fb26cb64281100beb3fe9">clearCurrentLine</a> ()</td></tr>
+<tr class="memdesc:ae987919cd09fb26cb64281100beb3fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очищает текущую строку  <br /></td></tr>
+<tr class="separator:ae987919cd09fb26cb64281100beb3fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab28870f9f7b5baad3f00b9d75868798b" id="r_ab28870f9f7b5baad3f00b9d75868798b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#ab28870f9f7b5baad3f00b9d75868798b">enableAlternateBuffer</a> ()</td></tr>
+<tr class="memdesc:ab28870f9f7b5baad3f00b9d75868798b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включает альтернативный буфер экрана  <br /></td></tr>
+<tr class="separator:ab28870f9f7b5baad3f00b9d75868798b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1c821a63b545cbc926afbc3fd206318" id="r_ab1c821a63b545cbc926afbc3fd206318"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#ab1c821a63b545cbc926afbc3fd206318">disableAlternateBuffer</a> ()</td></tr>
+<tr class="memdesc:ab1c821a63b545cbc926afbc3fd206318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключает альтернативный буфер экрана  <br /></td></tr>
+<tr class="separator:ab1c821a63b545cbc926afbc3fd206318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93d114d773ffeec902b10b0bd66d1a4f" id="r_a93d114d773ffeec902b10b0bd66d1a4f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a93d114d773ffeec902b10b0bd66d1a4f">disableScrolling</a> ()</td></tr>
+<tr class="memdesc:a93d114d773ffeec902b10b0bd66d1a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отключает прокрутку терминала  <br /></td></tr>
+<tr class="separator:a93d114d773ffeec902b10b0bd66d1a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae947478bba16d495c0a359e38f7cabc8" id="r_ae947478bba16d495c0a359e38f7cabc8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#ae947478bba16d495c0a359e38f7cabc8">enableScrolling</a> ()</td></tr>
+<tr class="memdesc:ae947478bba16d495c0a359e38f7cabc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включает прокрутку терминала  <br /></td></tr>
+<tr class="separator:ae947478bba16d495c0a359e38f7cabc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3ff31895285d04af3eae110b5a0ff2f" id="r_af3ff31895285d04af3eae110b5a0ff2f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#af3ff31895285d04af3eae110b5a0ff2f">setScrollRegion</a> (int top, int bottom)</td></tr>
+<tr class="memdesc:af3ff31895285d04af3eae110b5a0ff2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает область прокрутки  <br /></td></tr>
+<tr class="separator:af3ff31895285d04af3eae110b5a0ff2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6292f16c93be09ef128847d74bbd2e0" id="r_aa6292f16c93be09ef128847d74bbd2e0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#aa6292f16c93be09ef128847d74bbd2e0">clearScrollRegion</a> ()</td></tr>
+<tr class="memdesc:aa6292f16c93be09ef128847d74bbd2e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сбрасывает область прокрутки на весь экран  <br /></td></tr>
+<tr class="separator:aa6292f16c93be09ef128847d74bbd2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1e68b812f18916d52c21cecad6fb4c" id="r_a9c1e68b812f18916d52c21cecad6fb4c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a9c1e68b812f18916d52c21cecad6fb4c">saveCursor</a> ()</td></tr>
+<tr class="memdesc:a9c1e68b812f18916d52c21cecad6fb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохраняет текущую позицию курсора  <br /></td></tr>
+<tr class="separator:a9c1e68b812f18916d52c21cecad6fb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1e913c6e62deb9501f579fff9207972" id="r_ae1e913c6e62deb9501f579fff9207972"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#ae1e913c6e62deb9501f579fff9207972">restoreCursor</a> ()</td></tr>
+<tr class="memdesc:ae1e913c6e62deb9501f579fff9207972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Восстанавливает сохраненную позицию курсора  <br /></td></tr>
+<tr class="separator:ae1e913c6e62deb9501f579fff9207972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2b36697ba0c01a7a49c9735bf94a9ba" id="r_ad2b36697ba0c01a7a49c9735bf94a9ba"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#ad2b36697ba0c01a7a49c9735bf94a9ba">hideCursor</a> ()</td></tr>
+<tr class="memdesc:ad2b36697ba0c01a7a49c9735bf94a9ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Скрывает курсор  <br /></td></tr>
+<tr class="separator:ad2b36697ba0c01a7a49c9735bf94a9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9428873eac84033b830fe49bce1ae2bb" id="r_a9428873eac84033b830fe49bce1ae2bb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a9428873eac84033b830fe49bce1ae2bb">showCursor</a> ()</td></tr>
+<tr class="memdesc:a9428873eac84033b830fe49bce1ae2bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Показывает курсор  <br /></td></tr>
+<tr class="separator:a9428873eac84033b830fe49bce1ae2bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Закрытые статические члены</h2></td></tr>
+<tr class="memitem:af72cfd06f15709fa90cf2acdde227085" id="r_af72cfd06f15709fa90cf2acdde227085"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#af72cfd06f15709fa90cf2acdde227085">resizeHandler</a> (int signo)</td></tr>
+<tr class="memdesc:af72cfd06f15709fa90cf2acdde227085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработчик сигнала изменения размера терминала  <br /></td></tr>
+<tr class="separator:af72cfd06f15709fa90cf2acdde227085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Закрытые статические данные</h2></td></tr>
+<tr class="memitem:a4bc4cfcce1a2ec7bb9463036922014f8" id="r_a4bc4cfcce1a2ec7bb9463036922014f8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalHelper.html#a4bc4cfcce1a2ec7bb9463036922014f8">terminalResized</a> = false</td></tr>
+<tr class="separator:a4bc4cfcce1a2ec7bb9463036922014f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Вспомогательный класс для работы с терминалом </p>
+<p>Предоставляет статические методы для управления терминалом:</p><ul>
+<li>Определение размеров терминала</li>
+<li>Управление курсором и экраном</li>
+<li>Обработка сигналов изменения размера</li>
+<li>Управление буферами экрана </li>
+</ul>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8h_source.html">TerminalHelper.h</a> строка <a class="el" href="TerminalHelper_8h_source.html#l00025">25</a></p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="ae987919cd09fb26cb64281100beb3fe9" name="ae987919cd09fb26cb64281100beb3fe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae987919cd09fb26cb64281100beb3fe9">&#9670;&#160;</a></span>clearCurrentLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::clearCurrentLine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Очищает текущую строку </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00089">89</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>                                      {</div>
+<div class="line"><span class="lineno">   90</span>    printf(<span class="stringliteral">&quot;\033[2K&quot;</span>);</div>
+<div class="line"><span class="lineno">   91</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">   92</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00144">GameController::DropFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00607">GameController::NewPosition()</a>, <a class="el" href="PictureField_8cpp_source.html#l00152">PictureField::placeFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>, <a class="el" href="GameController_8cpp_source.html#l00773">GameController::showLevelInfo()</a>, <a class="el" href="GameController_8cpp_source.html#l00795">GameController::showScore()</a> и <a class="el" href="GameController_8cpp_source.html#l00757">GameController::updateLevel()</a>.</p>
+
+</div>
+</div>
+<a id="aa6022e49566ed510cefae3577ebcd447" name="aa6022e49566ed510cefae3577ebcd447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6022e49566ed510cefae3577ebcd447">&#9670;&#160;</a></span>clearScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::clearScreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Очищает экран терминала </p>
+<dl class="section note"><dt>Заметки</dt><dd>Использует ANSI escape-последовательности </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00047">47</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>                                 {</div>
+<div class="line"><span class="lineno">   48</span>    printf(<span class="stringliteral">&quot;\033[2J\033[1;1H&quot;</span>);</div>
+<div class="line"><span class="lineno">   49</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00019">GameController::GameController()</a>, <a class="el" href="GameController_8cpp_source.html#l00843">GameController::GameMenu()</a>, <a class="el" href="GameController_8cpp_source.html#l00047">GameController::GetPlayerName()</a>, <a class="el" href="GameController_8cpp_source.html#l00176">GameController::Input()</a>, <a class="el" href="GameController_8cpp_source.html#l00083">GameController::returnToMenu()</a>, <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>, <a class="el" href="GameController_8cpp_source.html#l00348">GameController::ShowControlSettings()</a>, <a class="el" href="GameController_8cpp_source.html#l00444">GameController::ShowCurrentSettings()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00018">ConsoleView::ShowField()</a>, <a class="el" href="GameController_8cpp_source.html#l00689">GameController::showGameOverScreen()</a>, <a class="el" href="GameController_8cpp_source.html#l00466">GameController::ShowMainSettingsMenu()</a>, <a class="el" href="GameController_8cpp_source.html#l00276">GameController::ShowPauseMenu()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00220">ConsoleView::ShowPictureField()</a> и <a class="el" href="GameController_8cpp_source.html#l00291">GameController::ShowSettingsMenu()</a>.</p>
+
+</div>
+</div>
+<a id="aa6292f16c93be09ef128847d74bbd2e0" name="aa6292f16c93be09ef128847d74bbd2e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6292f16c93be09ef128847d74bbd2e0">&#9670;&#160;</a></span>clearScrollRegion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::clearScrollRegion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сбрасывает область прокрутки на весь экран </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00120">120</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  120</span>                                       {</div>
+<div class="line"><span class="lineno">  121</span>    printf(<span class="stringliteral">&quot;\033[r&quot;</span>);</div>
+<div class="line"><span class="lineno">  122</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  123</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab1c821a63b545cbc926afbc3fd206318" name="ab1c821a63b545cbc926afbc3fd206318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1c821a63b545cbc926afbc3fd206318">&#9670;&#160;</a></span>disableAlternateBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::disableAlternateBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выключает альтернативный буфер экрана </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00099">99</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   99</span>                                            {</div>
+<div class="line"><span class="lineno">  100</span>    printf(<span class="stringliteral">&quot;\033[?1049l&quot;</span>);</div>
+<div class="line"><span class="lineno">  101</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  102</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>.</p>
+
+</div>
+</div>
+<a id="a93d114d773ffeec902b10b0bd66d1a4f" name="a93d114d773ffeec902b10b0bd66d1a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93d114d773ffeec902b10b0bd66d1a4f">&#9670;&#160;</a></span>disableScrolling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::disableScrolling </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отключает прокрутку терминала </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00104">104</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  104</span>                                      {</div>
+<div class="line"><span class="lineno">  105</span>    printf(<span class="stringliteral">&quot;\033[?7l&quot;</span>);</div>
+<div class="line"><span class="lineno">  106</span>    printf(<span class="stringliteral">&quot;\033[r&quot;</span>);</div>
+<div class="line"><span class="lineno">  107</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  108</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab28870f9f7b5baad3f00b9d75868798b" name="ab28870f9f7b5baad3f00b9d75868798b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab28870f9f7b5baad3f00b9d75868798b">&#9670;&#160;</a></span>enableAlternateBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::enableAlternateBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Включает альтернативный буфер экрана </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00094">94</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>                                           {</div>
+<div class="line"><span class="lineno">   95</span>    printf(<span class="stringliteral">&quot;\033[?1049h\033[H&quot;</span>);</div>
+<div class="line"><span class="lineno">   96</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">   97</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00047">GameController::GetPlayerName()</a> и <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>.</p>
+
+</div>
+</div>
+<a id="ae947478bba16d495c0a359e38f7cabc8" name="ae947478bba16d495c0a359e38f7cabc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae947478bba16d495c0a359e38f7cabc8">&#9670;&#160;</a></span>enableScrolling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::enableScrolling </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Включает прокрутку терминала </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00110">110</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  110</span>                                     {</div>
+<div class="line"><span class="lineno">  111</span>    printf(<span class="stringliteral">&quot;\033[?7h&quot;</span>);</div>
+<div class="line"><span class="lineno">  112</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  113</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3a36452227616b3457ec6f9d0e94ee94" name="a3a36452227616b3457ec6f9d0e94ee94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a36452227616b3457ec6f9d0e94ee94">&#9670;&#160;</a></span>getCurrentSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::getCurrentSize </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает текущий размер терминала </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00075">75</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>                                                        {</div>
+<div class="line"><span class="lineno">   76</span>    <a class="code hl_function" href="classTerminalHelper.html#a8f02209753a7ca23c5c612644378cfaa">getTerminalSize</a>(rows, cols);</div>
+<div class="line"><span class="lineno">   77</span>}</div>
+<div class="ttc" id="aclassTerminalHelper_html_a8f02209753a7ca23c5c612644378cfaa"><div class="ttname"><a href="classTerminalHelper.html#a8f02209753a7ca23c5c612644378cfaa">TerminalHelper::getTerminalSize</a></div><div class="ttdeci">static bool getTerminalSize(int &amp;rows, int &amp;cols)</div><div class="ttdoc">Получает текущий размер терминала</div><div class="ttdef"><b>Definition</b> <a href="TerminalHelper_8cpp_source.html#l00029">TerminalHelper.cpp:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="TerminalHelper_8cpp_source.html#l00029">getTerminalSize()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>.</p>
+
+</div>
+</div>
+<a id="a8f02209753a7ca23c5c612644378cfaa" name="a8f02209753a7ca23c5c612644378cfaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f02209753a7ca23c5c612644378cfaa">&#9670;&#160;</a></span>getTerminalSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TerminalHelper::getTerminalSize </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает текущий размер терминала </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true если размер успешно получен </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00029">29</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>                                                         {</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keyword">struct </span>winsize w;</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span> (ioctl(STDOUT_FILENO, TIOCGWINSZ, &amp;w) == 0) {</div>
+<div class="line"><span class="lineno">   32</span>        rows = w.ws_row;</div>
+<div class="line"><span class="lineno">   33</span>        cols = w.ws_col;</div>
+<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   35</span>    }</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   37</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="TerminalHelper_8cpp_source.html#l00075">getCurrentSize()</a>, <a class="el" href="TerminalHelper_8cpp_source.html#l00039">isTerminalSizeValid()</a> и <a class="el" href="TerminalHelper_8cpp_source.html#l00057">moveCursorToSafePosition()</a>.</p>
+
+</div>
+</div>
+<a id="ad2b36697ba0c01a7a49c9735bf94a9ba" name="ad2b36697ba0c01a7a49c9735bf94a9ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2b36697ba0c01a7a49c9735bf94a9ba">&#9670;&#160;</a></span>hideCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::hideCursor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Скрывает курсор </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00135">135</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  135</span>                                {</div>
+<div class="line"><span class="lineno">  136</span>    printf(<span class="stringliteral">&quot;\033[?25l&quot;</span>);</div>
+<div class="line"><span class="lineno">  137</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  138</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00047">GameController::GetPlayerName()</a>.</p>
+
+</div>
+</div>
+<a id="a2388e1bb079d2b5ebc8173955a281b02" name="a2388e1bb079d2b5ebc8173955a281b02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2388e1bb079d2b5ebc8173955a281b02">&#9670;&#160;</a></span>initResizeHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::initResizeHandler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализирует обработчик изменения размера терминала </p>
+<dl class="section note"><dt>Заметки</dt><dd>Устанавливает обработчик для сигнала SIGWINCH </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00065">65</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                                       {</div>
+<div class="line"><span class="lineno">   66</span>    signal(SIGWINCH, <a class="code hl_function" href="classTerminalHelper.html#af72cfd06f15709fa90cf2acdde227085">resizeHandler</a>);</div>
+<div class="line"><span class="lineno">   67</span>}</div>
+<div class="ttc" id="aclassTerminalHelper_html_af72cfd06f15709fa90cf2acdde227085"><div class="ttname"><a href="classTerminalHelper.html#af72cfd06f15709fa90cf2acdde227085">TerminalHelper::resizeHandler</a></div><div class="ttdeci">static void resizeHandler(int signo)</div><div class="ttdoc">Обработчик сигнала изменения размера терминала</div><div class="ttdef"><b>Definition</b> <a href="TerminalHelper_8cpp_source.html#l00019">TerminalHelper.cpp:19</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="TerminalHelper_8cpp_source.html#l00019">resizeHandler()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00019">GameController::GameController()</a>.</p>
+
+</div>
+</div>
+<a id="a138d07b939214ad9fb2f36491c2dbc6d" name="a138d07b939214ad9fb2f36491c2dbc6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138d07b939214ad9fb2f36491c2dbc6d">&#9670;&#160;</a></span>isTerminalSizeValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TerminalHelper::isTerminalSizeValid </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>minRows</em> = <code>24</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>minCols</em> = <code>48</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет, достаточно ли размер терминала </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minRows</td><td>Минимальное количество строк (по умолчанию 24) </td></tr>
+    <tr><td class="paramname">minCols</td><td>Минимальное количество столбцов (по умолчанию 48) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если терминал достаточно большой </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00039">39</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>                                                                 {</div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordtype">int</span> rows, cols;</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="classTerminalHelper.html#a8f02209753a7ca23c5c612644378cfaa">getTerminalSize</a>(rows, cols)) {</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> rows &gt;= minRows &amp;&amp; cols &gt;= minCols;</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   45</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="TerminalHelper_8cpp_source.html#l00029">getTerminalSize()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="ConsoleView_8cpp_source.html#l00161">ConsoleView::ClearGhostFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00018">ConsoleView::ShowField()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00258">ConsoleView::ShowFigure()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00090">ConsoleView::ShowGhostFigure()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00046">ConsoleView::ShowPictureBackground()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00220">ConsoleView::ShowPictureField()</a> и <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a>.</p>
+
+</div>
+</div>
+<a id="a6c8d3f4efe621e624fa2cd15781d7873" name="a6c8d3f4efe621e624fa2cd15781d7873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c8d3f4efe621e624fa2cd15781d7873">&#9670;&#160;</a></span>moveCursorTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::moveCursorTo </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Перемещает курсор в указанную позицию </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00052">52</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                  {</div>
+<div class="line"><span class="lineno">   53</span>    printf(<span class="stringliteral">&quot;\033[%d;%dH&quot;</span>, row + 1, col + 1);</div>
+<div class="line"><span class="lineno">   54</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">   55</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="ConsoleView_8cpp_source.html#l00161">ConsoleView::ClearGhostFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00144">GameController::DropFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00607">GameController::NewPosition()</a>, <a class="el" href="PictureField_8cpp_source.html#l00152">PictureField::placeFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00018">ConsoleView::ShowField()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00258">ConsoleView::ShowFigure()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00090">ConsoleView::ShowGhostFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00773">GameController::showLevelInfo()</a>, <a class="el" href="GameController_8cpp_source.html#l00276">GameController::ShowPauseMenu()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00046">ConsoleView::ShowPictureBackground()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00220">ConsoleView::ShowPictureField()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00795">GameController::showScore()</a> и <a class="el" href="GameController_8cpp_source.html#l00757">GameController::updateLevel()</a>.</p>
+
+</div>
+</div>
+<a id="a06e5e4079f129a0112da243c077a9b7e" name="a06e5e4079f129a0112da243c077a9b7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06e5e4079f129a0112da243c077a9b7e">&#9670;&#160;</a></span>moveCursorToSafePosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::moveCursorToSafePosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Перемещает курсор в безопасную позицию (низ экрана) </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00057">57</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>                                              {</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordtype">int</span> rows, cols;</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="classTerminalHelper.html#a8f02209753a7ca23c5c612644378cfaa">getTerminalSize</a>(rows, cols)) {</div>
+<div class="line"><span class="lineno">   60</span>        printf(<span class="stringliteral">&quot;\033[%d;1H&quot;</span>, rows);</div>
+<div class="line"><span class="lineno">   61</span>        fflush(stdout);</div>
+<div class="line"><span class="lineno">   62</span>    }</div>
+<div class="line"><span class="lineno">   63</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="TerminalHelper_8cpp_source.html#l00029">getTerminalSize()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00607">GameController::NewPosition()</a>, <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00258">ConsoleView::ShowFigure()</a>, <a class="el" href="GameController_8cpp_source.html#l00773">GameController::showLevelInfo()</a>, <a class="el" href="ConsoleView_8cpp_source.html#l00062">ConsoleView::ShowPlacedFigure()</a> и <a class="el" href="GameController_8cpp_source.html#l00795">GameController::showScore()</a>.</p>
+
+</div>
+</div>
+<a id="af72cfd06f15709fa90cf2acdde227085" name="af72cfd06f15709fa90cf2acdde227085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af72cfd06f15709fa90cf2acdde227085">&#9670;&#160;</a></span>resizeHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::resizeHandler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>signo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обработчик сигнала изменения размера терминала </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">signo</td><td>Номер сигнала (должен быть SIGWINCH) </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Обработчик сигнала SIGWINCH (изменение размера терминала) </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">signo</td><td>Номер сигнала </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Устанавливает флаг terminalResized в true Вызывается асинхронно при изменении размера окна</dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00019">19</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>                                            {<span class="comment"></span></div>
+<div class="line"><span class="lineno">   20</span><span class="comment">    /**</span></div>
+<div class="line"><span class="lineno">   21</span><span class="comment">     * @brief Обработчик сигнала SIGWINCH (изменение размера терминала)</span></div>
+<div class="line"><span class="lineno">   22</span><span class="comment">     * @param signo Номер сигнала</span></div>
+<div class="line"><span class="lineno">   23</span><span class="comment">     * @note Устанавливает флаг terminalResized в true</span></div>
+<div class="line"><span class="lineno">   24</span><span class="comment">     *       Вызывается асинхронно при изменении размера окна</span></div>
+<div class="line"><span class="lineno">   25</span><span class="comment">     */</span></div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_variable" href="classTerminalHelper.html#a4bc4cfcce1a2ec7bb9463036922014f8">terminalResized</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   27</span>}</div>
+<div class="ttc" id="aclassTerminalHelper_html_a4bc4cfcce1a2ec7bb9463036922014f8"><div class="ttname"><a href="classTerminalHelper.html#a4bc4cfcce1a2ec7bb9463036922014f8">TerminalHelper::terminalResized</a></div><div class="ttdeci">static bool terminalResized</div><div class="ttdef"><b>Definition</b> <a href="TerminalHelper_8h_source.html#l00027">TerminalHelper.h:27</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="TerminalHelper_8h_source.html#l00027">terminalResized</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="TerminalHelper_8cpp_source.html#l00065">initResizeHandler()</a>.</p>
+
+</div>
+</div>
+<a id="ae1e913c6e62deb9501f579fff9207972" name="ae1e913c6e62deb9501f579fff9207972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1e913c6e62deb9501f579fff9207972">&#9670;&#160;</a></span>restoreCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::restoreCursor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Восстанавливает сохраненную позицию курсора </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00130">130</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  130</span>                                   {</div>
+<div class="line"><span class="lineno">  131</span>    printf(<span class="stringliteral">&quot;\033[u&quot;</span>);</div>
+<div class="line"><span class="lineno">  132</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  133</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0efb1665ffd3c86a82d14659a3da5722" name="a0efb1665ffd3c86a82d14659a3da5722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0efb1665ffd3c86a82d14659a3da5722">&#9670;&#160;</a></span>restoreScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::restoreScreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Восстанавливает сохраненный экран (выключает альтернативный буфер) </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00084">84</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>                                   {</div>
+<div class="line"><span class="lineno">   85</span>    printf(<span class="stringliteral">&quot;\033[?1049l&quot;</span>);</div>
+<div class="line"><span class="lineno">   86</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00047">GameController::GetPlayerName()</a> и <a class="el" href="GameController_8cpp_source.html#l00134">GameController::~GameController()</a>.</p>
+
+</div>
+</div>
+<a id="a9c1e68b812f18916d52c21cecad6fb4c" name="a9c1e68b812f18916d52c21cecad6fb4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1e68b812f18916d52c21cecad6fb4c">&#9670;&#160;</a></span>saveCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::saveCursor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сохраняет текущую позицию курсора </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00125">125</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>                                {</div>
+<div class="line"><span class="lineno">  126</span>    printf(<span class="stringliteral">&quot;\033[s&quot;</span>);</div>
+<div class="line"><span class="lineno">  127</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  128</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afa0f90f35ef7d9c810c4e6bcabf9f2b8" name="afa0f90f35ef7d9c810c4e6bcabf9f2b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa0f90f35ef7d9c810c4e6bcabf9f2b8">&#9670;&#160;</a></span>saveScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::saveScreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сохраняет текущий экран (включает альтернативный буфер) </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00079">79</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   79</span>                                {</div>
+<div class="line"><span class="lineno">   80</span>    printf(<span class="stringliteral">&quot;\033[?1049h&quot;</span>);</div>
+<div class="line"><span class="lineno">   81</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">   82</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00019">GameController::GameController()</a>.</p>
+
+</div>
+</div>
+<a id="af3ff31895285d04af3eae110b5a0ff2f" name="af3ff31895285d04af3eae110b5a0ff2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ff31895285d04af3eae110b5a0ff2f">&#9670;&#160;</a></span>setScrollRegion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::setScrollRegion </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bottom</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает область прокрутки </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">top</td><td>Верхняя граница области </td></tr>
+    <tr><td class="paramname">bottom</td><td>Нижняя граница области </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00115">115</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>                                                        {</div>
+<div class="line"><span class="lineno">  116</span>    printf(<span class="stringliteral">&quot;\033[%d;%dr&quot;</span>, top, bottom);</div>
+<div class="line"><span class="lineno">  117</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  118</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9428873eac84033b830fe49bce1ae2bb" name="a9428873eac84033b830fe49bce1ae2bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9428873eac84033b830fe49bce1ae2bb">&#9670;&#160;</a></span>showCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalHelper::showCursor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Показывает курсор </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00140">140</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  140</span>                                {</div>
+<div class="line"><span class="lineno">  141</span>    printf(<span class="stringliteral">&quot;\033[?25h&quot;</span>);</div>
+<div class="line"><span class="lineno">  142</span>    fflush(stdout);</div>
+<div class="line"><span class="lineno">  143</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00047">GameController::GetPlayerName()</a>.</p>
+
+</div>
+</div>
+<a id="a26f73b41f7ba7b248fb4c89b0f8eba80" name="a26f73b41f7ba7b248fb4c89b0f8eba80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f73b41f7ba7b248fb4c89b0f8eba80">&#9670;&#160;</a></span>wasResized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TerminalHelper::wasResized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет, изменился ли размер терминала </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true если размер изменился с последней проверки </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a> строка <a class="el" href="TerminalHelper_8cpp_source.html#l00069">69</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>                                {</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordtype">bool</span> resized = <a class="code hl_variable" href="classTerminalHelper.html#a4bc4cfcce1a2ec7bb9463036922014f8">terminalResized</a>;</div>
+<div class="line"><span class="lineno">   71</span>    <a class="code hl_variable" href="classTerminalHelper.html#a4bc4cfcce1a2ec7bb9463036922014f8">terminalResized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">return</span> resized;</div>
+<div class="line"><span class="lineno">   73</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="TerminalHelper_8h_source.html#l00027">terminalResized</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="GameController_8cpp_source.html#l00995">GameController::run()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a4bc4cfcce1a2ec7bb9463036922014f8" name="a4bc4cfcce1a2ec7bb9463036922014f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc4cfcce1a2ec7bb9463036922014f8">&#9670;&#160;</a></span>terminalResized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TerminalHelper::terminalResized = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Флаг изменения размера терминала </p>
+
+<p class="definition">См. определение в файле <a class="el" href="TerminalHelper_8h_source.html">TerminalHelper.h</a> строка <a class="el" href="TerminalHelper_8h_source.html#l00027">27</a></p>
+
+<p class="reference">Используется в <a class="el" href="TerminalHelper_8cpp_source.html#l00019">resizeHandler()</a> и <a class="el" href="TerminalHelper_8cpp_source.html#l00069">wasResized()</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="TerminalHelper_8h_source.html">TerminalHelper.h</a></li>
+<li>src/<a class="el" href="TerminalHelper_8cpp_source.html">TerminalHelper.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

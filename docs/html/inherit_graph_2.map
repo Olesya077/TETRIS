@@ -1,0 +1,17 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="Node000000" href="$classFigure.html" title="Базовый класс фигуры Тетриса" alt="" coords="5,153,68,179"/>
+<area shape="rect" id="Node000001" href="$classFigureI.html" title="Класс фигуры I (палка)" alt="" coords="119,5,185,31"/>
+<area shape="poly" id="edge3_Node000000_Node000001" title=" " alt="" coords="47,140,75,92,114,40,128,29,131,33,118,44,79,94,52,143"/>
+<area shape="rect" id="Node000002" href="$classFigureJ.html" title="Класс фигуры J." alt="" coords="119,55,185,80"/>
+<area shape="poly" id="edge4_Node000000_Node000002" title=" " alt="" coords="58,142,114,89,130,78,133,82,118,93,61,145"/>
+<area shape="rect" id="Node000003" href="$classFigureL.html" title="Класс фигуры L." alt="" coords="117,104,187,129"/>
+<area shape="poly" id="edge5_Node000000_Node000003" title=" " alt="" coords="78,145,120,127,122,132,80,150"/>
+<area shape="rect" id="Node000004" href="$classFigureO.html" title="Класс фигуры O (квадрат)" alt="" coords="116,153,188,179"/>
+<area shape="poly" id="edge6_Node000000_Node000004" title=" " alt="" coords="82,163,116,163,116,169,82,169"/>
+<area shape="rect" id="Node000005" href="$classFigureS.html" title="Класс фигуры S." alt="" coords="117,203,187,228"/>
+<area shape="poly" id="edge7_Node000000_Node000005" title=" " alt="" coords="80,182,122,200,120,205,78,187"/>
+<area shape="rect" id="Node000006" href="$classFigureT.html" title="Класс фигуры T." alt="" coords="117,252,187,277"/>
+<area shape="poly" id="edge8_Node000000_Node000006" title=" " alt="" coords="62,186,118,237,134,250,131,254,114,241,59,190"/>
+<area shape="rect" id="Node000007" href="$classFigureZ.html" title="Класс фигуры Z." alt="" coords="117,301,187,327"/>
+<area shape="poly" id="edge9_Node000000_Node000007" title=" " alt="" coords="53,190,80,237,118,287,132,299,129,303,114,290,76,240,48,192"/>
+</map>

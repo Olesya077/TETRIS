@@ -1,0 +1,16 @@
+<map id="include/PictureField.h" name="include/PictureField.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл, содержащий объявление класса PictureField для режима &quot;Собери картинку&quot;." alt="" coords="68,5,229,31"/>
+<area shape="rect" id="Node000002" href="$Field_8h.html" title="Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField." alt="" coords="79,79,144,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,32,126,68,121,65,140,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,68,251"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="126,33,95,53,68,80,52,113,43,148,38,212,33,211,38,147,47,111,64,77,92,48,123,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="125,225,183,251"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="153,30,161,93,163,177,160,212,155,212,158,177,156,93,148,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="223,79,303,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="168,28,234,69,232,74,166,33"/>
+<area shape="rect" id="Node000003" href="$Figure_8h.html" title="Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса" alt="" coords="74,152,149,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,104,114,138,109,138,109,104"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="101,106,82,127,64,153,52,183,44,212,39,211,47,181,60,151,78,124,97,103"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="101,179,61,218,57,214,98,175"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="121,176,142,212,138,215,116,179"/>
+</map>

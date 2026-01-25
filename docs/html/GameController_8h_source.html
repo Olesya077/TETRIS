@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Тетрис: Исходный файл include/GameController.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Тетрис<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Консольная игра Тетрис на C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">GameController.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="GameController_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file GameController.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Заголовочный файл, содержащий объявление класса GameController - главного контроллера игры Тетрис*/</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef GAMECONTROLLER_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define GAMECONTROLLER_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="Field_8h.html">Field.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="ConsoleView_8h.html">ConsoleView.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="Figure_8h.html">Figure.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="TerminalInput_8h.html">TerminalInput.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="Score_8h.html">Score.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="Settings_8h.html">Settings.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"></span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @brief Главный контроллер игры Тетрис</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * Управляет всем игровым процессом: обработкой ввода, логикой игры,</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * отображением, меню и взаимодействием с другими компонентами.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classGameController.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="classGameController.html">GameController</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classGameController.html#a3c473ffc2992538f6119c716f43fcfbc">   22</a></span>    <a class="code hl_class" href="classField.html">Field</a>* <a class="code hl_variable" href="classGameController.html#a3c473ffc2992538f6119c716f43fcfbc">field</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classGameController.html#afc2546a13afe29480e8abec84103269f">   23</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classGameController.html#afc2546a13afe29480e8abec84103269f">prevFigureX</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classGameController.html#a8e6c1bee843be3d89c62c0a599ad88ae">   24</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classGameController.html#a8e6c1bee843be3d89c62c0a599ad88ae">prevFigureY</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classGameController.html#a9b9ad15325857f69b505ca09c80214f8">   25</a></span>    <a class="code hl_class" href="classFigure.html">Figure</a> <a class="code hl_variable" href="classGameController.html#a9b9ad15325857f69b505ca09c80214f8">figure</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classGameController.html#a2c8af2c923eb234444841c1266366014">   26</a></span>    <a class="code hl_class" href="classConsoleView.html">ConsoleView</a> <a class="code hl_variable" href="classGameController.html#a2c8af2c923eb234444841c1266366014">view</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classGameController.html#ac89216fc34f2af467b140673e6a405f6">   27</a></span>    <a class="code hl_class" href="classTerminalInput.html">TerminalInput</a> <a class="code hl_variable" href="classGameController.html#ac89216fc34f2af467b140673e6a405f6">input</a>; </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classGameController.html#af4eea7bd9750959482bc1cc23497d627">   28</a></span>    <a class="code hl_class" href="classGameScore.html">GameScore</a> <a class="code hl_variable" href="classGameController.html#af4eea7bd9750959482bc1cc23497d627">scoreSystem</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classGameController.html#a2358ef96d1ca0badc839732e2367e843">   29</a></span>    <a class="code hl_class" href="classSettings.html">Settings</a>* <a class="code hl_variable" href="classGameController.html#a2358ef96d1ca0badc839732e2367e843">settings</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classGameController.html#a3de97a3a1c5658f4afe644146fbe08f0">   30</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classGameController.html#a3de97a3a1c5658f4afe644146fbe08f0">gameRunning</a>; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classGameController.html#ad4ff8b1f45511484389b2329c21bb290">   31</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classGameController.html#ad4ff8b1f45511484389b2329c21bb290">count</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classGameController.html#a43f195570869ee0b21aff0aab6614afb">   32</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classGameController.html#a43f195570869ee0b21aff0aab6614afb">score</a>;  </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classGameController.html#a2b1dc39e0c055524afdb64afcfd89b38">   33</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classGameController.html#a2b1dc39e0c055524afdb64afcfd89b38">linesClearedTotal</a>; </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classGameController.html#a8460578509b52b9874181557a2fc3ccb">   34</a></span>    std::string <a class="code hl_variable" href="classGameController.html#a8460578509b52b9874181557a2fc3ccb">playerName</a>; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classGameController.html#ad69bcb1c61f89ee0c0d7adda745a8b75">   35</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classGameController.html#ad69bcb1c61f89ee0c0d7adda745a8b75">gamePaused</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classGameController.html#a42482738a3e08b6dbbb4ae38ea04165e">   36</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classGameController.html#a42482738a3e08b6dbbb4ae38ea04165e">isPictureMode</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classGameController.html#ad59e54f370a2a2dbab324d8460399956">   37</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classGameController.html#ad59e54f370a2a2dbab324d8460399956">nameEntered</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_function" href="classGameController.html#a7d72ff3f639acb68578e20fee3649b42">GameController</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_function" href="classGameController.html#aab436961a422d078975bc7a49bdfcab7">~GameController</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     * @brief Обрабатывает пользовательский ввод</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     * @note Обрабатывает как игровые команды, так и меню</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#ae82dc7cdb0ea68504a8379894d50cda7">Input</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     * @brief Обновляет позицию фигуры</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">     * @note Проверяет столкновения и создает новую фигуру при необходимости</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a0081a4a38200db049ddc5070d7b9361e">NewPosition</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">     * @brief Главный игровой цикл</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">     * @note Управляет всей последовательностью игры</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a5d6169c7a3aae6db94690e2f27d780a2">run</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     * @brief Проверяет возможность перемещения фигуры</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     * @param dx Смещение по X</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">     * @param dy Смещение по Y</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">     * @return true если перемещение возможно</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGameController.html#a6f0e4edd98f9606b9bdabb9c2c960a20">CanMove</a>(<span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">     * @brief Обновляет отображение поля</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">     * @note Вызывает соответствующие методы отображения</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classGameController.html#ab8ee39ffb1c4b876bcf294cc16d038a9">   73</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#ab8ee39ffb1c4b876bcf294cc16d038a9">UpdateField</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     * @brief Автоматическое перемещение фигуры вниз</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     * @note Вызывается по таймеру или в игровом цикле</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#aa8287bc4f90c8b309b50ab8792360cf5">AutoMoveDown</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">     * @brief Управление через терминал</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">     * @note Альтернативное название для Input()</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classGameController.html#a306328f8286194fe3c7c6d0993c3558d">   85</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a306328f8286194fe3c7c6d0993c3558d">TerminalControl</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">     * @brief Показывает меню паузы</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">     * @note Отображает опции продолжения, новой игры, настроек и выхода</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a92da1c7efcde56f4f480daf56e58130d">ShowPauseMenu</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">     * @brief Показывает меню настроек</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">     * @param fromPause true если вызвано из меню паузы</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#ac47dc72ba9df36e1a8783a968ce86d4b">ShowSettingsMenu</a>(<span class="keywordtype">bool</span> fromPause = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">     * @brief Показывает главное меню настроек</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">     * @note Отдельное меню для доступа из главного меню</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a2d3545025d1c2aab0fbf768a07c4823a">ShowMainSettingsMenu</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">     * @brief Показывает настройки управления</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">     * @note Позволяет переназначить клавиши управления</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#ace67cc9fe75cd3b5a453458efd859733">ShowControlSettings</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">     * @brief Показывает текущие настройки</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a045d1310846491092456a0c0e45eaf44">ShowCurrentSettings</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">     * @brief Добавляет очки к счету</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">     * @param points Количество добавляемых очков</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a82e67acb264d6d2eaac507691353e0bb">addPoints</a>(<span class="keywordtype">int</span> points);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">     * @brief Показывает главное меню игры</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">     * @return true если игра должна начаться, false для выхода</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGameController.html#a5765a2a2eb11b4eabe34827716138889">GameMenu</a>();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">     * @brief Обновляет уровень игры</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">     * @note Повышает уровень при достижении нужного количества линий</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#aa854d7ec7f5c9289c8fd6523c4a667d0">updateLevel</a>();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">     * @brief Показывает информацию о текущем уровне</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#ab36f58eaa759d8d5316338fff37e5315">showLevelInfo</a>();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">     * @brief Запрашивает имя игрока</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">     * @note Используется при первом запуске игры</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a75c794cbeafef5d215b0206067f90910">GetPlayerName</a>();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">     * @brief Показывает экран завершения игры</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">     * @param isPictureModeGameOver true если игра в режиме &quot;Собери картинку&quot;</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#abc157b050549f9d97f770826112b03ed">showGameOverScreen</a>(<span class="keywordtype">bool</span> isPictureModeGameOver);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">     * @brief Быстрое падение фигуры (дроп)</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">     * @note Фигура падает до самого низа, игрок получает бонусные очки</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a1513f39508e5cfd10107ab9b3801421b">DropFigure</a>();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">     * @brief Проверяет возможность поворота фигуры</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">     * @return true если поворот возможен</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGameController.html#a605417a851c9a9e41d2cec30c7f67df1">CanRotate</a>();</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">     * @brief Показывает текущий счет и управление</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a49695320fc3f2f249eca7eba9622c58f">showScore</a>();</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">     * @brief Преобразует ввод пользователя</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">     * @param c Введенный символ</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">     * @return Преобразованный символ (для совместимости)</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">     * @deprecated Может быть удален в будущих версиях</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classGameController.html#a6757a5c4d7e9d53fbdb759b5fdc0b3cb">  174</a></span>    <span class="keywordtype">char</span> <a class="code hl_function" href="classGameController.html#a6757a5c4d7e9d53fbdb759b5fdc0b3cb">mapInput</a>(<span class="keywordtype">char</span> c);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">     * @brief Возвращает в главное меню</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">     * @note Сбрасывает состояние игры и показывает меню</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameController.html#a3d60ce7e1d5b7b2eaffdbc8be2ad848b">returnToMenu</a>();</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>};</div>
+</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aConsoleView_8h_html"><div class="ttname"><a href="ConsoleView_8h.html">ConsoleView.h</a></div><div class="ttdoc">Заголовочный файл, содержащий объявление класса ConsoleView.</div></div>
+<div class="ttc" id="aField_8h_html"><div class="ttname"><a href="Field_8h.html">Field.h</a></div><div class="ttdoc">Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField.</div></div>
+<div class="ttc" id="aFigure_8h_html"><div class="ttname"><a href="Figure_8h.html">Figure.h</a></div><div class="ttdoc">Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса</div></div>
+<div class="ttc" id="aScore_8h_html"><div class="ttname"><a href="Score_8h.html">Score.h</a></div><div class="ttdoc">Заголовочный файл, содержащий объявление класса GameScore для управления системой рекордов</div></div>
+<div class="ttc" id="aSettings_8h_html"><div class="ttname"><a href="Settings_8h.html">Settings.h</a></div><div class="ttdoc">Заголовочный файл, содержащий объявление класса Settings для управления настройками игры</div></div>
+<div class="ttc" id="aTerminalInput_8h_html"><div class="ttname"><a href="TerminalInput_8h.html">TerminalInput.h</a></div><div class="ttdoc">Заголовочный файл, содержащий объявление класса TerminalInput для обработки неблокирующего ввода</div></div>
+<div class="ttc" id="aclassConsoleView_html"><div class="ttname"><a href="classConsoleView.html">ConsoleView</a></div><div class="ttdoc">Класс для отображения игрового поля и фигур в консоли</div><div class="ttdef"><b>Definition</b> <a href="ConsoleView_8h_source.html#l00020">ConsoleView.h:20</a></div></div>
+<div class="ttc" id="aclassField_html"><div class="ttname"><a href="classField.html">Field</a></div><div class="ttdoc">Базовый класс игрового поля</div><div class="ttdef"><b>Definition</b> <a href="Field_8h_source.html#l00016">Field.h:16</a></div></div>
+<div class="ttc" id="aclassFigure_html"><div class="ttname"><a href="classFigure.html">Figure</a></div><div class="ttdoc">Базовый класс фигуры Тетриса</div><div class="ttdef"><b>Definition</b> <a href="Figure_8h_source.html#l00018">Figure.h:18</a></div></div>
+<div class="ttc" id="aclassGameController_html"><div class="ttname"><a href="classGameController.html">GameController</a></div><div class="ttdoc">Главный контроллер игры Тетрис</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00020">GameController.h:20</a></div></div>
+<div class="ttc" id="aclassGameController_html_a0081a4a38200db049ddc5070d7b9361e"><div class="ttname"><a href="classGameController.html#a0081a4a38200db049ddc5070d7b9361e">GameController::NewPosition</a></div><div class="ttdeci">void NewPosition()</div><div class="ttdoc">Обновляет позицию фигуры</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00607">GameController.cpp:607</a></div></div>
+<div class="ttc" id="aclassGameController_html_a045d1310846491092456a0c0e45eaf44"><div class="ttname"><a href="classGameController.html#a045d1310846491092456a0c0e45eaf44">GameController::ShowCurrentSettings</a></div><div class="ttdeci">void ShowCurrentSettings()</div><div class="ttdoc">Показывает текущие настройки</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00444">GameController.cpp:444</a></div></div>
+<div class="ttc" id="aclassGameController_html_a1513f39508e5cfd10107ab9b3801421b"><div class="ttname"><a href="classGameController.html#a1513f39508e5cfd10107ab9b3801421b">GameController::DropFigure</a></div><div class="ttdeci">void DropFigure()</div><div class="ttdoc">Быстрое падение фигуры (дроп)</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00144">GameController.cpp:144</a></div></div>
+<div class="ttc" id="aclassGameController_html_a2358ef96d1ca0badc839732e2367e843"><div class="ttname"><a href="classGameController.html#a2358ef96d1ca0badc839732e2367e843">GameController::settings</a></div><div class="ttdeci">Settings * settings</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00029">GameController.h:29</a></div></div>
+<div class="ttc" id="aclassGameController_html_a2b1dc39e0c055524afdb64afcfd89b38"><div class="ttname"><a href="classGameController.html#a2b1dc39e0c055524afdb64afcfd89b38">GameController::linesClearedTotal</a></div><div class="ttdeci">int linesClearedTotal</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00033">GameController.h:33</a></div></div>
+<div class="ttc" id="aclassGameController_html_a2c8af2c923eb234444841c1266366014"><div class="ttname"><a href="classGameController.html#a2c8af2c923eb234444841c1266366014">GameController::view</a></div><div class="ttdeci">ConsoleView view</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00026">GameController.h:26</a></div></div>
+<div class="ttc" id="aclassGameController_html_a2d3545025d1c2aab0fbf768a07c4823a"><div class="ttname"><a href="classGameController.html#a2d3545025d1c2aab0fbf768a07c4823a">GameController::ShowMainSettingsMenu</a></div><div class="ttdeci">void ShowMainSettingsMenu()</div><div class="ttdoc">Показывает главное меню настроек</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00466">GameController.cpp:466</a></div></div>
+<div class="ttc" id="aclassGameController_html_a306328f8286194fe3c7c6d0993c3558d"><div class="ttname"><a href="classGameController.html#a306328f8286194fe3c7c6d0993c3558d">GameController::TerminalControl</a></div><div class="ttdeci">void TerminalControl()</div><div class="ttdoc">Управление через терминал</div></div>
+<div class="ttc" id="aclassGameController_html_a3c473ffc2992538f6119c716f43fcfbc"><div class="ttname"><a href="classGameController.html#a3c473ffc2992538f6119c716f43fcfbc">GameController::field</a></div><div class="ttdeci">Field * field</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00022">GameController.h:22</a></div></div>
+<div class="ttc" id="aclassGameController_html_a3d60ce7e1d5b7b2eaffdbc8be2ad848b"><div class="ttname"><a href="classGameController.html#a3d60ce7e1d5b7b2eaffdbc8be2ad848b">GameController::returnToMenu</a></div><div class="ttdeci">void returnToMenu()</div><div class="ttdoc">Возвращает в главное меню</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00083">GameController.cpp:83</a></div></div>
+<div class="ttc" id="aclassGameController_html_a3de97a3a1c5658f4afe644146fbe08f0"><div class="ttname"><a href="classGameController.html#a3de97a3a1c5658f4afe644146fbe08f0">GameController::gameRunning</a></div><div class="ttdeci">bool gameRunning</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00030">GameController.h:30</a></div></div>
+<div class="ttc" id="aclassGameController_html_a42482738a3e08b6dbbb4ae38ea04165e"><div class="ttname"><a href="classGameController.html#a42482738a3e08b6dbbb4ae38ea04165e">GameController::isPictureMode</a></div><div class="ttdeci">bool isPictureMode</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00036">GameController.h:36</a></div></div>
+<div class="ttc" id="aclassGameController_html_a43f195570869ee0b21aff0aab6614afb"><div class="ttname"><a href="classGameController.html#a43f195570869ee0b21aff0aab6614afb">GameController::score</a></div><div class="ttdeci">int score</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00032">GameController.h:32</a></div></div>
+<div class="ttc" id="aclassGameController_html_a49695320fc3f2f249eca7eba9622c58f"><div class="ttname"><a href="classGameController.html#a49695320fc3f2f249eca7eba9622c58f">GameController::showScore</a></div><div class="ttdeci">void showScore()</div><div class="ttdoc">Показывает текущий счет и управление</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00795">GameController.cpp:795</a></div></div>
+<div class="ttc" id="aclassGameController_html_a5765a2a2eb11b4eabe34827716138889"><div class="ttname"><a href="classGameController.html#a5765a2a2eb11b4eabe34827716138889">GameController::GameMenu</a></div><div class="ttdeci">bool GameMenu()</div><div class="ttdoc">Показывает главное меню игры</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00843">GameController.cpp:843</a></div></div>
+<div class="ttc" id="aclassGameController_html_a5d6169c7a3aae6db94690e2f27d780a2"><div class="ttname"><a href="classGameController.html#a5d6169c7a3aae6db94690e2f27d780a2">GameController::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Главный игровой цикл</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00995">GameController.cpp:995</a></div></div>
+<div class="ttc" id="aclassGameController_html_a605417a851c9a9e41d2cec30c7f67df1"><div class="ttname"><a href="classGameController.html#a605417a851c9a9e41d2cec30c7f67df1">GameController::CanRotate</a></div><div class="ttdeci">bool CanRotate()</div><div class="ttdoc">Проверяет возможность поворота фигуры</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00527">GameController.cpp:527</a></div></div>
+<div class="ttc" id="aclassGameController_html_a6757a5c4d7e9d53fbdb759b5fdc0b3cb"><div class="ttname"><a href="classGameController.html#a6757a5c4d7e9d53fbdb759b5fdc0b3cb">GameController::mapInput</a></div><div class="ttdeci">char mapInput(char c)</div><div class="ttdoc">Преобразует ввод пользователя</div></div>
+<div class="ttc" id="aclassGameController_html_a6f0e4edd98f9606b9bdabb9c2c960a20"><div class="ttname"><a href="classGameController.html#a6f0e4edd98f9606b9bdabb9c2c960a20">GameController::CanMove</a></div><div class="ttdeci">bool CanMove(int dx, int dy)</div><div class="ttdoc">Проверяет возможность перемещения фигуры</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00582">GameController.cpp:582</a></div></div>
+<div class="ttc" id="aclassGameController_html_a75c794cbeafef5d215b0206067f90910"><div class="ttname"><a href="classGameController.html#a75c794cbeafef5d215b0206067f90910">GameController::GetPlayerName</a></div><div class="ttdeci">void GetPlayerName()</div><div class="ttdoc">Запрашивает имя игрока</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00047">GameController.cpp:47</a></div></div>
+<div class="ttc" id="aclassGameController_html_a7d72ff3f639acb68578e20fee3649b42"><div class="ttname"><a href="classGameController.html#a7d72ff3f639acb68578e20fee3649b42">GameController::GameController</a></div><div class="ttdeci">GameController()</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00019">GameController.cpp:19</a></div></div>
+<div class="ttc" id="aclassGameController_html_a82e67acb264d6d2eaac507691353e0bb"><div class="ttname"><a href="classGameController.html#a82e67acb264d6d2eaac507691353e0bb">GameController::addPoints</a></div><div class="ttdeci">void addPoints(int points)</div><div class="ttdoc">Добавляет очки к счету</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00753">GameController.cpp:753</a></div></div>
+<div class="ttc" id="aclassGameController_html_a8460578509b52b9874181557a2fc3ccb"><div class="ttname"><a href="classGameController.html#a8460578509b52b9874181557a2fc3ccb">GameController::playerName</a></div><div class="ttdeci">std::string playerName</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00034">GameController.h:34</a></div></div>
+<div class="ttc" id="aclassGameController_html_a8e6c1bee843be3d89c62c0a599ad88ae"><div class="ttname"><a href="classGameController.html#a8e6c1bee843be3d89c62c0a599ad88ae">GameController::prevFigureY</a></div><div class="ttdeci">int prevFigureY</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00024">GameController.h:24</a></div></div>
+<div class="ttc" id="aclassGameController_html_a92da1c7efcde56f4f480daf56e58130d"><div class="ttname"><a href="classGameController.html#a92da1c7efcde56f4f480daf56e58130d">GameController::ShowPauseMenu</a></div><div class="ttdeci">void ShowPauseMenu()</div><div class="ttdoc">Показывает меню паузы</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00276">GameController.cpp:276</a></div></div>
+<div class="ttc" id="aclassGameController_html_a9b9ad15325857f69b505ca09c80214f8"><div class="ttname"><a href="classGameController.html#a9b9ad15325857f69b505ca09c80214f8">GameController::figure</a></div><div class="ttdeci">Figure figure</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00025">GameController.h:25</a></div></div>
+<div class="ttc" id="aclassGameController_html_aa8287bc4f90c8b309b50ab8792360cf5"><div class="ttname"><a href="classGameController.html#aa8287bc4f90c8b309b50ab8792360cf5">GameController::AutoMoveDown</a></div><div class="ttdeci">void AutoMoveDown()</div><div class="ttdoc">Автоматическое перемещение фигуры вниз</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00141">GameController.cpp:141</a></div></div>
+<div class="ttc" id="aclassGameController_html_aa854d7ec7f5c9289c8fd6523c4a667d0"><div class="ttname"><a href="classGameController.html#aa854d7ec7f5c9289c8fd6523c4a667d0">GameController::updateLevel</a></div><div class="ttdeci">void updateLevel()</div><div class="ttdoc">Обновляет уровень игры</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00757">GameController.cpp:757</a></div></div>
+<div class="ttc" id="aclassGameController_html_aab436961a422d078975bc7a49bdfcab7"><div class="ttname"><a href="classGameController.html#aab436961a422d078975bc7a49bdfcab7">GameController::~GameController</a></div><div class="ttdeci">~GameController()</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00134">GameController.cpp:134</a></div></div>
+<div class="ttc" id="aclassGameController_html_ab36f58eaa759d8d5316338fff37e5315"><div class="ttname"><a href="classGameController.html#ab36f58eaa759d8d5316338fff37e5315">GameController::showLevelInfo</a></div><div class="ttdeci">void showLevelInfo()</div><div class="ttdoc">Показывает информацию о текущем уровне</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00773">GameController.cpp:773</a></div></div>
+<div class="ttc" id="aclassGameController_html_ab8ee39ffb1c4b876bcf294cc16d038a9"><div class="ttname"><a href="classGameController.html#ab8ee39ffb1c4b876bcf294cc16d038a9">GameController::UpdateField</a></div><div class="ttdeci">void UpdateField()</div><div class="ttdoc">Обновляет отображение поля</div></div>
+<div class="ttc" id="aclassGameController_html_abc157b050549f9d97f770826112b03ed"><div class="ttname"><a href="classGameController.html#abc157b050549f9d97f770826112b03ed">GameController::showGameOverScreen</a></div><div class="ttdeci">void showGameOverScreen(bool isPictureModeGameOver)</div><div class="ttdoc">Показывает экран завершения игры</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00689">GameController.cpp:689</a></div></div>
+<div class="ttc" id="aclassGameController_html_ac47dc72ba9df36e1a8783a968ce86d4b"><div class="ttname"><a href="classGameController.html#ac47dc72ba9df36e1a8783a968ce86d4b">GameController::ShowSettingsMenu</a></div><div class="ttdeci">void ShowSettingsMenu(bool fromPause=false)</div><div class="ttdoc">Показывает меню настроек</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00291">GameController.cpp:291</a></div></div>
+<div class="ttc" id="aclassGameController_html_ac89216fc34f2af467b140673e6a405f6"><div class="ttname"><a href="classGameController.html#ac89216fc34f2af467b140673e6a405f6">GameController::input</a></div><div class="ttdeci">TerminalInput input</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00027">GameController.h:27</a></div></div>
+<div class="ttc" id="aclassGameController_html_ace67cc9fe75cd3b5a453458efd859733"><div class="ttname"><a href="classGameController.html#ace67cc9fe75cd3b5a453458efd859733">GameController::ShowControlSettings</a></div><div class="ttdeci">void ShowControlSettings()</div><div class="ttdoc">Показывает настройки управления</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00348">GameController.cpp:348</a></div></div>
+<div class="ttc" id="aclassGameController_html_ad4ff8b1f45511484389b2329c21bb290"><div class="ttname"><a href="classGameController.html#ad4ff8b1f45511484389b2329c21bb290">GameController::count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00031">GameController.h:31</a></div></div>
+<div class="ttc" id="aclassGameController_html_ad59e54f370a2a2dbab324d8460399956"><div class="ttname"><a href="classGameController.html#ad59e54f370a2a2dbab324d8460399956">GameController::nameEntered</a></div><div class="ttdeci">bool nameEntered</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00037">GameController.h:37</a></div></div>
+<div class="ttc" id="aclassGameController_html_ad69bcb1c61f89ee0c0d7adda745a8b75"><div class="ttname"><a href="classGameController.html#ad69bcb1c61f89ee0c0d7adda745a8b75">GameController::gamePaused</a></div><div class="ttdeci">bool gamePaused</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00035">GameController.h:35</a></div></div>
+<div class="ttc" id="aclassGameController_html_ae82dc7cdb0ea68504a8379894d50cda7"><div class="ttname"><a href="classGameController.html#ae82dc7cdb0ea68504a8379894d50cda7">GameController::Input</a></div><div class="ttdeci">void Input()</div><div class="ttdoc">Обрабатывает пользовательский ввод</div><div class="ttdef"><b>Definition</b> <a href="GameController_8cpp_source.html#l00176">GameController.cpp:176</a></div></div>
+<div class="ttc" id="aclassGameController_html_af4eea7bd9750959482bc1cc23497d627"><div class="ttname"><a href="classGameController.html#af4eea7bd9750959482bc1cc23497d627">GameController::scoreSystem</a></div><div class="ttdeci">GameScore scoreSystem</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00028">GameController.h:28</a></div></div>
+<div class="ttc" id="aclassGameController_html_afc2546a13afe29480e8abec84103269f"><div class="ttname"><a href="classGameController.html#afc2546a13afe29480e8abec84103269f">GameController::prevFigureX</a></div><div class="ttdeci">int prevFigureX</div><div class="ttdef"><b>Definition</b> <a href="GameController_8h_source.html#l00023">GameController.h:23</a></div></div>
+<div class="ttc" id="aclassGameScore_html"><div class="ttname"><a href="classGameScore.html">GameScore</a></div><div class="ttdoc">Класс для управления рекордами игры</div><div class="ttdef"><b>Definition</b> <a href="Score_8h_source.html#l00031">Score.h:31</a></div></div>
+<div class="ttc" id="aclassSettings_html"><div class="ttname"><a href="classSettings.html">Settings</a></div><div class="ttdoc">Класс для управления настройками игры</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00019">Settings.h:19</a></div></div>
+<div class="ttc" id="aclassTerminalInput_html"><div class="ttname"><a href="classTerminalInput.html">TerminalInput</a></div><div class="ttdoc">Класс для обработки ввода с терминала в неблокирующем режиме</div><div class="ttdef"><b>Definition</b> <a href="TerminalInput_8h_source.html#l00016">TerminalInput.h:16</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

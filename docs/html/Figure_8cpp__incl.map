@@ -1,0 +1,13 @@
+<map id="src/Figure.cpp" name="src/Figure.cpp">
+<area shape="rect" id="Node000001" title="Реализация фигур Тетриса" alt="" coords="127,5,239,31"/>
+<area shape="rect" id="Node000002" href="$Figure_8h.html" title="Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса" alt="" coords="42,79,117,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,33,109,73,106,68,165,28"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="141,79,226,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="186,31,186,65,181,65,181,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="250,79,330,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="202,28,263,69,260,73,199,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,68,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="75,106,53,142,48,139,70,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="93,152,151,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="89,103,110,139,106,142,84,106"/>
+</map>

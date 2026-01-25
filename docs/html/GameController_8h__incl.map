@@ -1,0 +1,45 @@
+<map id="include/GameController.h" name="include/GameController.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл, содержащий объявление класса GameController &#45; главного контроллера игры Тетрис" alt="" coords="330,5,517,31"/>
+<area shape="rect" id="Node000002" href="$Field_8h.html" title="Заголовочный файл, содержащий объявление базового класса Field и производного класса BucketField." alt="" coords="24,225,89,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="330,31,209,50,158,64,124,81,98,110,80,145,69,181,62,212,57,211,63,180,75,143,94,107,120,77,156,59,208,44,329,25"/>
+<area shape="rect" id="Node000003" href="$Figure_8h.html" title="Заголовочный файл, содержащий объявление иерархии классов фигур Тетриса" alt="" coords="170,299,245,324"/>
+<area shape="poly" id="edge15_Node000001_Node000003" title=" " alt="" coords="417,32,226,289,222,286,413,29"/>
+<area shape="rect" id="Node000006" href="$ConsoleView_8h.html" title="Заголовочный файл, содержащий объявление класса ConsoleView." alt="" coords="134,79,251,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="387,33,244,77,242,72,385,28"/>
+<area shape="rect" id="Node000009" href="$TerminalInput_8h.html" title="Заголовочный файл, содержащий объявление класса TerminalInput для обработки неблокирующего ввода" alt="" coords="411,79,534,104"/>
+<area shape="poly" id="edge16_Node000001_Node000009" title=" " alt="" coords="434,29,459,66,455,69,429,33"/>
+<area shape="rect" id="Node000011" href="$Score_8h.html" title="Заголовочный файл, содержащий объявление класса GameScore для управления системой рекордов" alt="" coords="371,299,441,324"/>
+<area shape="poly" id="edge18_Node000001_Node000011" title=" " alt="" coords="477,28,516,46,534,60,548,77,551,91,549,104,544,143,530,179,508,212,482,244,433,292,429,288,478,240,504,209,525,176,538,141,543,104,546,91,544,80,530,64,513,51,475,33"/>
+<area shape="rect" id="Node000014" href="$Settings_8h.html" title="Заголовочный файл, содержащий объявление класса Settings для управления настройками игры" alt="" coords="541,299,628,324"/>
+<area shape="poly" id="edge23_Node000001_Node000014" title=" " alt="" coords="490,28,532,46,552,60,568,77,583,102,593,130,601,188,599,243,593,286,588,285,594,242,596,188,588,131,578,105,564,80,548,64,530,51,488,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="82,248,171,290,169,295,80,253"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="149,372,212,397"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="65,250,87,283,116,322,157,361,153,365,112,326,82,286,61,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="205,325,192,360,187,358,200,323"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="269,372,327,397"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="224,322,274,361,271,365,220,326"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="180,106,127,154,75,216,71,213,123,150,176,102"/>
+<area shape="poly" id="edge13_Node000006_Node000004" title=" " alt="" coords="163,107,125,124,83,150,43,184,27,204,14,226,8,249,12,271,24,291,42,309,89,341,138,365,135,370,86,346,38,314,20,294,7,273,3,249,9,224,22,201,39,180,80,146,123,119,161,102"/>
+<area shape="poly" id="edge14_Node000006_Node000005" title=" " alt="" coords="213,102,239,123,262,151,284,206,296,263,301,317,302,358,296,358,296,317,291,264,279,207,257,153,235,126,210,106"/>
+<area shape="rect" id="Node000007" href="$PictureField_8h.html" title="Заголовочный файл, содержащий объявление класса PictureField для режима &quot;Собери картинку&quot;." alt="" coords="137,152,248,177"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="195,104,195,138,190,138,190,104"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="172,180,92,221,90,217,170,175"/>
+<area shape="poly" id="edge11_Node000007_Node000004" title=" " alt="" coords="201,177,211,211,213,231,208,252,197,268,183,277,171,285,160,300,158,311,161,323,172,359,167,360,155,325,153,311,156,298,167,281,181,272,193,264,204,250,207,231,206,212,196,178"/>
+<area shape="poly" id="edge12_Node000007_Node000005" title=" " alt="" coords="202,176,230,224,291,358,286,360,225,227,198,179"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="114,225,194,251"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="189,179,169,215,164,212,184,176"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="431,152,515,177"/>
+<area shape="poly" id="edge17_Node000009_Node000010" title=" " alt="" coords="475,104,475,138,470,138,470,104"/>
+<area shape="poly" id="edge20_Node000011_Node000004" title=" " alt="" coords="371,326,226,372,224,367,369,321"/>
+<area shape="poly" id="edge19_Node000011_Node000005" title=" " alt="" coords="390,326,328,367,326,362,387,322"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="352,372,425,397"/>
+<area shape="poly" id="edge21_Node000011_Node000012" title=" " alt="" coords="406,325,397,360,392,358,401,324"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="450,372,535,397"/>
+<area shape="poly" id="edge22_Node000011_Node000013" title=" " alt="" coords="422,322,470,361,466,365,418,326"/>
+<area shape="poly" id="edge26_Node000014_Node000004" title=" " alt="" coords="541,323,226,378,225,373,541,318"/>
+<area shape="poly" id="edge24_Node000014_Node000005" title=" " alt="" coords="542,325,341,374,340,369,540,320"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="559,372,610,397"/>
+<area shape="poly" id="edge25_Node000014_Node000015" title=" " alt="" coords="587,324,587,358,582,358,582,324"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="634,372,677,397"/>
+<area shape="poly" id="edge27_Node000014_Node000016" title=" " alt="" coords="598,322,636,360,632,364,594,326"/>
+</map>
